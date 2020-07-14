@@ -31,7 +31,7 @@ public class Players {
     private String p_gender;
 
     @NotNull
-    private String p_dob;
+    private Date p_dob;
 
     @NotNull
     private String player_role;
@@ -45,7 +45,7 @@ public class Players {
     @NotNull
     private String retired_or_playing;
 
-    public Players(Integer player_id, @NotNull @Size(min = 3, message = "First Name must have atleast 3 characters") String p_firstname, @NotNull @Size(min = 3, message = "Last Name must have atleast 3 characters") String p_lastname, @NotNull String p_category, @NotNull String p_nationality, @NotNull String p_gender, @NotNull String p_dob, @NotNull String player_role, @NotNull String p_bowling_style, @NotNull String p_batting_style, @NotNull String retired_or_playing) {
+    public Players(Integer player_id, @NotNull @Size(min = 3, message = "First Name must have atleast 3 characters") String p_firstname, @NotNull @Size(min = 3, message = "Last Name must have atleast 3 characters") String p_lastname, @NotNull String p_category, @NotNull String p_nationality, @NotNull String p_gender, @NotNull Date p_dob, @NotNull String player_role, @NotNull String p_bowling_style, @NotNull String p_batting_style, @NotNull String retired_or_playing) {
         this.player_id = player_id;
         this.p_firstname = p_firstname;
         this.p_lastname = p_lastname;
@@ -124,11 +124,11 @@ public class Players {
         this.p_gender = p_gender;
     }
 
-    public String getP_dob() {
+    public Date getP_dob() {
         return p_dob;
     }
 
-    public void setP_dob(String p_dob) {
+    public void setP_dob(Date p_dob) {
         this.p_dob = p_dob;
     }
 
