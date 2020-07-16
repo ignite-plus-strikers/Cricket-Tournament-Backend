@@ -1,10 +1,10 @@
-package com.example.cricketapi;
+package com.tgt.strikers;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CricketapiApplicationTests {
+class DemoApplicationTests {
 
 	@Test
 	void contextLoads() {

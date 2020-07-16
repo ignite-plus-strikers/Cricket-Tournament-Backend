@@ -1,9 +1,9 @@
-package com.example.cricketapi.service;
+package com.tgt.strikers.Service;
 
 
-import com.example.cricketapi.dao.PlayerDAO;
-import com.example.cricketapi.exceptions.PlayerNotFoundException;
-import com.example.cricketapi.model.Players;
+import com.tgt.strikers.Exception.PlayerNotFoundException;
+import com.tgt.strikers.Repository.PlayerRepository;
+import com.tgt.strikers.model.players;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,43 +14,42 @@ import java.util.Optional;
 public class PlayerService {
 
     @Autowired
-    private PlayerDAO playerDAO;
+    private PlayerRepository playerRepo;
 
     //-------------------------------------------------Create New Player-------------------------------------------------
-    public Players createPlayer(Players players) {
+    public players createPlayer(players players) {
 
-        return playerDAO.save(players);
+        return playerRepo.save(players);
     }
 
-    //-------------------------------------------------Get All Playerss---------------------------------------------------
-    public List<Players> getAllPlayers() {
+    //-------------------------------------------------Get All Players---------------------------------------------------
+    public List<players> getAllPlayer() {
 
-        return playerDAO.findAll();
+        return playerRepo.findAll();
     }
 
     //-----------------------------------------------Get Player By ID ---------------------------------------------------
-    public Players getPlayerById(int id) {
-        Optional<Players> optionalPlayer = playerDAO.findById(id);
+    public players getPlayerById(int id) {
+        Optional<players> optionalPlayer = playerRepo.findById(id);
         if (!optionalPlayer.isPresent())
             throw new PlayerNotFoundException("Player Record with id " + id + " is not available");
-        return playerDAO.findById(id).get();
+        return playerRepo.findById(id).get();
     }
 
     //-----------------------------------------------Update Player By ID ------------------------------------------------
-    public Players updatePlayerById(int id, Players players) {
-        Optional<Players> optionalPlayer = playerDAO.findById(id);
+    public players updatePlayerById(int id, players players) {
+        Optional<players> optionalPlayer = playerRepo.findById(id);
         if (!optionalPlayer.isPresent())
             throw new PlayerNotFoundException("Player Record with id " + id + " is not available");
         players.setPlayer_id(id);
-        return playerDAO.save(players);
+        return playerRepo.save(players);
     }
 
     //-------------------------------------------------Delete Player By ID ----------------------------------------------
     public void deletePlayerById(int id) {
-        Optional<Players> optionalPlayer = playerDAO.findById(id);
+        Optional<players> optionalPlayer = playerRepo.findById(id);
         if (!optionalPlayer.isPresent())
             throw new PlayerNotFoundException("Palyer Record with id " + id + " is not available");
-        playerDAO.deleteById(id);
+        playerRepo.deleteById(id);
     }
 }
-

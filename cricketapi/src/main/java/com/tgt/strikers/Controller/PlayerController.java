@@ -1,7 +1,7 @@
-package com.example.cricketapi.controller;
+package com.tgt.strikers.Controller;
 
-import com.example.cricketapi.model.Players;
-import com.example.cricketapi.service.PlayerService;
+import com.tgt.strikers.model.players;
+import com.tgt.strikers.Service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +11,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 @CrossOrigin("*")
-
 public class PlayerController {
 
     @Autowired
@@ -19,27 +18,27 @@ public class PlayerController {
 
     //-------------------------------------------------Create New Player-------------------------------------------------
     @PostMapping("/player")
-    public Players createPlayer(@Valid @RequestBody Players players) {
+    public players createPlayer(@Valid @RequestBody players players) {
 
         return playerService.createPlayer(players);
     }
 
-    //-------------------------------------------------Get All Players---------------------------------------------------
+    //-------------------------------------------------Get All Player---------------------------------------------------
     @GetMapping("/players")
-    public List<Players> getAllPlayers() {
+    public List<players> getAllPlayer() {
 
-        return playerService.getAllPlayers();
+        return playerService.getAllPlayer();
     }
 
     //-----------------------------------------------Get Player By ID ---------------------------------------------------
     @GetMapping(value = "/player/{id}")
-    public Players getPlayerById(@PathVariable("id") int id) {
+    public players getPlayerById(@PathVariable("id") int id) {
         return playerService.getPlayerById(id);
     }
 
     //-----------------------------------------------Update Player By ID ------------------------------------------------
     @PutMapping(value = "/player/{id}")
-    public Players updatePlayerById(@PathVariable("id") int id, @RequestBody Players players) {
+    public players updatePlayerById(@PathVariable("id") int id, @RequestBody players players) {
         return playerService.updatePlayerById(id, players);
     }
 
@@ -50,4 +49,3 @@ public class PlayerController {
         return "Player with id " + id + " has been deleted!";
     }
 }
-

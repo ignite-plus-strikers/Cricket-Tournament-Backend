@@ -1,4 +1,4 @@
-package com.example.cricketapi.exceptions;
+package com.tgt.strikers.Exception;
 
 import java.util.Date;
 

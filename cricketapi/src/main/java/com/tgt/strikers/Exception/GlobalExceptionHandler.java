@@ -1,4 +1,4 @@
-package com.example.cricketapi.exceptions;
+package com.tgt.strikers.Exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
