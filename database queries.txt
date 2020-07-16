@@ -1,0 +1,35 @@
+CREATE TABLE cricketkey.players (
+    player_id int PRIMARY KEY,
+    national_team_id int,
+    p_category text,
+    p_firstname text,
+    p_gender text,
+    p_lastname text,
+    p_nationality text,
+    player_batting_style text,
+    player_bowling_style text,
+    player_dob date,
+    player_role text,
+    retired_or_playing text,
+    state_team_id int
+);
+INSERT INTO players(player_id,p_firstname,p_lastname,p_category,p_gender,p_nationality,player_dob,player_role,player_batting_style,player_bowling_style,retired_or_playing,state_team_id,national_team_id) VALUES(5,'Sumanth','Gupta','B1','M','India','1976-05-12','Wicket Keeper','Right-handed batsman','Right-handed bowler',102,null);
+SELECT * FROM players;
+SELECT p_firstname,p_lastname,p_nationality FROM players;
+UPDATE player_dob="1975-02-02" WHERE player_id=101; 
+DELETE FROM players WHERE player_id=1;
+
+CREATE TABLE cricketkey.teams (
+    team_id int PRIMARY KEY,
+    t_country text,
+    t_name text,
+    t_player list<int>,
+    t_state text
+);
+INSERT INTO teams(team_id,t_name,t_state,t_country,t_player) VALUES(105,"Team Sri Lanka',null,'Sri Lanka',[35,36,37,38,39,40,41,42,43,44,45];
+SELECT * FROM teams;
+SELECT team_id,t_player,t_name FROM teams;
+UPDATE teams SET t_player=t_player+[34] WHERE team_id=105;
+UPDATE teams SET t_player=t_player-[34] WHERE team_id=105;
+DELETE t_name FROM teams WHERE team_id=102;
+DELETE FROM teams WHERE team_id=102;

@@ -1,8 +1,8 @@
-package com.example.cricketapi.exceptions;
+package com.tgt.strikers.Exception;
 
 public class APIException extends RuntimeException {
 
-    private static final long serialVersionId = 1L;
+    private static final long serialVersionUID= 1L;
     public APIException(String message) {
         super(message);
     }
