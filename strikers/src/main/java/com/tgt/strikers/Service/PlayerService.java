@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class PlayerService {
@@ -29,7 +30,7 @@ public class PlayerService {
     }
 
     //-----------------------------------------------Get Player By ID ---------------------------------------------------
-    public players getPlayerById(int id) {
+    public players getPlayerById(UUID id) {
         Optional<players> optionalPlayer = playerRepo.findById(id);
         if (!optionalPlayer.isPresent())
             throw new PlayerNotFoundException("Player Record with id " + id + " is not available");
@@ -37,7 +38,7 @@ public class PlayerService {
     }
 
     //-----------------------------------------------Update Player By ID ------------------------------------------------
-    public players updatePlayerById(int id, players players) {
+    public players updatePlayerById(UUID id, players players) {
         Optional<players> optionalPlayer = playerRepo.findById(id);
         if (!optionalPlayer.isPresent())
             throw new PlayerNotFoundException("Player Record with id " + id + " is not available");
@@ -46,7 +47,7 @@ public class PlayerService {
     }
 
     //-------------------------------------------------Delete Player By ID ----------------------------------------------
-    public void deletePlayerById(int id) {
+    public void deletePlayerById(UUID id) {
         Optional<players> optionalPlayer = playerRepo.findById(id);
         if (!optionalPlayer.isPresent())
             throw new PlayerNotFoundException("Palyer Record with id " + id + " is not available");
