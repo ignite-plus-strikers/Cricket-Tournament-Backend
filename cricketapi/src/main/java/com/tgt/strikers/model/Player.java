@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Table
-public class players {
+public class Players {
 
     @PrimaryKey
     private Integer player_id;
@@ -49,7 +49,7 @@ public class players {
 
     private Integer national_team_id;
 
-    public players(Integer player_id, @NotNull @Size(min = 3, message = "First Name must have atleast 3 characters") String p_firstname, @NotNull @Size(min = 2, message = "Last Name must have atleast 2 characters") String p_lastname, @NotNull String p_category, @NotNull String p_nationality, @NotNull String p_gender, @NotNull LocalDate player_dob, @NotNull String player_role, @NotNull String player_bowling_style, @NotNull String player_batting_style, @NotNull String retired_or_playing,Integer state_team_id,Integer national_team_id) {
+    public Players(Integer player_id, @NotNull @Size(min = 3, message = "First Name must have atleast 3 characters") String p_firstname, @NotNull @Size(min = 2, message = "Last Name must have atleast 2 characters") String p_lastname, @NotNull String p_category, @NotNull String p_nationality, @NotNull String p_gender, @NotNull LocalDate player_dob, @NotNull String player_role, @NotNull String player_bowling_style, @NotNull String player_batting_style, @NotNull String retired_or_playing, Integer state_team_id, Integer national_team_id) {
         this.player_id = player_id;
         this.p_firstname = p_firstname;
         this.p_lastname = p_lastname;
