@@ -1,12 +1,9 @@
 package com.tgt.strikers.Controller;
 
-import com.datastax.driver.core.utils.UUIDs;
-import com.tgt.strikers.model.Player;
+import com.tgt.strikers.model.Players;
 import com.tgt.strikers.Service.PlayerService;
 import com.tgt.strikers.Repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -24,32 +21,32 @@ public class PlayerController {
 
     //-------------------------------------------------Create New Player-------------------------------------------------
     @PostMapping("/player")
-    public Player createPlayer(@Valid @RequestBody Player player) {
-        player.setPlayerId(UUID.randomUUID());
+    public Players createPlayer(@Valid @RequestBody Players players) {
+        players.setPlayerId(UUID.randomUUID());
 
-        return playerService.createPlayer(player);
+        return playerService.createPlayer(players);
     }
 
 
     //-------------------------------------------------Get All Player---------------------------------------------------
     @GetMapping("/players")
-    public List<Player> getAllPlayer() {
+    public List<Players> getAllPlayer() {
 
         return playerService.getAllPlayer();
     }
 
     //-----------------------------------------------Get Player By ID ---------------------------------------------------
     @GetMapping(value = "/player/{id}")
-    public Player getPlayerById(@PathVariable("id") UUID id) {
+    public Players getPlayerById(@PathVariable("id") UUID id) {
 
         return playerService.getPlayerById(id);
     }
 
     //-----------------------------------------------Update Player By ID ------------------------------------------------
     @PutMapping(value = "/player/{id}")
-    public Player updatePlayerById(@PathVariable("id") UUID id, @RequestBody Player player) {
+    public Players updatePlayerById(@PathVariable("id") UUID id, @RequestBody Players players) {
 
-        return playerService.updatePlayerById(id, player);
+        return playerService.updatePlayerById(id, players);
     }
 
     //-------------------------------------------------Delete Player By ID ----------------------------------------------

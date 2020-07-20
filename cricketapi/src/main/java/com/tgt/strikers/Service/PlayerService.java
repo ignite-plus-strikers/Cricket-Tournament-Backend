@@ -1,15 +1,11 @@
 package com.tgt.strikers.Service;
 
 
-import com.datastax.driver.core.utils.UUIDs;
 import com.tgt.strikers.Exception.PlayerNotFoundException;
 import com.tgt.strikers.Repository.PlayerRepository;
-import com.tgt.strikers.model.Player;
+import com.tgt.strikers.model.Players;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,41 +18,41 @@ public class PlayerService {
     private PlayerRepository playerRepo;
 
     //-------------------------------------------------Create New Player-------------------------------------------------
-    public Player createPlayer(Player player) {
+    public Players createPlayer(Players players) {
 
-        return playerRepo.save(player);
+        return playerRepo.save(players);
     }
 
 
     //-------------------------------------------------Get All Players---------------------------------------------------
-    public List<Player> getAllPlayer() {
+    public List<Players> getAllPlayer() {
 
         return playerRepo.findAll();
     }
 
     //-----------------------------------------------Get Player By ID ---------------------------------------------------
-    public Player getPlayerById(UUID id) {
+    public Players getPlayerById(UUID id) {
 
-        Optional<Player> optionalPlayer = playerRepo.findById(id);
+        Optional<Players> optionalPlayer = playerRepo.findById(id);
         if (!optionalPlayer.isPresent())
             throw new PlayerNotFoundException("Player Record with id " + id + " is not available");
         return playerRepo.findById(id).get();
     }
 
     //-----------------------------------------------Update Player By ID ------------------------------------------------
-    public Player updatePlayerById(UUID id, Player player) {
+    public Players updatePlayerById(UUID id, Players players) {
 
-        Optional<Player> optionalPlayer = playerRepo.findById(id);
+        Optional<Players> optionalPlayer = playerRepo.findById(id);
         if (!optionalPlayer.isPresent())
             throw new PlayerNotFoundException("Player Record with id " + id + " is not available");
-        player.setPlayerId(id);
-        return playerRepo.save(player);
+        players.setPlayerId(id);
+        return playerRepo.save(players);
     }
 
     //-------------------------------------------------Delete Player By ID ----------------------------------------------
     public void deletePlayerById(UUID id) {
 
-        Optional<Player> optionalPlayer = playerRepo.findById(id);
+        Optional<Players> optionalPlayer = playerRepo.findById(id);
         if (!optionalPlayer.isPresent())
             throw new PlayerNotFoundException("Palyer Record with id " + id + " is not available");
         playerRepo.deleteById(id);
