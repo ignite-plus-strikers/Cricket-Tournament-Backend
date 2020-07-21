@@ -1,12 +1,11 @@
-package com.tgt.strikers.Repository;
-
+package com.tgt.strikers.repository;
 
 import java.util.UUID;
 
-import com.tgt.strikers.model.players;
+import com.tgt.strikers.model.Player;
 import org.springframework.data.cassandra.repository.CassandraRepository;
 
-public interface PlayerRepository extends CassandraRepository<players, UUID> {
+public interface PlayerRepository extends CassandraRepository<Player, UUID> {
 
 
 }

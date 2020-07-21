@@ -1,4 +1,4 @@
-package com.tgt.strikers.Exception;
+package com.tgt.strikers.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +16,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(PlayerNotFoundException.class)
     public ResponseEntity<?> handleUserNotFoundException
     (PlayerNotFoundException exception, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(TeamNotFoundException.class)
+    public ResponseEntity<?> handleUserNotFoundException
+            (TeamNotFoundException exception, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
