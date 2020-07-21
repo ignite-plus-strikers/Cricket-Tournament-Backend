@@ -1,35 +1,186 @@
-CREATE TABLE cricketkey.players (
-    player_id int PRIMARY KEY,
-    national_team_id int,
-    p_category text,
-    p_firstname text,
-    p_gender text,
-    p_lastname text,
-    p_nationality text,
-    player_batting_style text,
-    player_bowling_style text,
-    player_dob date,
-    player_role text,
-    retired_or_playing text,
-    state_team_id int
-);
-INSERT INTO players(player_id,p_firstname,p_lastname,p_category,p_gender,p_nationality,player_dob,player_role,player_batting_style,player_bowling_style,retired_or_playing,state_team_id,national_team_id) VALUES(5,'Sumanth','Gupta','B1','M','India','1976-05-12','Wicket Keeper','Right-handed batsman','Right-handed bowler',102,null);
-SELECT * FROM players;
-SELECT p_firstname,p_lastname,p_nationality FROM players;
-UPDATE player_dob="1975-02-02" WHERE player_id=101; 
-DELETE FROM players WHERE player_id=1;
+# Cassandra Commands:
 
-CREATE TABLE cricketkey.teams (
-    team_id int PRIMARY KEY,
-    t_country text,
-    t_name text,
-    t_player list<int>,
-    t_state text
+## Create keyspace:
+
+CREATE KEYSPACE cricketks WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
+
+## Use:
+
+USE test_ks;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Commands for tables:
+
+## Create player table:
+
+CREATE TABLE player (
+playerid uuid, 
+first_name text, 
+last_name text, 
+nick_name text,
+player_dob date, 
+gender text, 
+category text,
+nationality text,
+player_role text,
+player_batting_style text,
+player_bowling_style text,
+player_status text,
+stateteamid uuid,
+nationalteamid uuid,
+PRIMARY KEY(playerid));
+
+
+## Insert into player table:
+
+INSERT INTO player(playerid, first_name, last_name, nick_name, player_dob, gender, category, nationality, player_role, player_batting_style, player_bowling_style, player_status)
+VALUES(uuid(), 'John', 'Smith', 'Jolly-John', '1988-04-24', 'Male', 'B1', 'South Africa', 'All rounder', 'Left-Handed', 'Spin', 'Playing');
+
+INSERT INTO player(playerid, first_name, last_name, nick_name, player_dob, gender, category, nationality, player_role, player_batting_style, player_bowling_style, player_status)
+VALUES(uuid(), 'Virat', 'Kohli', 'Versatile-Virat', '1985-11-15', 'Male', 'B2', 'India', 'Batsman', 'Right-Handed', 'Fast Bowler', 'Playing');
+
+(NOTE: Can update team id's once teams are created)
+
+
+## Example Queries:
+
+SELECT * FROM player;
+
+SELECT first_name, last_name, nationality FROM player;
+
+UPDATE player SET national_team_id=b3404683-b032-4791-beed-f0627128d02b WHERE playerid=8f197e09-0cfb-44ab-8bba-0748707321fb;
+
+UPDATE playerdob="1975-02-02" WHERE playerid=8f197e09-0cfb-44ab-8bba-0748707321fb; 
+
+DELETE FROM players WHERE playerid=8f197e09-0cfb-44ab-8bba-0748707321fb;
+
+(NOTE: Replace "8f197e09-0cfb-44ab-8bba-0748707321fb" with the particular player id)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+## Create team table:
+
+CREATE TABLE teams(
+    teamid uuid ,
+    country text,
+    teamname text,
+    playerid uuid,
+    state text,
+    PRIMARY KEY(teamid, playerid));
 );
-INSERT INTO teams(team_id,t_name,t_state,t_country,t_player) VALUES(105,"Team Sri Lanka',null,'Sri Lanka',[35,36,37,38,39,40,41,42,43,44,45];
-SELECT * FROM teams;
-SELECT team_id,t_player,t_name FROM teams;
-UPDATE teams SET t_player=t_player+[34] WHERE team_id=105;
-UPDATE teams SET t_player=t_player-[34] WHERE team_id=105;
-DELETE t_name FROM teams WHERE team_id=102;
-DELETE FROM teams WHERE team_id=102;
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+## Create series table:
+
+CREATE TABLE series
+(seriesid uuid, 
+series_name text, 
+series_short_name text, 
+series_start_date date,
+series_end_date date,
+tournament text,
+series_type text,
+host_country list<text>,
+points_table_active boolean,
+series_points int,
+PRIMARY KEY(seriesid));
+
+
+## Insert queries:
+
+INSERT INTO series(seriesid, series_name, series_short_name, series_type, series_start_date, series_end_date, tournament, host_country, points_table_active, series_points) 
+VALUES (uuid(), 'West Indies tour of Pakistan T20I series 2018', 'PakvWIT20Is18', 'T20I', '2018-04-01', '2018-04-03', 'A-Twenty20 International', ['PK', 'UNKWN'], false, 0);
+
+
+INSERT INTO series(seriesid, series_name, series_short_name, series_type, series_start_date, series_end_date, tournament, host_country, points_table_active, series_points) 
+VALUES (uuid(), 'Champion County Match 2018', 'CCM 18', 'First Class', '2018-03-27', '2018-03-30','Other First-Class', ['WI', 'UNKWN'], false, 0);
+
+
+## Example QUeries:
+
+### Update host countries:
+
+UPDATE series SET host_country = host_country - ['UNKWN']
+WHERE seriesid = 0f254223-de61-4f7b-b765-fae44141cdb2;
+
+
+### Update series start date:
+
+UPDATE series SET series_start_date = '2018-04-27'
+WHERE seriesid = 0f254223-de61-4f7b-b765-fae44141cdb2;
+
+
+### Delete a series:
+
+DELETE FROM series
+WHERE seriesid = 0f254223-de61-4f7b-b765-fae44141cdb2;
+
+(NOTE: Replace "8f197e09-0cfb-44ab-8bba-0748707321fb" with the particular player id)
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+## Create table:
+
+CREATE TABLE teams_by_series
+(seriesid uuid,
+team_id uuid,
+team_name text,
+PRIMARY KEY (seriesid, team_id));
+
+
+## Insert queries:
+
+INSERT INTO teams_by_series(seriesid, team_id, team_name)
+VALUES (bdeb5bcd-eb00-4bcb-b8ab-35ac49332c63, 07d7eecd-56c0-45c3-903f-f0bfe9bfc64e, 'Team India');
+
+
+INSERT INTO teams_by_series(seriesid, team_id, team_name)
+VALUES (bdeb5bcd-eb00-4bcb-b8ab-35ac49332c63, 3307b103-3c70-410a-ada9-c248dafa8157, 'Team Sri Lanka');
+
+
+## Example queries:
+
+SELECT * FROM teams_by_series;
+
+SELECT * FROM teams_by_series WHERE seriesid = bdeb5bcd-eb00-4bcb-b8ab-35ac49332c63;
+
+
+### Delete entire series:
+
+DELETE FROM teams_by_series 
+WHERE seriesid = bdeb5bcd-eb00-4bcb-b8ab-35ac49332c63;
+
+
+### Delete particular team from series:
+
+DELETE FROM teams_by_series 
+WHERE seriesid = 0f254223-de61-4f7b-b765-fae44141cdb2 AND
+team_id = 3307b103-3c70-410a-ada9-c248dafa8157;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
