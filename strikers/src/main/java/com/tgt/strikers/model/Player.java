@@ -17,7 +17,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Players {
+public class Player {
 
     @PrimaryKey
     private UUID playerId;
@@ -31,6 +31,10 @@ public class Players {
     @Size(min = 2, message = "Last Name must have atleast 2 characters")
     @Column("last_name")
     private String lastName;
+
+    @NotNull
+    @Column("nick_name")
+    private String nickName;
 
     @NotNull
     private String category;
@@ -61,7 +65,7 @@ public class Players {
     @NotNull
     @Column("player_status")
     private String playerStatus;
-    
+
     private UUID stateTeamId;
 
     private UUID nationalTeamId;

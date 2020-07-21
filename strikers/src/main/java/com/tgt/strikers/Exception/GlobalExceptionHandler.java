@@ -14,11 +14,27 @@ public class GlobalExceptionHandler {
 
     //Handle specific exception
     @ExceptionHandler(PlayerNotFoundException.class)
-    public ResponseEntity<?> handleUserNotFoundException
+    public ResponseEntity<?> handlePlayerNotFoundException
     (PlayerNotFoundException exception, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
+
+     @ExceptionHandler(TeamNotFoundException.class)
+    public ResponseEntity<?> handleUserNotFoundException
+            (TeamNotFoundException exception, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
+    
+    @ExceptionHandler(SeriesNotFoundException.class)
+    public ResponseEntity<?> handleSeriesNotFoundException
+            (SeriesNotFoundException exception, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
 
     @ExceptionHandler(APIException.class)
     public ResponseEntity<?> handleAPIException
@@ -35,6 +51,8 @@ public class GlobalExceptionHandler {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+
 
     //Handle custom validation errors
     @ExceptionHandler(MethodArgumentNotValidException.class)

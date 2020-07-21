@@ -1,8 +1,7 @@
 package com.tgt.strikers.Controller;
 
-import com.tgt.strikers.model.Players;
+import com.tgt.strikers.model.Player;
 import com.tgt.strikers.Service.PlayerService;
-import com.tgt.strikers.Repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,36 +16,35 @@ public class PlayerController {
 
     @Autowired
     private PlayerService playerService;
-    private PlayerRepository playerRepository;
 
     //-------------------------------------------------Create New Player-------------------------------------------------
     @PostMapping("/player")
-    public Players createPlayer(@Valid @RequestBody Players players) {
-        players.setPlayerId(UUID.randomUUID());
+    public Player createPlayer(@Valid @RequestBody Player player) {
+        player.setPlayerId(UUID.randomUUID());
 
-        return playerService.createPlayer(players);
+        return playerService.createPlayer(player);
     }
 
 
     //-------------------------------------------------Get All Player---------------------------------------------------
     @GetMapping("/players")
-    public List<Players> getAllPlayer() {
+    public List<Player> getAllPlayer() {
 
         return playerService.getAllPlayer();
     }
 
     //-----------------------------------------------Get Player By ID ---------------------------------------------------
     @GetMapping(value = "/player/{id}")
-    public Players getPlayerById(@PathVariable("id") UUID id) {
+    public Player getPlayerById(@PathVariable("id") UUID id) {
 
         return playerService.getPlayerById(id);
     }
 
     //-----------------------------------------------Update Player By ID ------------------------------------------------
     @PutMapping(value = "/player/{id}")
-    public Players updatePlayerById(@PathVariable("id") UUID id, @RequestBody Players players) {
+    public Player updatePlayerById(@PathVariable("id") UUID id, @RequestBody Player player) {
 
-        return playerService.updatePlayerById(id, players);
+        return playerService.updatePlayerById(id, player);
     }
 
     //-------------------------------------------------Delete Player By ID ----------------------------------------------
