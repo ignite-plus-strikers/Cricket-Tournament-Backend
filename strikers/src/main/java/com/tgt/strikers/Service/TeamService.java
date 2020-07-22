@@ -3,6 +3,7 @@ package com.tgt.strikers.Service;
 import com.tgt.strikers.Exception.TeamNotFoundException;
 import com.tgt.strikers.model.Teams;
 import com.tgt.strikers.Repository.TeamRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.Optional;
 @Service
 public class TeamService {
 
+    @Autowired
     private TeamRepository teamRepo;
     //--------------------------------------------Create new Team-------------------------------------------------------------
 

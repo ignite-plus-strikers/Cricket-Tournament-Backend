@@ -16,10 +16,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Table
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class Series {
 
 

@@ -13,10 +13,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Table
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class Player {
 
     @PrimaryKey

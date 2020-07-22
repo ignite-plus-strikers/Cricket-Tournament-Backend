@@ -65,14 +65,24 @@ DELETE FROM players WHERE playerid=8f197e09-0cfb-44ab-8bba-0748707321fb;
 
 ## Create team table:
 
-CREATE TABLE teams(
-    teamid uuid ,
-    country text,
-    teamname text,
-    playerid uuid,
-    state text,
-    PRIMARY KEY(teamid, playerid));
-);
+CREATE TABLE teams
+(teamid uuid,
+tname text,
+tstate text,
+tcountry text,    
+PRIMARY KEY (teamid));
+
+
+## Insert queries:
+
+INSERT INTO teams(teamid, tname, tcountry)
+VALUES(uuid(), 'Team India', 'India');
+
+INSERT INTO teams(teamid, tname, tcountry)
+VALUES(uuid(), 'Team Sri Lanka', 'Sri Lanka');
+
+
+## Example Queries:
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -134,7 +144,7 @@ WHERE seriesid = 0f254223-de61-4f7b-b765-fae44141cdb2;
 
 ## Create table:
 
-CREATE TABLE teams_by_series
+CREATE TABLE series_teams
 (seriesid uuid,
 team_id uuid,
 team_name text,
@@ -143,30 +153,30 @@ PRIMARY KEY (seriesid, team_id));
 
 ## Insert queries:
 
-INSERT INTO teams_by_series(seriesid, team_id, team_name)
+INSERT INTO series_teams(seriesid, team_id, team_name)
 VALUES (bdeb5bcd-eb00-4bcb-b8ab-35ac49332c63, 07d7eecd-56c0-45c3-903f-f0bfe9bfc64e, 'Team India');
 
 
-INSERT INTO teams_by_series(seriesid, team_id, team_name)
+INSERT INTO series_teams(seriesid, team_id, team_name)
 VALUES (bdeb5bcd-eb00-4bcb-b8ab-35ac49332c63, 3307b103-3c70-410a-ada9-c248dafa8157, 'Team Sri Lanka');
 
 
 ## Example queries:
 
-SELECT * FROM teams_by_series;
+SELECT * FROM series_teams;
 
-SELECT * FROM teams_by_series WHERE seriesid = bdeb5bcd-eb00-4bcb-b8ab-35ac49332c63;
+SELECT * FROM series_teams WHERE seriesid = bdeb5bcd-eb00-4bcb-b8ab-35ac49332c63;
 
 
 ### Delete entire series:
 
-DELETE FROM teams_by_series 
+DELETE FROM series_teams 
 WHERE seriesid = bdeb5bcd-eb00-4bcb-b8ab-35ac49332c63;
 
 
 ### Delete particular team from series:
 
-DELETE FROM teams_by_series 
+DELETE FROM series_teams
 WHERE seriesid = 0f254223-de61-4f7b-b765-fae44141cdb2 AND
 team_id = 3307b103-3c70-410a-ada9-c248dafa8157;
 

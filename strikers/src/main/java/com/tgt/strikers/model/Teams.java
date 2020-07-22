@@ -16,7 +16,6 @@ import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 @NoArgsConstructor
 public class Teams {
 
-    @Id
     @PrimaryKey
     private UUID teamId;
 
