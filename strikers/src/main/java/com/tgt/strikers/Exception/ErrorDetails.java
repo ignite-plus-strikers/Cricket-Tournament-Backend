@@ -1,4 +1,4 @@
-package com.tgt.strikers.exception;
+package com.tgt.strikers.Exception;
 
 import java.util.Date;
 

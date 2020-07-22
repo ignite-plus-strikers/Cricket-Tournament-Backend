@@ -1,13 +1,11 @@
-package com.tgt.strikers.service;
+package com.tgt.strikers.Service;
 
 
-
-import com.tgt.strikers.exception.PlayerNotFoundException;
-import com.tgt.strikers.repository.PlayerRepository;
+import com.tgt.strikers.Exception.PlayerNotFoundException;
+import com.tgt.strikers.Repository.PlayerRepository;
 import com.tgt.strikers.model.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 import java.util.List;
 import java.util.Optional;
@@ -59,4 +57,17 @@ public class PlayerService {
             throw new PlayerNotFoundException("Palyer Record with id " + id + " is not available");
         playerRepo.deleteById(id);
     }
+
+    //-----------------------------------------------Get Player By Category ---------------------------------------------------
+//    public Players getPlayerByCategory(String p_category) {
+//
+//            Players optionalPlayer = playerRepo.findByCategory(p_category);
+//            if (optionalPlayer.getP_category() == null)
+//                throw new PlayerNotFoundException("Player Record with category " + p_category + " is not available");
+//
+//            return playerRepo.findByCategory(p_category);
+//
+//    }
+
+
 }

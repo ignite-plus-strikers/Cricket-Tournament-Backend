@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CricketTournamentManagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CricketTournamentManagementApplication.class, args);
+
+	    SpringApplication.run(CricketTournamentManagementApplication.class, args);
 	}
 
 }

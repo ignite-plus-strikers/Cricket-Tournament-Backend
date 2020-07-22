@@ -1,4 +1,4 @@
-package com.tgt.strikers.exception;
+package com.tgt.strikers.Exception;
 
 public class APIException extends RuntimeException {
 

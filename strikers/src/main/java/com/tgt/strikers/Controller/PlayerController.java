@@ -1,10 +1,9 @@
-package com.tgt.strikers.controller;
+package com.tgt.strikers.Controller;
 
 import com.tgt.strikers.model.Player;
-import com.tgt.strikers.service.PlayerService;
+import com.tgt.strikers.Service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 
 import javax.validation.Valid;
 import java.util.List;
@@ -22,6 +21,7 @@ public class PlayerController {
     @PostMapping("/player")
     public Player createPlayer(@Valid @RequestBody Player player) {
         player.setPlayerId(UUID.randomUUID());
+
         return playerService.createPlayer(player);
     }
 
@@ -54,5 +54,13 @@ public class PlayerController {
         playerService.deletePlayerById(id);
         return "Player with id " + id + " has been deleted!";
     }
+
+
+
+
+//    @GetMapping(value = "/player/category/{p_category}")
+//    public Players getPlayerByCategory(@PathVariable("p_category") String p_category) {
+//        return playerService.getPlayerByCategory(p_category);
+//    }
 
 }

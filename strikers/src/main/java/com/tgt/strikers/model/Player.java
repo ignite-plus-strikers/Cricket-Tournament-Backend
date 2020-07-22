@@ -1,7 +1,7 @@
 package com.tgt.strikers.model;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
+import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
@@ -13,52 +13,61 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Table
-@Data
-@NoArgsConstructor
+@Getter
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class Player {
 
-    @Id
     @PrimaryKey
     private UUID playerId;
 
     @NotNull
     @Size(min = 3, message = "First Name must have atleast 3 characters")
-    private String pFirstName;
+    @Column("first_name")
+    private String firstName;
 
     @NotNull
     @Size(min = 2, message = "Last Name must have atleast 2 characters")
-    private String pLastName;
+    @Column("last_name")
+    private String lastName;
 
     @NotNull
-    private String pNickName;
+    @Column("nick_name")
+    private String nickName;
 
     @NotNull
-    private String pCategory;
+    private String category;
 
     @NotNull
-    private String pNationality;
+    private String nationality;
 
     @NotNull
-    private String pGender;
+    private String gender;
 
     @NotNull
     @Past
-    private LocalDate playerDob;
+    @Column("player_dob")
+    private LocalDate playerDOB;
 
     @NotNull
+    @Column("player_role")
     private String playerRole;
 
     @NotNull
+    @Column("player_bowling_style")
     private String playerBowlingStyle;
 
     @NotNull
+    @Column("player_batting_style")
     private String playerBattingStyle;
 
     @NotNull
+    @Column("player_status")
     private String playerStatus;
 
-    private Integer stateTeamId;
+    private UUID stateTeamId;
 
-    private Integer nationalTeamId;
+    private UUID nationalTeamId;
+
 }
