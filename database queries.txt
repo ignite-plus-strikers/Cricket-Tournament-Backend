@@ -72,6 +72,9 @@ CREATE TABLE teams(
     state text,
     PRIMARY KEY(teamid));
 
+INSERT INTO teams(teamid,teamname,country) VALUES(uuid(),'Team India','India');
+INSERT INTO teams(teamid,teamname,state,country) VALUES(uuid(),'Karnataka Risers','Karnataka','India');
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -167,6 +170,14 @@ WHERE seriesid = bdeb5bcd-eb00-4bcb-b8ab-35ac49332c63;
 DELETE FROM teams_by_series 
 WHERE seriesid = 0f254223-de61-4f7b-b765-fae44141cdb2 AND
 team_id = 3307b103-3c70-410a-ada9-c248dafa8157;
+
+
+CREATE TABLE teamplayer(
+teamid uuid,
+playerid uuid,
+PRIMARY KEY(teamid,playerid));
+
+INSERT INTO teamplayer(teamid,playerid) VALUES(uuid(),uuid());
 
 
 

@@ -23,9 +23,9 @@ public class GlobalExceptionHandler {
      @ExceptionHandler(TeamNotFoundException.class)
     public ResponseEntity<?> handleUserNotFoundException
             (TeamNotFoundException exception, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
-    }
+         ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+     }
 
     
     @ExceptionHandler(SeriesNotFoundException.class)
@@ -34,6 +34,14 @@ public class GlobalExceptionHandler {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(TeamPlayerNotFoundException.class)
+    public ResponseEntity<?> handleUserNotFoundException
+            (TeamPlayerNotFoundException exception, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
 
 
     @ExceptionHandler(APIException.class)
