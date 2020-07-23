@@ -3,7 +3,7 @@ package com.tgt.strikers.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.cassandra.core.mapping.Column;
+import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 
 import javax.validation.constraints.NotNull;
@@ -20,10 +20,10 @@ public class TeamPlayer {
     private UUID teamId;
 
     @NotNull
-    @Column("playerid")
+    @PrimaryKeyColumn(name = "teamid", type = PrimaryKeyType.PARTITIONED)
     private UUID playerId;
 
-    @Column("player_first_name")
+    @PrimaryKeyColumn(name = "playerid",type = PrimaryKeyType.CLUSTERED, ordinal = 1)
     private String playerFirstName;
 
     @Column("player_last_name")
