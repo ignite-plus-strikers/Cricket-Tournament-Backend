@@ -185,10 +185,25 @@ WHERE seriesid = 0f254223-de61-4f7b-b765-fae44141cdb2 AND
 team_id = 3307b103-3c70-410a-ada9-c248dafa8157;
 
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+## Create TeamPlayer table:
+
+CREATE TABLE teamplayer
+(teamid uuid,
+playerid uuid,
+PRIMARY KEY(teamid));
 
 
+## Insert queries:
+
+INSERT INTO teamplayer(teamid, playerid)
+VALUES(07d7eecd-56c0-45c3-903f-f0bfe9bfc64e, 8f197e09-0cfb-44ab-8bba-0748707321fb);
+
+INSERT INTO teamplayer(teamid, playerid)
+VALUES(3307b103-3c70-410a-ada9-c248dafa8157, 0f254223-de61-4f7b-b765-fae44141cdb2);
 
 
 
