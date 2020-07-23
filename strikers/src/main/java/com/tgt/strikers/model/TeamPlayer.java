@@ -15,15 +15,14 @@ import java.util.UUID;
 public class TeamPlayer {
 
     @NotNull
-    @PrimaryKey
-    @Column("teamid")
+    @PrimaryKeyColumn(name = "teamid", type = PrimaryKeyType.PARTITIONED)
     private UUID teamId;
 
     @NotNull
-    @PrimaryKeyColumn(name = "teamid", type = PrimaryKeyType.PARTITIONED)
-    private UUID playerId;
-
     @PrimaryKeyColumn(name = "playerid",type = PrimaryKeyType.CLUSTERED, ordinal = 1)
+    private UUID playerId;
+    
+    @Coulmn("pfirstname")
     private String playerFirstName;
 
     @Column("player_last_name")
