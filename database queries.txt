@@ -196,7 +196,7 @@ CREATE TABLE teamplayer
 playerid uuid,
 player_first_name text,
 player_last_name text,
-player_inititals text,
+player_initials text,
 PRIMARY KEY(teamid,playerid));
 
 
