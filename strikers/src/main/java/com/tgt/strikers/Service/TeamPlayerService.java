@@ -60,6 +60,14 @@ public class TeamPlayerService {
             throw new TeamPlayerNotFoundException("Team Player Record with id " + id + " is not available");
         teamplayerRepo.deleteById(id);
     }
-    //--------------------------------------------Delete teamplayer by name---------------------------------------------------------
-
+    //--------------------------------------------Delete player by id---------------------------------------------------------
+    public void deletePlayerById(UUID teamid,UUID playerid){
+        List<TeamPlayer> teamPlayers = teamplayerRepo.findByTeamId(teamid);
+        for(TeamPlayer tempTeamPlayers : teamPlayers) {
+            if(tempTeamPlayers.getPlayerId().equals(playerid))
+            {
+                teamplayerRepo.delete(tempTeamPlayers);
+            }
+        }
+    }
 }
