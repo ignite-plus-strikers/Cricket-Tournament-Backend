@@ -23,13 +23,13 @@ public class TeamPlayer {
     @Column("playerid")
     private UUID playerId;
 
-    @Column("pfirstname")
+    @Column("player_first_name")
     private String playerFirstName;
 
-    @Column("plastname")
+    @Column("player_last_name")
     private String playerLastName;
 
-    @Column("pinitials")
+    @Column("player_initials")
     private String playerInitials;
 
 }
