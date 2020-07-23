@@ -73,7 +73,7 @@ tcountry text,
 PRIMARY KEY (teamid));
 
 
-## Insert queries:
+## Insert into team table:
 
 INSERT INTO teams(teamid, tname, tcountry)
 VALUES(uuid(), 'Team India', 'India');
@@ -194,18 +194,10 @@ team_id = 3307b103-3c70-410a-ada9-c248dafa8157;
 CREATE TABLE teamplayer
 (teamid uuid,
 playerid uuid,
-PRIMARY KEY(teamid));
-
-
-## Insert queries:
-
-INSERT INTO teamplayer(teamid, playerid)
-VALUES(07d7eecd-56c0-45c3-903f-f0bfe9bfc64e, 8f197e09-0cfb-44ab-8bba-0748707321fb);
-
-INSERT INTO teamplayer(teamid, playerid)
-VALUES(3307b103-3c70-410a-ada9-c248dafa8157, 0f254223-de61-4f7b-b765-fae44141cdb2);
-
-
+player_first_name text,
+player_last_name text,
+player_inititals text,
+PRIMARY KEY(teamid,playerid));
 
 
 
