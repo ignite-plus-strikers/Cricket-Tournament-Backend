@@ -6,4 +6,5 @@ import org.springframework.data.cassandra.repository.CassandraRepository;
 import java.util.UUID;
 
 public interface TeamPlayerRepository extends CassandraRepository<TeamPlayer, UUID> {
+  List<TeamPlayer> findByTeamId(UUID teamid);
 }
