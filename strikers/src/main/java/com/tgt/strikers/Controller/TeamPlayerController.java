@@ -55,5 +55,13 @@ public class TeamPlayerController {
         teamplayerService.deleteTeamPlayerById(id);
         return "Team Player with id " + id + " has been deleted!";
     }
+    
+     //-------------------------------------------------Delete Player By ID---------------------------------------------
+    @DeleteMapping(value = "/teamplayer/{teamid}/{playerid}")
+    public String deletePlayerById(@PathVariable("teamid") UUID teamid, @PathVariable("playerid") UUID playerid)
+    {
+        teamplayerService.deletePlayerById(teamid,playerid);
+        return "Player record with id "+ playerid + "has been deleted";
+    }
 
 }
