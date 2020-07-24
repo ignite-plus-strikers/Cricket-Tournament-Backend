@@ -1,8 +1,8 @@
-package com.tgt.strikers.Service;
+package com.tgt.strikers.service;
 
-import com.tgt.strikers.Exception.TeamNotFoundException;
+import com.tgt.strikers.exception.TeamNotFoundException;
 import com.tgt.strikers.model.Teams;
-import com.tgt.strikers.Repository.TeamRepository;
+import com.tgt.strikers.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

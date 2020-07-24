@@ -1,6 +1,6 @@
-package com.tgt.strikers.Controller;
+package com.tgt.strikers.controller;
 
-import com.tgt.strikers.Service.TeamPlayerService;
+import com.tgt.strikers.service.TeamPlayerService;
 
 import com.tgt.strikers.model.TeamPlayer;
 

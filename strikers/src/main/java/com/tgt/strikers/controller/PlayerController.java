@@ -1,7 +1,7 @@
-package com.tgt.strikers.Controller;
+package com.tgt.strikers.controller;
 
 import com.tgt.strikers.model.Player;
-import com.tgt.strikers.Service.PlayerService;
+import com.tgt.strikers.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

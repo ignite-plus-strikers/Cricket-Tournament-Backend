@@ -1,8 +1,8 @@
-package com.tgt.strikers.Service;
+package com.tgt.strikers.service;
 
 
-import com.tgt.strikers.Exception.PlayerNotFoundException;
-import com.tgt.strikers.Repository.PlayerRepository;
+import com.tgt.strikers.exception.PlayerNotFoundException;
+import com.tgt.strikers.repository.PlayerRepository;
 import com.tgt.strikers.model.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

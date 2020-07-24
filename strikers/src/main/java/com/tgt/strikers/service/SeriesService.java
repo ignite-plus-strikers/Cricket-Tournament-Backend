@@ -1,7 +1,7 @@
-package com.tgt.strikers.Service;
+package com.tgt.strikers.service;
 
-import com.tgt.strikers.Exception.SeriesNotFoundException;
-import com.tgt.strikers.Repository.SeriesRepository;
+import com.tgt.strikers.exception.SeriesNotFoundException;
+import com.tgt.strikers.repository.SeriesRepository;
 import com.tgt.strikers.model.Series;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

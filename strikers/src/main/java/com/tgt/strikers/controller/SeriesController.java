@@ -1,6 +1,6 @@
-package com.tgt.strikers.Controller;
+package com.tgt.strikers.controller;
 
-import com.tgt.strikers.Service.SeriesService;
+import com.tgt.strikers.service.SeriesService;
 import com.tgt.strikers.model.Series;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

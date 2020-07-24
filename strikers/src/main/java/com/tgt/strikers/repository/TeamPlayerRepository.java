@@ -1,4 +1,4 @@
-package com.tgt.strikers.Repository;
+package com.tgt.strikers.repository;
 
 import com.tgt.strikers.model.TeamPlayer;
 import org.springframework.data.cassandra.repository.CassandraRepository;

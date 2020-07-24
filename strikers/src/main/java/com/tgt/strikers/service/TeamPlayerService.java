@@ -1,7 +1,7 @@
-package com.tgt.strikers.Service;
+package com.tgt.strikers.service;
 
-import com.tgt.strikers.Exception.TeamPlayerNotFoundException;
-import com.tgt.strikers.Repository.TeamPlayerRepository;
+import com.tgt.strikers.exception.TeamPlayerNotFoundException;
+import com.tgt.strikers.repository.TeamPlayerRepository;
 import com.tgt.strikers.model.TeamPlayer;
 
 import org.springframework.beans.factory.annotation.Autowired;
