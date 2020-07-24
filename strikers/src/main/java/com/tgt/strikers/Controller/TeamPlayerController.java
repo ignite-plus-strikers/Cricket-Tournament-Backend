@@ -35,6 +35,15 @@ public class TeamPlayerController {
         return teamplayerService.getAllTeamPlayer();
     }
 
+    //----------------------------Delete Particular Player From Team Player Combination By ID-----------------------------
+    @DeleteMapping(value = "/teamplayer/{teamid}/{playerid}")
+    public String deletePlayerByTeamIdPlayerId(@PathVariable("teamid") UUID teamid, @PathVariable("playerid") UUID playerid) {
+
+        teamplayerService.deletePlayersByTeamIdPlayerId(teamid, playerid);
+        return "Team Player Combination with Team Id " + teamid + " and Player Id " + playerid + " has been deleted!";
+    }
+
+
     //-----------------------------------------------Get Team By ID ---------------------------------------------------
     /*@GetMapping(value = "/teamplayer/{id}")
     public TeamPlayer getTeamPlayerById(@PathVariable("id") UUID id) {

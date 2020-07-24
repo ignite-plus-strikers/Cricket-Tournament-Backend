@@ -29,33 +29,48 @@ public class SeriesTeamsService {
         return seriesTeamsRepository.findAll();
     }
 
-    //--------------------------------------------Get Series Team Combination By ID ------------------------------------
-/*    public SeriesTeams getSeriesTeamsById(UUID id) {
+
+    //------------------------Delete Particular Player From Player_Team Combination By ID ------------------------------
+    public void deleteTeamsBySeriesIdTeamId(UUID seriesId, UUID teamId) {
+
+
+        List<SeriesTeams> seriesTeams = seriesTeamsRepository.findBySeriesId(seriesId);
+        for(SeriesTeams tempSeriesTeams : seriesTeams) {
+            if(tempSeriesTeams.getTeamId().equals(teamId))
+            {
+                seriesTeamsRepository.delete(tempSeriesTeams);
+            }
+        }
+    }
+
+
+    //-----------------------------Get Series Team Combination By ID ---------------------------------------------------
+    public SeriesTeams getSeriesTeamsById(UUID id) {
 
         Optional<SeriesTeams> optionalSeriesTeams = seriesTeamsRepository.findById(id);
         if (!optionalSeriesTeams.isPresent())
-            throw new SeriesTeamsNotFoundException("Series Teams Combination Record with series id " + id + " is not available");
+            throw new SeriesTeamsNotFoundException("Series Teams Combination Record with Series Id " + id + " is not available");
         return seriesTeamsRepository.findById(id).get();
-    }*/
+    }
+
 
     //-------------------------------------------Update Series Team Combination By ID -----------------------------------
-/*
     public SeriesTeams updateSeriesTeamsById(UUID id, SeriesTeams seriesTeams) {
 
         Optional<SeriesTeams> optionalSeriesTeams = seriesTeamsRepository.findById(id);
         if (!optionalSeriesTeams.isPresent())
-            throw new SeriesTeamsNotFoundException("Series Teams Combination Record with series id " + id + " is not available");
+            throw new SeriesTeamsNotFoundException("Series Teams Combination Record with Series Id " + id + " is not available");
         seriesTeams.setSeriesId(id);
         return seriesTeamsRepository.save(seriesTeams);
     }
-*/
 
-    //-------------------------------------------------Delete Series Team Combination By ID ----------------------------------------------
+
+    //------------------------------------------Delete Series Team Combination By ID ------------------------------------
     public void deleteSeriesTeamsById(UUID id) {
 
         Optional<SeriesTeams> optionalSeriesTeams = seriesTeamsRepository.findById(id);
         if (!optionalSeriesTeams.isPresent())
-            throw new SeriesTeamsNotFoundException("Series Team CombinationRecord with series id " + id + " is not available");
+            throw new SeriesTeamsNotFoundException("Series Team CombinationRecord with Series Id " + id + " is not available");
         seriesTeamsRepository.deleteById(id);
     }
 }

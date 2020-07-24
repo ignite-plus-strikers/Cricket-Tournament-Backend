@@ -20,7 +20,6 @@ public class SeriesTeamsController {
     //---------------------------------------Create New Series Team Combination-----------------------------------------
     @PostMapping("/series-teams")
     public SeriesTeams createSeriesTeams(@Valid @RequestBody SeriesTeams seriesTeams) {
-        seriesTeams.setSeriesId(UUID.randomUUID());
 
         return seriesTeamsService.createSeriesTeams(seriesTeams);
     }
@@ -33,21 +32,22 @@ public class SeriesTeamsController {
         return seriesTeamsService.getAllSeriesTeams();
     }
 
+
     //----------------------------------------Get Series Team Combination By ID-----------------------------------------
-/*    @GetMapping(value = "/series-teams/{id}")
+    @GetMapping(value = "/series-teams/{id}")
     public SeriesTeams getSeriesTeamsById(@PathVariable("id") UUID id) {
 
         return seriesTeamsService.getSeriesTeamsById(id);
-    }*/
+    }
+
 
     //-----------------------------------------Update Series Team Combination By ID-------------------------------------
-/*
     @PutMapping(value = "/series-teams/{id}")
     public SeriesTeams updateSeriesTeamsById(@PathVariable("id") UUID id, @RequestBody SeriesTeams seriesTeams) {
 
         return seriesTeamsService.updateSeriesTeamsById(id, seriesTeams);
     }
-*/
+
 
     //-----------------------------------------Delete Series Team Combination By ID-------------------------------------
     @DeleteMapping(value = "/series-teams/{id}")
@@ -57,4 +57,12 @@ public class SeriesTeamsController {
         return "Series Team Combination with series id " + id + " has been deleted!";
     }
 
+
+    //----------------------------Delete Particular Team From Series Team Combination By ID-----------------------------
+    @DeleteMapping(value = "/series-teams/{seriesid}/{teamid}")
+    public String deleteTeamBySeriesIdTeamsId(@PathVariable("seriesid") UUID seriesid, @PathVariable("teamid") UUID teamid) {
+
+        seriesTeamsService.deleteTeamsBySeriesIdTeamId(seriesid, teamid);
+        return "Series Team Combination with Series Id " + seriesid + "and Team Id " + teamid + " has been deleted!";
+    }
 }

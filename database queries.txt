@@ -19,7 +19,7 @@ CREATE TABLE player (
 playerid uuid, 
 first_name text, 
 last_name text, 
-nick_name text,
+p_initials text,
 player_dob date, 
 gender text, 
 category text,
@@ -35,11 +35,11 @@ PRIMARY KEY(playerid));
 
 ## Insert into player table:
 
-INSERT INTO player(playerid, first_name, last_name, nick_name, player_dob, gender, category, nationality, player_role, player_batting_style, player_bowling_style, player_status)
-VALUES(uuid(), 'John', 'Smith', 'Jolly-John', '1988-04-24', 'Male', 'B1', 'South Africa', 'All rounder', 'Left-Handed', 'Spin', 'Playing');
+INSERT INTO player(playerid, first_name, last_name, p_initials, player_dob, gender, category, nationality, player_role, player_batting_style, player_bowling_style, player_status)
+VALUES(uuid(), 'John', 'Smith', 'JS', '1988-04-24', 'Male', 'B1', 'South Africa', 'All rounder', 'Left-Handed', 'Spin', 'Playing');
 
-INSERT INTO player(playerid, first_name, last_name, nick_name, player_dob, gender, category, nationality, player_role, player_batting_style, player_bowling_style, player_status)
-VALUES(uuid(), 'Virat', 'Kohli', 'Versatile-Virat', '1985-11-15', 'Male', 'B2', 'India', 'Batsman', 'Right-Handed', 'Fast Bowler', 'Playing');
+INSERT INTO player(playerid, first_name, last_name, p_initials, player_dob, gender, category, nationality, player_role, player_batting_style, player_bowling_style, player_status)
+VALUES(uuid(), 'Virat', 'Kohli', 'VK', '1985-11-15', 'Male', 'B2', 'India', 'Batsman', 'Right-Handed', 'Fast Bowler', 'Playing');
 
 (NOTE: Can update team id's once teams are created)
 
@@ -157,11 +157,11 @@ PRIMARY KEY (seriesid, team_id));
 
 ## Insert queries:
 
-INSERT INTO series_teams(seriesid, team_id, team_name)
+INSERT INTO series_teams(series_id, team_id, team_name)
 VALUES (bdeb5bcd-eb00-4bcb-b8ab-35ac49332c63, 07d7eecd-56c0-45c3-903f-f0bfe9bfc64e, 'Team India');
 
 
-INSERT INTO series_teams(seriesid, team_id, team_name)
+INSERT INTO series_teams(series_id, team_id, team_name)
 VALUES (bdeb5bcd-eb00-4bcb-b8ab-35ac49332c63, 3307b103-3c70-410a-ada9-c248dafa8157, 'Team Sri Lanka');
 
 
@@ -191,13 +191,25 @@ team_id = 3307b103-3c70-410a-ada9-c248dafa8157;
 
 ## Create TeamPlayer table:
 
-CREATE TABLE teamplayer
-(teamid uuid,
-playerid uuid,
+CREATE TABLE team_player
+(team_id uuid,
+player_id uuid,
 player_first_name text,
 player_last_name text,
 player_inititals text,
-PRIMARY KEY(teamid,playerid));
+PRIMARY KEY(team_id, player_id));
+
+
+## Insert queries:
+
+
+INSERT INTO team_player(team_id, player_id, player_first_name, player_last_name, Player_initials)
+VALUES(3307b103-3c70-410a-ada9-c248dafa8157, 0f254223-de61-4f7b-b765-fae44141cdb2, 'John', 'Smith', 'JS');
+
+
+
+INSERT INTO team_player(team_id, player_id, player_first_name, player_last_name, Player_initials)
+VALUES(3307b103-3c70-410a-ada9-c248dafa8157, 07d7eecd-56c0-45c3-903f-f0bfe9bfc64e, 'Virat', 'Kohli', 'VK');
 
 
 
