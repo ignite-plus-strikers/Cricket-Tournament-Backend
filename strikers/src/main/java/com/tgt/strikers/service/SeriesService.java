@@ -29,31 +29,34 @@ public class SeriesService {
         return seriesRepo.findAll();
     }
 
+
     //-----------------------------------------------Get Series By ID ---------------------------------------------------
     public Series getSeriesById(UUID id) {
 
         Optional<Series> optionalSeries = seriesRepo.findById(id);
         if (!optionalSeries.isPresent())
-            throw new SeriesNotFoundException("Series Record with id " + id + " is not available");
+            throw new SeriesNotFoundException("Series Record with Series Id " + id + " is not available");
         return seriesRepo.findById(id).get();
     }
+
 
     //-----------------------------------------------Update Series By ID ------------------------------------------------
     public Series updateSeriesById(UUID id, Series series) {
 
         Optional<Series> optionalSeries = seriesRepo.findById(id);
         if (!optionalSeries.isPresent())
-            throw new SeriesNotFoundException("Series Record with id " + id + " is not available");
+            throw new SeriesNotFoundException("Series Record with Series Id " + id + " is not available");
         series.setSeriesId(id);
         return seriesRepo.save(series);
     }
+
 
     //-------------------------------------------------Delete Series By ID ----------------------------------------------
     public void deleteSeriesById(UUID id) {
 
         Optional<Series> optionalSeries = seriesRepo.findById(id);
         if (!optionalSeries.isPresent())
-            throw new SeriesNotFoundException("Series Record with id " + id + " is not available");
+            throw new SeriesNotFoundException("Series Record with Series Id " + id + " is not available");
         seriesRepo.deleteById(id);
     }
 }

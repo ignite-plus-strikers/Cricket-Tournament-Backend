@@ -16,19 +16,18 @@ public class TeamPlayerService {
 
     @Autowired
     private TeamPlayerRepository teamplayerRepo;
-
     //--------------------------------------------Create new Team-------------------------------------------------------------
+
     public TeamPlayer createTeamPlayer(TeamPlayer teamplayer)
     {
         return teamplayerRepo.save(teamplayer);
     }
-
     //--------------------------------------------Get all teamplayers---------------------------------------------------------------
+
     public List<TeamPlayer> getAllTeamPlayer()
     {
         return teamplayerRepo.findAll();
     }
-
     //--------------------------------------------Get teamplayer by id--------------------------------------------------------------
     public TeamPlayer getTeamPlayerById(UUID id)
     {
@@ -39,6 +38,7 @@ public class TeamPlayerService {
     }
 
     //------------------------Delete Particular Player From Player_Team Combination By ID ------------------------------
+
     public void deletePlayersByTeamIdPlayerId(UUID teamId, UUID playerId) {
 
         List<TeamPlayer> teamPlayers = teamplayerRepo.findByTeamId(teamId);
@@ -49,6 +49,8 @@ public class TeamPlayerService {
             }
         }
     }
+
+
 
     //--------------------------------------------Get teamplayer by name------------------------------------------------------------
     /*public TeamPlayer getTeamByName(String tName,UUID id)
@@ -77,4 +79,6 @@ public class TeamPlayerService {
             throw new TeamPlayerNotFoundException("Team Player Record with id " + id + " is not available");
         teamplayerRepo.deleteById(id);
     }
+    //--------------------------------------------Delete teamplayer by name---------------------------------------------------------
+
 }

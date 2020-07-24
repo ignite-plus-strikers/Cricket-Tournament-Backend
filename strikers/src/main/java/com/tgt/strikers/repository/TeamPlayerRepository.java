@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface TeamPlayerRepository extends CassandraRepository<TeamPlayer, UUID> {
 
-  List<TeamPlayer> findByTeamId(UUID teamId);
+    List<TeamPlayer> findByTeamId(UUID teamId);
 }

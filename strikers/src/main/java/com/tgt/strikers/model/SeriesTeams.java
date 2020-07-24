@@ -13,6 +13,7 @@ import org.springframework.data.cassandra.core.mapping.Table;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
+
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @Data
 @Table("series_teams")
