@@ -196,7 +196,6 @@ CREATE TABLE team_player
 player_id uuid,
 player_first_name text,
 player_last_name text,
-<<<<<<< HEAD
 player_inititals text,
 PRIMARY KEY(team_id, player_id));
 
@@ -211,11 +210,6 @@ VALUES(3307b103-3c70-410a-ada9-c248dafa8157, 0f254223-de61-4f7b-b765-fae44141cdb
 
 INSERT INTO team_player(team_id, player_id, player_first_name, player_last_name, Player_initials)
 VALUES(3307b103-3c70-410a-ada9-c248dafa8157, 07d7eecd-56c0-45c3-903f-f0bfe9bfc64e, 'Virat', 'Kohli', 'VK');
-=======
-player_initials text,
-PRIMARY KEY(teamid,playerid));
->>>>>>> 243749bd02c2fa30e8a889c46ca044c7b61b4b9f
-
 
 
 
