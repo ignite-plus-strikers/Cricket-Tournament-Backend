@@ -35,7 +35,7 @@ public class SeriesTeamsController {
 
     //----------------------------------------Get Series Team Combination By ID-----------------------------------------
     @GetMapping(value = "/series-teams/{id}")
-    public SeriesTeams getSeriesTeamsById(@PathVariable("id") UUID id) {
+    public List<SeriesTeams> getSeriesTeamsById(@PathVariable("id") UUID id) {
 
         return seriesTeamsService.getSeriesTeamsById(id);
     }

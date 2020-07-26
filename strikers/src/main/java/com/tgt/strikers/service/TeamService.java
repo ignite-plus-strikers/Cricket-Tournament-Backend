@@ -32,7 +32,7 @@ public class TeamService {
     {
         Optional<Teams> optionalTeam = teamRepo.findById(id);
         if(!optionalTeam.isPresent())
-            throw new TeamNotFoundException("Team Record with " + id + "is not available");
+            throw new TeamNotFoundException("Team Record with " + id + " is not available");
         return teamRepo.findById(id).get();
     }
 

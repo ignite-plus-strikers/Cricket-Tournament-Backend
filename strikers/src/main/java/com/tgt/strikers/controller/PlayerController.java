@@ -49,7 +49,7 @@ public class PlayerController {
 
     //-------------------------------------------------Delete Player By ID ----------------------------------------------
     @DeleteMapping(value = "/player/{id}")
-    public String deletePlayerById(@PathVariable("id") UUID id) {
+    public String deletePlayerById(@PathVariable("id") UUID id, Player player) {
 
         playerService.deletePlayerById(id);
         return "Player with id " + id + " has been deleted!";

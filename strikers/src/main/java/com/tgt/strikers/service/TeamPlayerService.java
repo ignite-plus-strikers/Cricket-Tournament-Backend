@@ -1,6 +1,6 @@
 package com.tgt.strikers.service;
 
-import com.tgt.strikers.exception.TeamPlayerNotFoundException;
+import com.tgt.strikers.exception.TeamNotFoundException;
 import com.tgt.strikers.repository.TeamPlayerRepository;
 import com.tgt.strikers.model.TeamPlayer;
 
@@ -29,12 +29,12 @@ public class TeamPlayerService {
         return teamplayerRepo.findAll();
     }
     //--------------------------------------------Get teamplayer by id--------------------------------------------------------------
-    public TeamPlayer getTeamPlayerById(UUID id)
+    public List<TeamPlayer> getTeamPlayerById(UUID id)
     {
-        Optional<TeamPlayer> optionalTeamPlayer = teamplayerRepo.findById(id);
-        if(!optionalTeamPlayer.isPresent())
-            throw new TeamPlayerNotFoundException("Team Player Record with " + id + "is not available");
-        return teamplayerRepo.findById(id).get();
+        List<TeamPlayer> optionalTeamPlayer = teamplayerRepo.findByTeamId(id);
+        if(optionalTeamPlayer.isEmpty())
+            throw new TeamNotFoundException("Team Player Record with " + id + " is not available");
+        return teamplayerRepo.findByTeamId(id);
     }
 
     //------------------------Delete Particular Player From Player_Team Combination By ID ------------------------------
@@ -76,7 +76,7 @@ public class TeamPlayerService {
     public void deleteTeamPlayerById(UUID id) {
         Optional<TeamPlayer> optionalTeamPlayer = teamplayerRepo.findById(id);
         if (!optionalTeamPlayer.isPresent())
-            throw new TeamPlayerNotFoundException("Team Player Record with id " + id + " is not available");
+            throw new TeamNotFoundException("Team Player Record with id " + id + " is not available");
         teamplayerRepo.deleteById(id);
     }
     //--------------------------------------------Delete teamplayer by name---------------------------------------------------------

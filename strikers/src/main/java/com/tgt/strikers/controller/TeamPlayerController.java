@@ -46,7 +46,7 @@ public class TeamPlayerController {
 
     //-----------------------------------------------Get Team By ID ---------------------------------------------------
     @GetMapping(value = "/teamplayer/{id}")
-    public TeamPlayer getTeamPlayerById(@PathVariable("id") UUID id) {
+    public List<TeamPlayer> getTeamPlayerById(@PathVariable("id") UUID id) {
 
         return teamplayerService.getTeamPlayerById(id);
     }
