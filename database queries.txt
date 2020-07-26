@@ -212,4 +212,30 @@ VALUES(3307b103-3c70-410a-ada9-c248dafa8157, 0f254223-de61-4f7b-b765-fae44141cdb
 INSERT INTO team_player(team_id, player_id, player_first_name, player_last_name, Player_initials)
 VALUES(3307b103-3c70-410a-ada9-c248dafa8157, 07d7eecd-56c0-45c3-903f-f0bfe9bfc64e, 'Virat', 'Kohli', 'VK');
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+##CREATE Fixture table :
+
+CREATE TABLE fixture(
+             ... fixture_id uuid PRIMARY KEY,
+             ... team1 text,
+             ... team2 text,
+             ... home_team text,
+             ... gmt_offset text,
+             ... fixture_date_time timestamp,
+             ... description text,
+             ... live_coverage text,
+             ... match_type text,
+             ... series_id uuid,
+             ... scorer_id uuid,
+             ... series_name text,
+             ... venue text);
+
+
+##Insert data queries:
+
+
+ INSERT INTO fixture(fixture_id,description,fixture_date_time,gmt_offset,home_team,team1,team2,live_coverage,match_type,scorer_id,series_id,series_name,venue)
+             ... VALUES(uuid(),'2nd T20','2020-11-09 12:00:00','+5:30','India','India','England','No','T20',19967d15-361a-4ecb-9612-e784772f0e86,6cb2b71b-21c4-49ae-a230-cdd7239e143e,'India-England Series'
+		,'Wankhede Stadium, Mumbai');
