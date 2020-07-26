@@ -32,9 +32,6 @@ public class Fixture {
     @NotNull
     private String team2;
 
-    @Column("umpires")
-    @NotNull
-    private List<UUID> umpires;
 
     @Column("home_team")
     @NotNull
