@@ -1,7 +1,7 @@
-package com.tgt.strikers.Controller;
+package com.tgt.strikers.controller;
 
 import com.tgt.strikers.model.Player;
-import com.tgt.strikers.Service.PlayerService;
+import com.tgt.strikers.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,7 +49,7 @@ public class PlayerController {
 
     //-------------------------------------------------Delete Player By ID ----------------------------------------------
     @DeleteMapping(value = "/player/{id}")
-    public String deletePlayerById(@PathVariable("id") UUID id) {
+    public String deletePlayerById(@PathVariable("id") UUID id, Player player) {
 
         playerService.deletePlayerById(id);
         return "Player with id " + id + " has been deleted!";

@@ -1,6 +1,6 @@
-package com.tgt.strikers.Controller;
+package com.tgt.strikers.controller;
 
-import com.tgt.strikers.Service.SeriesTeamsService;
+import com.tgt.strikers.service.SeriesTeamsService;
 import com.tgt.strikers.model.SeriesTeams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +35,7 @@ public class SeriesTeamsController {
 
     //----------------------------------------Get Series Team Combination By ID-----------------------------------------
     @GetMapping(value = "/series-teams/{id}")
-    public SeriesTeams getSeriesTeamsById(@PathVariable("id") UUID id) {
+    public List<SeriesTeams> getSeriesTeamsById(@PathVariable("id") UUID id) {
 
         return seriesTeamsService.getSeriesTeamsById(id);
     }

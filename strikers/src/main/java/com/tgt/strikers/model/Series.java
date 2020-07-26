@@ -1,5 +1,7 @@
 package com.tgt.strikers.model;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.*;
 import org.springframework.data.cassandra.core.cql.Ordering;
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
@@ -15,17 +17,20 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
-@Table
+
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @Data
+@Table
 public class Series {
 
 
     @PrimaryKey
     private UUID seriesId;
 
-    @Column("series_name")
+
     @NotNull
     @Size(min = 3, message = "Series Name must have atleast 3 characters")
+    @Column("series_name")
     private String seriesName;
 
     @NotNull
@@ -34,7 +39,7 @@ public class Series {
     private String seriesShortName;
 
     @NotNull
-    @Column("series_Start_date")
+    @Column("series_start_date")
     private LocalDate seriesStartDate;
 
     @NotNull

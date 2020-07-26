@@ -1,8 +1,12 @@
 package com.tgt.strikers.model;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.*;
+import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.core.mapping.Table;
 
 import javax.validation.constraints.NotNull;
@@ -12,8 +16,9 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Table
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @Data
+@Table
 public class Player {
 
     @PrimaryKey
@@ -30,8 +35,8 @@ public class Player {
     private String lastName;
 
     @NotNull
-    @Column("p_initials")
-    private String pInitials;
+    @Column("player_initials")
+    private String playerInitials;
 
     @NotNull
     private String category;

@@ -1,7 +1,7 @@
-package com.tgt.strikers.Service;
+package com.tgt.strikers.service;
 
-import com.tgt.strikers.Exception.SeriesNotFoundException;
-import com.tgt.strikers.Repository.SeriesRepository;
+import com.tgt.strikers.exception.SeriesNotFoundException;
+import com.tgt.strikers.repository.SeriesRepository;
 import com.tgt.strikers.model.Series;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,31 +29,34 @@ public class SeriesService {
         return seriesRepo.findAll();
     }
 
+
     //-----------------------------------------------Get Series By ID ---------------------------------------------------
     public Series getSeriesById(UUID id) {
 
         Optional<Series> optionalSeries = seriesRepo.findById(id);
         if (!optionalSeries.isPresent())
-            throw new SeriesNotFoundException("Series Record with id " + id + " is not available");
+            throw new SeriesNotFoundException("Series Record with Series Id " + id + " is not available");
         return seriesRepo.findById(id).get();
     }
+
 
     //-----------------------------------------------Update Series By ID ------------------------------------------------
     public Series updateSeriesById(UUID id, Series series) {
 
         Optional<Series> optionalSeries = seriesRepo.findById(id);
         if (!optionalSeries.isPresent())
-            throw new SeriesNotFoundException("Series Record with id " + id + " is not available");
+            throw new SeriesNotFoundException("Series Record with Series Id " + id + " is not available");
         series.setSeriesId(id);
         return seriesRepo.save(series);
     }
+
 
     //-------------------------------------------------Delete Series By ID ----------------------------------------------
     public void deleteSeriesById(UUID id) {
 
         Optional<Series> optionalSeries = seriesRepo.findById(id);
         if (!optionalSeries.isPresent())
-            throw new SeriesNotFoundException("Series Record with id " + id + " is not available");
+            throw new SeriesNotFoundException("Series Record with Series Id " + id + " is not available");
         seriesRepo.deleteById(id);
     }
 }

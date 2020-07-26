@@ -1,7 +1,7 @@
-package com.tgt.strikers.Service;
+package com.tgt.strikers.service;
 
-import com.tgt.strikers.Exception.SeriesTeamsNotFoundException;
-import com.tgt.strikers.Repository.SeriesTeamsRepository;
+import com.tgt.strikers.exception.SeriesNotFoundException;
+import com.tgt.strikers.repository.SeriesTeamsRepository;
 import com.tgt.strikers.model.SeriesTeams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +35,8 @@ public class SeriesTeamsService {
 
 
         List<SeriesTeams> seriesTeams = seriesTeamsRepository.findBySeriesId(seriesId);
+        if (seriesTeams.isEmpty())
+            throw new SeriesNotFoundException("Series Teams Combination Record with Series Id " + seriesId + " is not available");
         for(SeriesTeams tempSeriesTeams : seriesTeams) {
             if(tempSeriesTeams.getTeamId().equals(teamId))
             {
@@ -45,12 +47,12 @@ public class SeriesTeamsService {
 
 
     //-----------------------------Get Series Team Combination By ID ---------------------------------------------------
-    public SeriesTeams getSeriesTeamsById(UUID id) {
+    public List<SeriesTeams> getSeriesTeamsById(UUID id) {
 
-        Optional<SeriesTeams> optionalSeriesTeams = seriesTeamsRepository.findById(id);
-        if (!optionalSeriesTeams.isPresent())
-            throw new SeriesTeamsNotFoundException("Series Teams Combination Record with Series Id " + id + " is not available");
-        return seriesTeamsRepository.findById(id).get();
+        List<SeriesTeams> optionalSeriesTeams = seriesTeamsRepository.findBySeriesId(id);
+        if (optionalSeriesTeams.isEmpty())
+            throw new SeriesNotFoundException("Series Teams Combination Record with Series Id " + id + " is not available");
+        return seriesTeamsRepository.findBySeriesId(id);
     }
 
 
@@ -59,7 +61,7 @@ public class SeriesTeamsService {
 
         Optional<SeriesTeams> optionalSeriesTeams = seriesTeamsRepository.findById(id);
         if (!optionalSeriesTeams.isPresent())
-            throw new SeriesTeamsNotFoundException("Series Teams Combination Record with Series Id " + id + " is not available");
+            throw new SeriesNotFoundException("Series Teams Combination Record with Series Id " + id + " is not available");
         seriesTeams.setSeriesId(id);
         return seriesTeamsRepository.save(seriesTeams);
     }
@@ -70,7 +72,7 @@ public class SeriesTeamsService {
 
         Optional<SeriesTeams> optionalSeriesTeams = seriesTeamsRepository.findById(id);
         if (!optionalSeriesTeams.isPresent())
-            throw new SeriesTeamsNotFoundException("Series Team CombinationRecord with Series Id " + id + " is not available");
+            throw new SeriesNotFoundException("Series Team CombinationRecord with Series Id " + id + " is not available");
         seriesTeamsRepository.deleteById(id);
     }
 }

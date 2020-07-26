@@ -1,8 +1,8 @@
-package com.tgt.strikers.Service;
+package com.tgt.strikers.service;
 
-import com.tgt.strikers.Exception.TeamNotFoundException;
+import com.tgt.strikers.exception.TeamNotFoundException;
 import com.tgt.strikers.model.Teams;
-import com.tgt.strikers.Repository.TeamRepository;
+import com.tgt.strikers.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +32,7 @@ public class TeamService {
     {
         Optional<Teams> optionalTeam = teamRepo.findById(id);
         if(!optionalTeam.isPresent())
-            throw new TeamNotFoundException("Team Record with " + id + "is not available");
+            throw new TeamNotFoundException("Team Record with " + id + " is not available");
         return teamRepo.findById(id).get();
     }
 

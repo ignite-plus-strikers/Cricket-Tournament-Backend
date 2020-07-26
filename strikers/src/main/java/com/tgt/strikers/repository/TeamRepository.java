@@ -1,4 +1,4 @@
-package com.tgt.strikers.Repository;
+package com.tgt.strikers.repository;
 
 import java.util.UUID;
 import com.tgt.strikers.model.Teams;

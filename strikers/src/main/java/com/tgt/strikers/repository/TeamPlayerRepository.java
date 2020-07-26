@@ -1,4 +1,4 @@
-package com.tgt.strikers.Repository;
+package com.tgt.strikers.repository;
 
 import com.tgt.strikers.model.TeamPlayer;
 import org.springframework.data.cassandra.repository.CassandraRepository;
@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface TeamPlayerRepository extends CassandraRepository<TeamPlayer, UUID> {
 
-  List<TeamPlayer> findByTeamId(UUID teamId);
+    List<TeamPlayer> findByTeamId(UUID teamId);
 }

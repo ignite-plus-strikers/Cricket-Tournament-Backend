@@ -1,6 +1,6 @@
-package com.tgt.strikers.Controller;
+package com.tgt.strikers.controller;
 
-import com.tgt.strikers.Service.TeamPlayerService;
+import com.tgt.strikers.service.TeamPlayerService;
 
 import com.tgt.strikers.model.TeamPlayer;
 
@@ -45,11 +45,11 @@ public class TeamPlayerController {
 
 
     //-----------------------------------------------Get Team By ID ---------------------------------------------------
-    /*@GetMapping(value = "/teamplayer/{id}")
-    public TeamPlayer getTeamPlayerById(@PathVariable("id") UUID id) {
+    @GetMapping(value = "/teamplayer/{id}")
+    public List<TeamPlayer> getTeamPlayerById(@PathVariable("id") UUID id) {
 
-        return teamplayerService.getTeamplayerId(id);
-    }*/
+        return teamplayerService.getTeamPlayerById(id);
+    }
 
     //-----------------------------------------------Update Team By ID ------------------------------------------------
     /*@PutMapping(value = "/teamplayer/{id}")

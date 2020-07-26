@@ -1,10 +1,8 @@
-package com.tgt.strikers.Repository;
+package com.tgt.strikers.repository;
 
 import com.tgt.strikers.model.Series;
 import org.springframework.data.cassandra.repository.CassandraRepository;
-import org.springframework.data.domain.*;
 
-import java.util.List;
 import java.util.UUID;
 
 public interface SeriesRepository extends CassandraRepository<Series, UUID> {

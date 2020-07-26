@@ -1,8 +1,8 @@
-package com.tgt.strikers.Service;
+package com.tgt.strikers.service;
 
 
-import com.tgt.strikers.Exception.PlayerNotFoundException;
-import com.tgt.strikers.Repository.PlayerRepository;
+import com.tgt.strikers.exception.PlayerNotFoundException;
+import com.tgt.strikers.repository.PlayerRepository;
 import com.tgt.strikers.model.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +30,7 @@ public class PlayerService {
         return playerRepo.findAll();
     }
 
+
     //-----------------------------------------------Get Player By ID ---------------------------------------------------
     public Player getPlayerById(UUID id) {
 
@@ -38,6 +39,7 @@ public class PlayerService {
             throw new PlayerNotFoundException("Player Record with id " + id + " is not available");
         return playerRepo.findById(id).get();
     }
+
 
     //-----------------------------------------------Update Player By ID ------------------------------------------------
     public Player updatePlayerById(UUID id, Player player) {
@@ -49,6 +51,7 @@ public class PlayerService {
         return playerRepo.save(player);
     }
 
+
     //-------------------------------------------------Delete Player By ID ----------------------------------------------
     public void deletePlayerById(UUID id) {
 
@@ -57,6 +60,7 @@ public class PlayerService {
             throw new PlayerNotFoundException("Palyer Record with id " + id + " is not available");
         playerRepo.deleteById(id);
     }
+
 
     //-----------------------------------------------Get Player By Category ---------------------------------------------------
 //    public Players getPlayerByCategory(String p_category) {
