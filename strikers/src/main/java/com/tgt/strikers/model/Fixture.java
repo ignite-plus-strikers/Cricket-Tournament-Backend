@@ -21,7 +21,6 @@ public class Fixture {
 
     @Column("fixture_id")
     @PrimaryKey
-    @NotNull
     private UUID fixture_id;
 
     @Column("team1")
