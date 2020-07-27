@@ -21,11 +21,11 @@ public class GlobalExceptionHandler {
     }
 
      @ExceptionHandler(TeamNotFoundException.class)
-    public ResponseEntity<?> handleTeamNotFoundException
+    public ResponseEntity<?> handleUserNotFoundException
             (TeamNotFoundException exception, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
-    }
+         ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+     }
 
     
     @ExceptionHandler(SeriesNotFoundException.class)
@@ -35,8 +35,43 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(SeriesTeamsNotFoundException.class)
+    public ResponseEntity<?> handleUserNotFoundException
+            (SeriesTeamsNotFoundException exception, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(TeamPlayerNotFoundException.class)
+    public ResponseEntity<?> handleUserNotFoundException
+            (TeamPlayerNotFoundException exception, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(FixtureNotFoundException.class)
+    public ResponseEntity<?> handleUserNotFoundException
+            (FixtureNotFoundException exception, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(ScorerNotFoundException.class)
+    public ResponseEntity<?> handleUserNotFoundException
+            (ScorerNotFoundException exception, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(ScorerFixtureNotFoundException.class)
+    public ResponseEntity<?> handleUserNotFoundException
+            (ScorerFixtureNotFoundException exception, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
     @ExceptionHandler(UmpireNotFoundException.class)
-    public ResponseEntity<?> handleUmpireNotFoundException
+    public ResponseEntity<?> handleUserNotFoundException
             (UmpireNotFoundException exception, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
