@@ -11,6 +11,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/cricket-tournament")
+@CrossOrigin("*")
 public class FixtureController {
 
     @Autowired
