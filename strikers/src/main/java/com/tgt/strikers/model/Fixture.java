@@ -1,5 +1,7 @@
 package com.tgt.strikers.model;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.*;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
@@ -13,14 +15,12 @@ import java.util.List;
 import java.util.UUID;
 
 @Table
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class Fixture {
 
     @PrimaryKey
-    private UUID fixture_id;
+    private UUID fixtureId;
 
     @Column("team1")
     @NotNull
@@ -30,33 +30,32 @@ public class Fixture {
     @NotNull
     private String team2;
 
-
     @Column("home_team")
     @NotNull
-    private String home_team;
+    private String homeTeam;
 
     @NotNull
     @Column("series_id")
-    private UUID series_id;
+    private UUID seriesId;
 
     @NotNull
     @Column("series_name")
-    private String series_name;
+    private String seriesName;
 
     @Column("fixture_date_time")
     @NotNull
-    private Date fixture_date_time;
+    private Date fixtureDateTime;
 
     @Column("match_type")
     @NotNull
-    private String match_type;
+    private String matchType;
 
     @Column("description")
     private String description;
 
     @NotNull
     @Column("live_coverage")
-    private String live_coverage;
+    private String liveCoverage;
 
     @Column("venue")
     @NotNull
@@ -64,9 +63,13 @@ public class Fixture {
 
     @Column("scorer_id")
     @NotNull
-    private UUID scorer_id;
+    private UUID scorerId;
+
+    @Column("scorer_name")
+    @NotNull
+    private UUID scorerName;
 
     @Column("gmt_offset")
     @NotNull
-    private String gmt_offset;
+    private String gmtOffset;
 }

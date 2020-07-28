@@ -17,6 +17,14 @@ public class PlayerController {
     @Autowired
     private PlayerService playerService;
 
+/*
+    @GetMapping("/player-count")
+    public Long getPlayerCount() {
+
+        return playerService.getPlayerCount();
+    }
+*/
+
     //-------------------------------------------------Create New Player-------------------------------------------------
     @PostMapping("/player")
     public Player createPlayer(@Valid @RequestBody Player player) {

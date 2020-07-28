@@ -17,6 +17,10 @@ public class PlayerService {
     @Autowired
     private PlayerRepository playerRepo;
 
+//    public Long getPlayerCount() {
+//        return playerRepo.count();
+//    }
+
     //-------------------------------------------------Create New Player-------------------------------------------------
     public Player createPlayer(Player player) {
 

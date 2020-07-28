@@ -239,3 +239,92 @@ CREATE TABLE fixture(
  INSERT INTO fixture(fixture_id,description,fixture_date_time,gmt_offset,home_team,team1,team2,live_coverage,match_type,scorer_id,series_id,series_name,venue)
              ... VALUES(uuid(),'2nd T20','2020-11-09 12:00:00','+5:30','India','India','England','No','T20',19967d15-361a-4ecb-9612-e784772f0e86,6cb2b71b-21c4-49ae-a230-cdd7239e143e,'India-England Series'
 		,'Wankhede Stadium, Mumbai');
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## Create Referee table:
+CREATE TABLE referee
+(refereeid uuid,
+first_name text,
+middle_name text,
+last_name text,
+city text,
+nationality text,
+matches_refereed int,
+experience text,
+PRIMARY KEY(refereeid));
+
+
+## Insert into table query:
+
+INSERT INTO referee(refereeid, first_name, middle_name, last_name, city, nationality, matches_refereed, experience)
+VALUES(uuid(), 'Karan', 'Kumar', 'Sharma', 'Pune', 'India',350, '5+');
+
+INSERT INTO referee(refereeid, first_name, middle_name, last_name, city, nationality, matches_refereed, experience)
+VALUES(uuid(), 'Rahul', 'M', 'Verma', 'Mumbai', 'India', 220, '10+');
+
+INSERT INTO referee(refereeid, first_name, last_name, city, nationality, matches_refereed, experience)
+VALUES(uuid(), 'Travis','Smith', 'New York', 'USA', 330, '5+');
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## Create Umpire table:
+CREATE TABLE umpire
+(umpireid uuid,
+first_name text,
+middle_name text,
+last_name text,
+city text,
+nationality text,
+matches_umpired int,
+accuracy_percentage int,
+PRIMARY KEY(umpireid));
+
+
+## Insert into table query:
+
+INSERT INTO umpire(umpireid, first_name, middle_name, last_name, city, nationality, matches_umpired, accuracy_percentage)
+VALUES(uuid(), 'Karan', 'Kumar', 'Sharma', 'Pune', 'India', 220, 70);
+
+INSERT INTO umpire(umpireid, first_name, middle_name, last_name, city, nationality, matches_umpired, accuracy_percentage)
+VALUES(uuid(), 'Rahul', 'M', 'Verma', 'Mumbai', 'India', 245, 90);
+
+INSERT INTO umpire(umpireid, first_name, last_name, city, nationality, matches_umpired, accuracy_percentage)
+VALUES(uuid(), 'Travis','Smith', 'New York', 'USA', 386, 85);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
