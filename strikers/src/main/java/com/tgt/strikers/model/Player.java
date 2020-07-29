@@ -34,7 +34,7 @@ public class Player {
     @Column("last_name")
     private String lastName;
 
-    @NotNull
+//    @NotNull
     @Column("player_initials")
     private String playerInitials;
 
