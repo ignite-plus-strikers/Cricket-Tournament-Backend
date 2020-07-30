@@ -296,6 +296,16 @@ VALUES(uuid(), 'Rahul', 'M', 'Verma', 'Mumbai', 'India', 245, 90);
 INSERT INTO umpire(umpireid, first_name, last_name, city, nationality, matches_umpired, accuracy_percentage)
 VALUES(uuid(), 'Travis','Smith', 'New York', 'USA', 386, 85);
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#CREATE TABLE FOR COUNTERS
+
+CREATE TABLE counter(counter_id uuid PRIMARY KEY,players_counter int,fixtures_counter int,teams_counter int,series_counter int);
+
+#Insert Queries
+INSERT INTO counter(counter_id,players_counter,fixtures_counter,teams_counter,series_counter) VALUES(uuid(),30,12,4,4);
+
 
 
 
