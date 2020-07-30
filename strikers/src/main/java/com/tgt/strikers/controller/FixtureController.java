@@ -19,7 +19,7 @@ public class FixtureController {
     //TO ADD A FIXTURE
     @PostMapping("/fixture")
     public Fixture createFixture(@Valid @RequestBody Fixture fixture){
-        fixture.setFixture_id(UUID.randomUUID());
+        fixture.setFixtureId(UUID.randomUUID());
         return fixtureService.createFixture(fixture);
     }
     //TO FETCH ALL FIXTURES
