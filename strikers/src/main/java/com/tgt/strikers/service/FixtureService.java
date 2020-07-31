@@ -11,6 +11,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
+
 public class FixtureService {
     @Autowired
     private FixtureRepository fixtureRepository;
@@ -23,26 +24,26 @@ public class FixtureService {
         return fixtureRepository.findAll();
     }
 
-    public String deleteFixtureById(UUID fixture_id){
-        Optional<Fixture> optionalFixture = fixtureRepository.findById(fixture_id);
+    public String deleteFixtureById(UUID fixtureId){
+        Optional<Fixture> optionalFixture = fixtureRepository.findById(fixtureId);
         if(!optionalFixture.isPresent())
             throw new FixtureNotFoundException("Fixture specified is invalid!");
-        fixtureRepository.deleteById(fixture_id);
+        fixtureRepository.deleteById(fixtureId);
         return "Fixture deleted!";
     }
 
-    public Fixture getFixtureById(UUID fixture_id){
-        Optional<Fixture> optionalFixture = fixtureRepository.findById(fixture_id);
+    public Fixture getFixtureById(UUID fixtureId){
+        Optional<Fixture> optionalFixture = fixtureRepository.findById(fixtureId);
         if(!optionalFixture.isPresent())
             throw new FixtureNotFoundException("Fixture specified is invalid!");
-        return fixtureRepository.findById(fixture_id).get();
+        return fixtureRepository.findById(fixtureId).get();
     }
 
 
-    public Fixture updateFixtureById(UUID fixture_id,Fixture fixture){
-        Optional<Fixture> optionalFixture = fixtureRepository.findById(fixture_id);
+    public Fixture updateFixtureById(UUID fixtureId,Fixture fixture){
+        Optional<Fixture> optionalFixture = fixtureRepository.findById(fixtureId);
         if(!optionalFixture.isPresent())
-            throw new FixtureNotFoundException("Fixture id "+fixture_id+" is invalid!");
+            throw new FixtureNotFoundException("Fixture id "+fixtureId+" is invalid!");
         return fixtureRepository.save(fixture);
     }
 }

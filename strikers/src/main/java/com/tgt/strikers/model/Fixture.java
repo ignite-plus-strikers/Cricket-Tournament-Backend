@@ -67,7 +67,7 @@ public class Fixture {
 
     @Column("scorer_name")
     @NotNull
-    private UUID scorerName;
+    private String scorerName;
 
     @Column("gmt_offset")
     @NotNull

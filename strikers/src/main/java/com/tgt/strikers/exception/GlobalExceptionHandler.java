@@ -85,6 +85,19 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(InactiveTeamNotFoundException.class)
+    public ResponseEntity<?> handleInactiveTeamNotFoundException
+            (InactiveTeamNotFoundException exception, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(InactivePlayerNotFoundException.class)
+    public ResponseEntity<?> handleInactivePlayerNotFoundException
+            (InactivePlayerNotFoundException exception, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
 
     @ExceptionHandler(APIException.class)
     public ResponseEntity<?> handleAPIException

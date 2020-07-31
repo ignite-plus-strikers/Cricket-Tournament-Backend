@@ -2,31 +2,32 @@ package com.tgt.strikers.model;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import lombok.Data;
+import lombok.*;
+import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.core.mapping.Table;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
+
+import java.time.LocalDate;
 import java.util.UUID;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @Data
-@Table
-public class Umpire {
+@Table("inactive_player")
+public class InactivePlayer {
 
     @PrimaryKey
-    private UUID umpireId;
+    private UUID playerId;
 
     @NotNull
     @Size(min = 3, message = "First Name must have atleast 3 characters")
     @Column("first_name")
     private String firstName;
-
-    @Size(min = 2, message = "Middle Name must have atleast 2 characters")
-    @Column("middle_name")
-    private String middleName;
 
     @NotNull
     @Size(min = 2, message = "Last Name must have atleast 2 characters")
@@ -34,16 +35,40 @@ public class Umpire {
     private String lastName;
 
     @NotNull
-    private String city;
+    @Column("player_initials")
+    private String playerInitials;
+
+    @NotNull
+    private String category;
 
     @NotNull
     private String nationality;
 
     @NotNull
-    @Column("matches_umpired")
-    private Integer matchesUmpired;
+    private String gender;
+
+    @Past
+    @Column("player_dob")
+    private LocalDate playerDOB;
 
     @NotNull
-    @Column("accuracy_percentage")
-    private Float accuracyPercentage;
+    @Column("player_role")
+    private String playerRole;
+
+    @NotNull
+    @Column("player_bowling_style")
+    private String playerBowlingStyle;
+
+    @NotNull
+    @Column("player_batting_style")
+    private String playerBattingStyle;
+
+    @NotNull
+    @Column("player_status")
+    private String playerStatus;
+
+    private UUID stateTeamId;
+
+    private UUID nationalTeamId;
+
 }

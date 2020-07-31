@@ -61,7 +61,7 @@ public class PlayerService {
 
         Optional<Player> optionalPlayer = playerRepo.findById(id);
         if (!optionalPlayer.isPresent())
-            throw new PlayerNotFoundException("Palyer Record with id " + id + " is not available");
+            throw new PlayerNotFoundException("Player Record with id " + id + " is not available");
         playerRepo.deleteById(id);
     }
 
