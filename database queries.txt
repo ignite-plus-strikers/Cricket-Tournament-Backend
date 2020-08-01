@@ -281,7 +281,8 @@ team1 text,
 team2 text,
 home_team text,
 gmt_offset text,
-fixture_date_time timestamp,
+fixture_date date,
+fixture_time time,
 description text,
 live_coverage text,
 match_type text,
@@ -295,11 +296,11 @@ venue text);
 ## Insert data queries:
 
 
-INSERT INTO fixture(fixtureid,description,fixture_date_time,gmt_offset,home_team,team1,team2,live_coverage,match_type,scorer_id, scorer_name, series_id,series_name,venue)
-VALUES(uuid(),'2nd T20','2020-11-09 12:00:00','+5:30','India','India','England','No','T20',19967d15-361a-4ecb-9612-e784772f0e86, 'John Smith', 6cb2b71b-21c4-49ae-a230-cdd7239e143e,'India-England Series','Wankhede Stadium, Mumbai');
+INSERT INTO fixture(fixtureid,description,fixture_date, fixture_time, gmt_offset,home_team,team1,team2,live_coverage,match_type,scorer_id, scorer_name, series_id,series_name,venue)
+VALUES(uuid(),'2nd T20','2020-11-09', '12:00:00','+5:30','India','India','England','No','T20',19967d15-361a-4ecb-9612-e784772f0e86, 'John Smith', 6cb2b71b-21c4-49ae-a230-cdd7239e143e,'India-England Series','Wankhede Stadium, Mumbai');
 
-INSERT INTO fixture(fixtureid,description,fixture_date_time,gmt_offset,home_team,team1,team2,live_coverage,match_type,scorer_id, scorer_name, series_id,series_name,venue)
-VALUES(uuid(),'3rd T20','2020-08-09 15:00:00','+5:30','India','India','Australia','No','T20',19967d15-361a-4ecb-9612-e784772f0e86, 'Karan Sharma', 6cb2b71b-21c4-49ae-a230-cdd7239e143e,'India-England Series','Wankhede Stadium, Mumbai');
+INSERT INTO fixture(fixtureid,description,fixture_date, fixture_time, gmt_offset,home_team,team1,team2,live_coverage,match_type,scorer_id, scorer_name, series_id,series_name,venue)
+VALUES(uuid(),'3rd T20','2020-08-09', '15:00:00','+5:30','India','India','Australia','No','T20',19967d15-361a-4ecb-9612-e784772f0e86, 'Karan Sharma', 6cb2b71b-21c4-49ae-a230-cdd7239e143e,'India-England Series','Wankhede Stadium, Mumbai');
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
