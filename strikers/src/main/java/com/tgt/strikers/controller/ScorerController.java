@@ -20,7 +20,6 @@ public class ScorerController {
     //-------------------------------------------------Create New Scorer-------------------------------------------------
     @PostMapping("/scorer")
     public Scorer createScorer(@Valid @RequestBody Scorer scorer) {
-        scorer.setScorerId(UUID.randomUUID());
         return scorerService.createScorer(scorer);
     }
 
@@ -34,21 +33,21 @@ public class ScorerController {
 
     //-----------------------------------------------Get Scorer By ID ---------------------------------------------------
     @GetMapping(value = "/scorer/{id}")
-    public Scorer getScorerById(@PathVariable("id") UUID id) {
+    public Scorer getScorerById(@PathVariable("id") String id) {
 
         return scorerService.getScorerById(id);
     }
 
     //-----------------------------------------------Update Scorer By ID ------------------------------------------------
     @PutMapping(value = "/scorer/{id}")
-    public Scorer updateScorerById(@PathVariable("id") UUID id, @RequestBody Scorer scorer) {
+    public Scorer updateScorerById(@PathVariable("id") String id, @RequestBody Scorer scorer) {
 
         return scorerService.updateScorerById(id, scorer);
     }
 
     //-------------------------------------------------Delete Scorer By ID ----------------------------------------------
     @DeleteMapping(value = "/scorer/{id}")
-    public String deleteScorerById(@PathVariable("id") UUID id) {
+    public String deleteScorerById(@PathVariable("id") String id) {
 
         scorerService.deleteScorerById(id);
         return "Scorer with id " + id + " has been deleted!";

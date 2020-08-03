@@ -17,8 +17,7 @@ import java.util.UUID;
 public class Scorer {
 
     @PrimaryKey
-    @Column("scorer_id")
-    private UUID scorerId;
+    private String scorerId;
 
     @NotNull
     @Column("first_name")

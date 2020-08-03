@@ -5,5 +5,5 @@ import org.springframework.data.cassandra.repository.CassandraRepository;
 
 import java.util.UUID;
 
-public interface ScorerFixtureRepository extends CassandraRepository<ScorerFixture, UUID> {
+public interface ScorerFixtureRepository extends CassandraRepository<ScorerFixture, String> {
 }

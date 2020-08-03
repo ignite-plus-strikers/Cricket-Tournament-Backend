@@ -59,41 +59,6 @@ DELETE FROM players WHERE playerid=8f197e09-0cfb-44ab-8bba-0748707321fb;
 
 (NOTE: Replace "8f197e09-0cfb-44ab-8bba-0748707321fb" with the particular player id)
 
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-# Commands for tables:
-
-## Create inactive_player table:
-
-CREATE TABLE inactive_player (
-playerid uuid, 
-first_name text, 
-last_name text, 
-player_initials text,
-player_dob date, 
-gender text, 
-category text,
-nationality text,
-player_role text,
-player_batting_style text,
-player_bowling_style text,
-player_status text,
-stateteamid uuid,
-nationalteamid uuid,
-PRIMARY KEY(playerid));
-
-
-## Insert into inactive player table:
-
-INSERT INTO inactive_player(playerid, first_name, last_name, player_initials, player_dob, gender, category, nationality, player_role, player_batting_style, player_bowling_style, player_status)
-VALUES(8f197e09-0cfb-44ab-8bba-0748707321fb, 'John', 'Smith', 'JS', '1988-04-24', 'Male', 'B1', 'South Africa', 'All rounder', 'Left-Handed', 'Spin', 'Playing');
-
-INSERT INTO inactive_player(playerid, first_name, last_name, player_initials, player_dob, gender, category, nationality, player_role, player_batting_style, player_bowling_style, player_status)
-VALUES(b3404683-b032-4791-beed-f0627128d02b, 'Virat', 'Kohli', 'VK', '1985-11-15', 'Male', 'B2', 'India', 'Batsman', 'Right-Handed', 'Fast Bowler', 'Playing');
-
-
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -128,28 +93,6 @@ UPDATE teams SET team_name = 'Indian strikers' WHERE team_id = 8f197e09-0cfb-44a
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-## Create inactive team table:
-
-CREATE TABLE inactive_team
-(teamid uuid,
-team_name text,
-team_state text,
-team_country text,   
-PRIMARY KEY (teamid));
-
-
-## Insert into team table:
-
-INSERT INTO inactive_team(teamid, team_name, team_country)
-VALUES(8f197e09-0cfb-44ab-8bba-0748707321fb, 'Team India', 'India');
-
-INSERT INTO inactive_team(teamid, team_name, team_country)
-VALUES(b3404683-b032-4791-beed-f0627128d02b, 'Team Sri Lanka', 'Sri Lanka');
-
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ## Create series table:
@@ -253,6 +196,7 @@ team_id = 3307b103-3c70-410a-ada9-c248dafa8157;
 CREATE TABLE team_player
 (team_id uuid,
 player_id uuid,
+team_name text,
 player_first_name text,
 player_last_name text,
 player_inititals text,
@@ -262,13 +206,13 @@ PRIMARY KEY(team_id, player_id));
 ## Insert queries:
 
 
-INSERT INTO team_player(team_id, player_id, player_first_name, player_last_name, Player_initials)
-VALUES(3307b103-3c70-410a-ada9-c248dafa8157, 0f254223-de61-4f7b-b765-fae44141cdb2, 'John', 'Smith', 'JS');
+INSERT INTO team_player(team_id, player_id, team_name, player_first_name, player_last_name, Player_initials)
+VALUES(3307b103-3c70-410a-ada9-c248dafa8157, 0f254223-de61-4f7b-b765-fae44141cdb2, 'Team India', 'John', 'Smith', 'JS');
 
 
 
-INSERT INTO team_player(team_id, player_id, player_first_name, player_last_name, Player_initials)
-VALUES(3307b103-3c70-410a-ada9-c248dafa8157, 07d7eecd-56c0-45c3-903f-f0bfe9bfc64e, 'Virat', 'Kohli', 'VK');
+INSERT INTO team_player(team_id, player_id, team_name, player_first_name, player_last_name, Player_initials)
+VALUES(3307b103-3c70-410a-ada9-c248dafa8157, 07d7eecd-56c0-45c3-903f-f0bfe9bfc64e, 'Karnataka Risers', 'Virat', 'Kohli', 'VK');
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -287,7 +231,7 @@ description text,
 live_coverage text,
 match_type text,
 series_id uuid,
-scorer_id uuid,
+scorer_id text,
 scorer_name text,
 series_name text,
 venue text);
@@ -297,10 +241,10 @@ venue text);
 
 
 INSERT INTO fixture(fixtureid,description,fixture_date, fixture_time, gmt_offset,home_team,team1,team2,live_coverage,match_type,scorer_id, scorer_name, series_id,series_name,venue)
-VALUES(uuid(),'2nd T20','2020-11-09', '12:00:00','+5:30','India','India','England','No','T20',19967d15-361a-4ecb-9612-e784772f0e86, 'John Smith', 6cb2b71b-21c4-49ae-a230-cdd7239e143e,'India-England Series','Wankhede Stadium, Mumbai');
+VALUES(uuid(),'2nd T20','2020-11-09', '12:00:00','+5:30','India','India','England','No','T20', '116362528129737730570' , 'John Smith',  412533b0-07a5-430b-adaa-6ef40680da28,'India-England Series','Wankhede Stadium, Mumbai');
 
 INSERT INTO fixture(fixtureid,description,fixture_date, fixture_time, gmt_offset,home_team,team1,team2,live_coverage,match_type,scorer_id, scorer_name, series_id,series_name,venue)
-VALUES(uuid(),'3rd T20','2020-08-09', '15:00:00','+5:30','India','India','Australia','No','T20',19967d15-361a-4ecb-9612-e784772f0e86, 'Karan Sharma', 6cb2b71b-21c4-49ae-a230-cdd7239e143e,'India-England Series','Wankhede Stadium, Mumbai');
+VALUES(uuid(),'3rd T20','2020-08-09', '15:00:00','+5:30','India','India','Australia','No','T20', '116362528129737730570' , 'Karan Sharma',  412533b0-07a5-430b-adaa-6ef40680da28,'India-England Series','Wankhede Stadium, Mumbai');
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -368,7 +312,7 @@ VALUES(uuid(), 'Travis','Smith', 'New York', 'USA', 386, 85);
 ## Create Scorer table:
 
 CREATE TABLE scorer
-(scorerid uuid,
+(scorerid text,
 first_name text,
 middle_name text,
 last_name text,
@@ -379,13 +323,8 @@ PRIMARY KEY(scorerid));
 ## Insert into table query:
 
 INSERT INTO scorer(scorerid, first_name, middle_name, last_name,nationality)
-VALUES(uuid(), 'Karan', 'Kumar', 'Sharma','India');
+VALUES('116362528129737730570', 'Karan', 'Kumar', 'Sharma','India');
 
-INSERT INTO scorer(scorerid, first_name, middle_name, last_name,nationality)
-VALUES(uuid(), 'Rahul', 'M', 'Verma', 'India');
-
-INSERT INTO scorer(scorerid, first_name, last_name, nationality)
-VALUES(uuid(), 'Travis','Smith', 'USA');
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -394,7 +333,7 @@ VALUES(uuid(), 'Travis','Smith', 'USA');
 ## Create Scorer By Fixture table:
 
 CREATE TABLE scorer_fixture
-(scorer_id uuid,
+(scorer_id text,
 fixture_id uuid
 PRIMARY KEY(scorer_id, fixture_id));
 
@@ -402,13 +341,10 @@ PRIMARY KEY(scorer_id, fixture_id));
 ## Insert into table query:
 
 INSERT INTO scorer_fixture(scorer_id, fixture_id)
-VALUES(bbb9f8f6-fbe0-4bc8-9e32-2987e26cba25, 7a6f20bf-8fc8-4bd4-ae0c-35269afc0a71);
+VALUES('116362528129737730570', 7a6f20bf-8fc8-4bd4-ae0c-35269afc0a71);
 
 INSERT INTO scorer_fixture(scorer_id, fixture_id)
-VALUES(bbb9f8f6-fbe0-4bc8-9e32-2987e26cba25, 441bc3bf-854a-45c1-b0c4-6f72f6c46624);
-
-INSERT INTO scorer_fixture(scorer_id, fixture_id)
-VALUES(c847d847-4158-4352-8e8f-d1949926acc6, 7a6f20bf-8fc8-4bd4-ae0c-35269afc0a71);
+VALUES('116362528129737730570', 441bc3bf-854a-45c1-b0c4-6f72f6c46624);
 
 
 
@@ -439,22 +375,21 @@ VALUES(uuid(), 'Rahul', 'M', 'Verma', 'Mumbai', 'India', 245, 90);
 INSERT INTO umpire(umpireid, first_name, last_name, city, nationality, matches_umpired, accuracy_percentage)
 VALUES(uuid(), 'Travis','Smith', 'New York', 'USA', 386, 85);
 
+
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#CREATE TABLE FOR COUNTERS
-
-CREATE TABLE counter(counter_id uuid PRIMARY KEY,players_counter int,fixtures_counter int,teams_counter int,series_counter int);
-
-#Insert Queries
-INSERT INTO counter(counter_id,players_counter,fixtures_counter,teams_counter,series_counter) VALUES(uuid(),30,12,4,4);
 
 
+# Autherisation tables:
+
+INSERT INTO userrolebyid(userid, user_role)
+VALUES('116362528129737730570', 'scorer');
 
 
-
-
-
+INSERT INTO userrolebyid(userid, user_role)
+VALUES('115686687916090210338', 'admin');
 
 
 

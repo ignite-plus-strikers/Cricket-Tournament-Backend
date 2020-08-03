@@ -34,21 +34,21 @@ public class ScorerFixtureController {
 
     //-----------------------------------------------Get ScorerFixture By ID ---------------------------------------------------
     @GetMapping(value = "/scorer-fixture/{id}")
-    public ScorerFixture getScorerFixtureById(@PathVariable("id") UUID id) {
+    public ScorerFixture getScorerFixtureById(@PathVariable("id") String id) {
 
         return scorerFixtureService.getScorerFixtureById(id);
     }
 
     //-----------------------------------------------Update ScorerFixture By ID ------------------------------------------------
     @PutMapping(value = "/scorer-fixture/{id}")
-    public ScorerFixture updateScorerFixtureById(@PathVariable("id") UUID id, @RequestBody ScorerFixture scorerFixture) {
+    public ScorerFixture updateScorerFixtureById(@PathVariable("id") String id, @RequestBody ScorerFixture scorerFixture) {
 
         return scorerFixtureService.updateScorerFixtureById(id, scorerFixture);
     }
 
     //-------------------------------------------------Delete ScorerFixture By ID ----------------------------------------------
     @DeleteMapping(value = "/scorer-fixture/{id}")
-    public String deleteScorerFixtureById(@PathVariable("id") UUID id) {
+    public String deleteScorerFixtureById(@PathVariable("id") String id) {
 
         scorerFixtureService.deleteScorerFixtureById(id);
         return "ScorerFixture with id " + id + " has been deleted!";
