@@ -9,8 +9,8 @@ import org.springframework.data.cassandra.core.mapping.Table;
 
 
 import javax.validation.constraints.NotNull;
-
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -42,9 +42,13 @@ public class Fixture {
     @Column("series_name")
     private String seriesName;
 
-    @Column("fixture_date_time")
+    @Column("fixture_date")
     @NotNull
-    private Date fixtureDateTime;
+    private LocalDate fixtureDate;
+
+    @Column("fixture_time")
+    @NotNull
+    private LocalTime fixtureTime;
 
     @Column("match_type")
     @NotNull
@@ -67,7 +71,7 @@ public class Fixture {
 
     @Column("scorer_name")
     @NotNull
-    private UUID scorerName;
+    private String scorerName;
 
     @Column("gmt_offset")
     @NotNull

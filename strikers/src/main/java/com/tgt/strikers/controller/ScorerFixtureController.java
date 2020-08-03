@@ -20,7 +20,6 @@ public class ScorerFixtureController {
     //-------------------------------------------------Create New ScorerFixture-------------------------------------------------
     @PostMapping("/scorer-fixture")
     public ScorerFixture createScorerFixture(@Valid @RequestBody ScorerFixture scorerFixture) {
-        scorerFixture.setScorerId(UUID.randomUUID());
 
         return scorerFixtureService.createScorerFixture(scorerFixture);
     }

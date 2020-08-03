@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
 
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
@@ -12,22 +13,25 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table
 public class Scorer {
 
     @PrimaryKey
     @Column("scorer_id")
-    private UUID scorer_id;
+    private UUID scorerId;
 
     @NotNull
-    private String firstname;
+    @Column("first_name")
+    private String firstName;
 
     @NotNull
-    private String middlename;
+    @Column("middle_name")
+    private String middleName;
 
     @NotNull
-    private String lastname;
+    @Column("last_name")
+    private String lastName;
 
     @NotNull
     private String nationality;
-
 }

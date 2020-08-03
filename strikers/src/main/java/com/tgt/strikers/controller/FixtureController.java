@@ -29,17 +29,17 @@ public class FixtureController {
     }
     //TO DELETE A FIXTURE
     @DeleteMapping("/fixture/{id}")
-    public String deleteFixtureById(@PathVariable("id") UUID fixture_id){
-        return fixtureService.deleteFixtureById(fixture_id);
+    public String deleteFixtureById(@PathVariable("id") UUID fixtureId){
+        return fixtureService.deleteFixtureById(fixtureId);
     }
     //TO FETCH A FIXTURE BY ID
     @GetMapping("/fixture/{id}")
-    public Fixture getFixtureById(@PathVariable("id") UUID fixture_id){
-        return fixtureService.getFixtureById(fixture_id);
+    public Fixture getFixtureById(@PathVariable("id") UUID fixtureId){
+        return fixtureService.getFixtureById(fixtureId);
     }
     //TO UPDATE BY ID
     @PutMapping("/fixture/{id}")
-    public Fixture updateFixtureById(@PathVariable ("id") UUID fixture_id, @RequestBody Fixture fixture){
-        return fixtureService.updateFixtureById(fixture_id,fixture);
+    public Fixture updateFixtureById(@PathVariable ("id") UUID fixtureId, @RequestBody Fixture fixture){
+        return fixtureService.updateFixtureById(fixtureId,fixture);
     }
 }

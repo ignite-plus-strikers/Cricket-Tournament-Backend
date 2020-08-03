@@ -20,7 +20,7 @@ public class ScorerController {
     //-------------------------------------------------Create New Scorer-------------------------------------------------
     @PostMapping("/scorer")
     public Scorer createScorer(@Valid @RequestBody Scorer scorer) {
-        scorer.setScorer_id(UUID.randomUUID());
+        scorer.setScorerId(UUID.randomUUID());
         return scorerService.createScorer(scorer);
     }
 

@@ -44,7 +44,7 @@ public class ScorerService {
         Optional<Scorer> optionalScorer = scorerRepo.findById(id);
         if (!optionalScorer.isPresent())
             throw new ScorerNotFoundException("Scorer Record with id " + id + " is not available");
-        scorer.setScorer_id(id);
+        scorer.setScorerId(id);
         return scorerRepo.save(scorer);
     }
 
