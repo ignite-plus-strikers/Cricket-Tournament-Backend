@@ -449,6 +449,24 @@ CREATE TABLE counter(counter_id uuid PRIMARY KEY,players_counter int,fixtures_co
 #Insert Queries
 INSERT INTO counter(counter_id,players_counter,fixtures_counter,teams_counter,series_counter) VALUES(uuid(),30,12,4,4);
 
+---------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+#USER DETAILS
+
+CREATE TABLE userdetail(userId text PRIMARY KEY,user_email text,user_name text);
+
+#USER ROLE BY ID
+
+CREATE TABLE userrolebyid(userId text PRIMARY KEY,user_role text);
+
+#INSERT QUERIES
+INSERT INTO userrolebyid(userid,user_role) VALUES('115686687916090210338','admin');  
+INSERT INTO userrolebyid(userid,user_role) VALUES('116362528129737730570','scorer');  
+
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
