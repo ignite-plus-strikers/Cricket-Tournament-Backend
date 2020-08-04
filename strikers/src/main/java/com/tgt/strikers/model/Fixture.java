@@ -67,7 +67,7 @@ public class Fixture {
 
     @Column("scorer_id")
     @NotNull
-    private UUID scorerId;
+    private String scorerId;
 
     @Column("scorer_name")
     @NotNull

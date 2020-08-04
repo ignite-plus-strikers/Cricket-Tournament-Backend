@@ -30,7 +30,7 @@ public class ScorerService {
     }
 
     //-----------------------------------------------Get Scorer By ID ---------------------------------------------------
-    public Scorer getScorerById(UUID id) {
+    public Scorer getScorerById(String id) {
 
         Optional<Scorer> optionalScorer = scorerRepo.findById(id);
         if (!optionalScorer.isPresent())
@@ -39,7 +39,7 @@ public class ScorerService {
     }
 
     //-----------------------------------------------Update Scorer By ID ------------------------------------------------
-    public Scorer updateScorerById(UUID id, Scorer scorer) {
+    public Scorer updateScorerById(String id, Scorer scorer) {
 
         Optional<Scorer> optionalScorer = scorerRepo.findById(id);
         if (!optionalScorer.isPresent())
@@ -49,7 +49,7 @@ public class ScorerService {
     }
 
     //-------------------------------------------------Delete Scorer By ID ----------------------------------------------
-    public void deleteScorerById(UUID id) {
+    public void deleteScorerById(String id) {
 
         Optional<Scorer> optionalScorer = scorerRepo.findById(id);
         if (!optionalScorer.isPresent())

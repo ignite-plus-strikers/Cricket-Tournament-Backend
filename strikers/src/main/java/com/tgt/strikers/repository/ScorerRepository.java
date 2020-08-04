@@ -5,5 +5,5 @@ import org.springframework.data.cassandra.repository.CassandraRepository;
 
 import java.util.UUID;
 
-public interface ScorerRepository extends CassandraRepository<Scorer, UUID> {
+public interface ScorerRepository extends CassandraRepository<Scorer, String> {
 }

@@ -26,6 +26,9 @@ public class TeamPlayer {
     @PrimaryKeyColumn(name = "player_id", ordinal = 1, type = PrimaryKeyType.CLUSTERED)
     private UUID playerId;
 
+    @Column("team_name")
+    private String teamName;
+
     @Column("player_first_name")
     private String playerFirstName;
 

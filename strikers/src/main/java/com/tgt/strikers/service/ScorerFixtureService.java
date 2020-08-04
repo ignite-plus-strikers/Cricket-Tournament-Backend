@@ -30,7 +30,7 @@ public class ScorerFixtureService {
     }
 
     //-----------------------------------------------Get ScorerFixture By ID ---------------------------------------------------
-    public ScorerFixture getScorerFixtureById(UUID id) {
+    public ScorerFixture getScorerFixtureById(String id) {
 
         Optional<ScorerFixture> optionalScorerFixture = scorerFixtureRepo.findById(id);
         if (!optionalScorerFixture.isPresent())
@@ -39,7 +39,7 @@ public class ScorerFixtureService {
     }
 
     //-----------------------------------------------Update ScorerFixture By ID ------------------------------------------------
-    public ScorerFixture updateScorerFixtureById(UUID id, ScorerFixture scorerFixture) {
+    public ScorerFixture updateScorerFixtureById(String id, ScorerFixture scorerFixture) {
 
         Optional<ScorerFixture> optionalScorerFixture = scorerFixtureRepo.findById(id);
         if (!optionalScorerFixture.isPresent())
@@ -49,7 +49,7 @@ public class ScorerFixtureService {
     }
 
     //-------------------------------------------------Delete ScorerFixture By ID ----------------------------------------------
-    public void deleteScorerFixtureById(UUID id) {
+    public void deleteScorerFixtureById(String id) {
 
         Optional<ScorerFixture> optionalScorerFixture = scorerFixtureRepo.findById(id);
         if (!optionalScorerFixture.isPresent())

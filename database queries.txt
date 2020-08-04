@@ -460,6 +460,7 @@ CREATE TABLE userdetail(userId text PRIMARY KEY,user_email text,user_name text);
 CREATE TABLE userrolebyid(userId text PRIMARY KEY,user_role text);
 
 #INSERT QUERIES
+
 INSERT INTO userrolebyid(userid,user_role) VALUES('115686687916090210338','admin');  
 INSERT INTO userrolebyid(userid,user_role) VALUES('116362528129737730570','scorer');  
 

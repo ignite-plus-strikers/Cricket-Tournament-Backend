@@ -16,7 +16,7 @@ import java.util.UUID;
 public class ScorerFixture {
 
     @PrimaryKeyColumn(name = "scorer_id" , type = PrimaryKeyType.PARTITIONED, ordinal = 0)
-    private UUID scorerId;
+    private String scorerId;
 
     @PrimaryKeyColumn(name="fixture_id" , type = PrimaryKeyType.CLUSTERED, ordinal = 1)
     private UUID fixtureId;
