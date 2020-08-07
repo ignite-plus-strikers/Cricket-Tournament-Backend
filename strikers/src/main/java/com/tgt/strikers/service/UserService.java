@@ -28,7 +28,7 @@ public class UserService {
     public String fetchRole(String userId){
         Optional<UserRoleById> optionalUserRoleById = userRoleByIdRepository.findById(userId);
         if(!optionalUserRoleById.isPresent())
-            return "Invalid!";
+            return "No role";
         UserRoleById temp = optionalUserRoleById.get();
         System.out.println(temp.getUserRole());
         return temp.getUserRole();
