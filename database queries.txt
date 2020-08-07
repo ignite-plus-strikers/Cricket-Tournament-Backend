@@ -436,14 +436,93 @@ INSERT INTO pre_match(matchid, team1, team2, series_name, venue,  match_date, ma
 VALUES(e84a7f9a-818f-4fb7-b3c9-b9b5ee51cae5, 'India', 'Australia', 'India-Australia Series', 'Wankhde Stadium, Mumbai', '2020-08-09', '15:00:00', 'Australia', 'Bowling', ['Karan Verma', 'Kabir Sharma', 'Bill Vicars'], 'Carl Hamsberg',
 ['Virat Kohli', 'Vishal Sharma', 'Tahir Khan', 'Abdul Hasan', 'Harsh Pathak', 'Akash Verma', 'Karthik Indran', 'Lakshman', 'Sarthak Kumar', 'Piyush Sharma', 'Farhan Khan'],
 {'Captain': 'Vishal Sharma', 'Wicket Keeper': 'Abdul Hasan'},
-['John Smith', 'Bob Ross', 'Robert Mckinsey', 'Jasper Green', 'Wallace Warland', 'Akash Verma', 'Karthik Indran', 'Lakshman', 'Sarthak Kumar', 'Piyush Sharma', 'Farhan Khan'],
-{'Captain': 'Akash Verma', 'Wicket Keeper': 'Piyush Sharma'});
+['John Smith', 'Bob Ross', 'Robert Mckinsey', 'Jasper Green', 'Wallace Warland', 'Stevan Jovetic', 'Chick Mathews', 'Robert Gellar', 'Ben Evans', 'Peter Kevins', 'Kevin Buffay'],
+{'Captain': 'John Smith', 'Wicket Keeper': 'Jasper Green'});
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# Batsman table:
+
+CREATE TABLE batsman_by_match
+(match_id uuid,
+batsman_name text,
+team_name text,
+runs int,
+balls int,
+strike_rate float,
+fours int,
+sixes int,
+out_by text,
+PRIMARY KEY(match_id, batsman_name));
+
+
+INSERT INTO batsman_by_match(match_id, team_name, batsman_name, runs, balls, strike_rate, fours, sixes, out_by)
+VALUES(e84a7f9a-818f-4fb7-b3c9-b9b5ee51cae5, 'India', 'Virat Kohli', 130, 50, 120.78, 3, 2, 'Wallace Warland');
+
+INSERT INTO batsman_by_match(match_id, team_name, batsman_name, runs, balls, strike_rate, fours, sixes, out_by)
+VALUES(e84a7f9a-818f-4fb7-b3c9-b9b5ee51cae5, 'India', 'Piyush Sharma', 98, 35, 116.09, 4, 2, 'Chick Mathews');
+
+INSERT INTO batsman_by_match(match_id, team_name, batsman_name, runs, balls, strike_rate, fours, sixes, out_by)
+VALUES(e84a7f9a-818f-4fb7-b3c9-b9b5ee51cae5, 'Australia', 'Jasper Green', 154, 55, 123.78, 5, 1, 'Karthik Indran');
+
+INSERT INTO batsman_by_match(match_id, team_name, batsman_name, runs, balls, strike_rate, fours, sixes, out_by)
+VALUES(e84a7f9a-818f-4fb7-b3c9-b9b5ee51cae5, 'Australia', 'John Smith', 77, 22, 112.12, 4, 0, 'Akash Verma');
 
 
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# Bowler table:
+
+CREATE TABLE bowler_by_match
+(match_id uuid,
+bowler_name text,
+team_name text,
+overs int,
+maiden_overs int,
+runs int,
+wickets int,
+PRIMARY KEY(match_id, bowler_name));
 
 
 
+INSERT INTO bowler_by_match(match_id, team_name, bowler_name, overs, maiden_overs, runs, wickets)
+VALUES(e84a7f9a-818f-4fb7-b3c9-b9b5ee51cae5, 'India', 'Virat Kohli', 3, 2, 119, 4);
+
+INSERT INTO bowler_by_match(match_id, team_name, bowler_name, overs, maiden_overs, runs, wickets)
+VALUES(e84a7f9a-818f-4fb7-b3c9-b9b5ee51cae5, 'India', 'Piyush Sharma', 2, 1, 97, 2);
+
+INSERT INTO bowler_by_match(match_id, team_name, bowler_name, overs, maiden_overs, runs, wickets)
+VALUES(e84a7f9a-818f-4fb7-b3c9-b9b5ee51cae5, 'Australia', 'Jasper Green', 3, 0, 120, 3);
+
+INSERT INTO bowler_by_match(match_id, team_name, bowler_name, overs, maiden_overs, runs, wickets)
+VALUES(e84a7f9a-818f-4fb7-b3c9-b9b5ee51cae5, 'Australia', 'John Smith', 3, 2, 90, 2);
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# Match Result table:
+
+CREATE TABLE match_result
+(matchid uuid,
+team1 text,
+team2 text,
+team1_result map<text, int>,
+team2_result map<text, int>,
+match_result text,
+winning_score map<text, int>,
+PRIMARY KEY(matchid));
+
+
+
+INSERT INTO bowler_by_match(match_id, team1, team2, winning_team, team1_result, team2_result, match_result)
+VALUES(e84a7f9a-818f-4fb7-b3c9-b9b5ee51cae5, 'India', 'Australia', 'India', {'runs': 230, 'wickets': 5, 'overs': 6}, {'runs': 227, 'wickets': 6, 'overs': 6}, {'runs': 60, 'wickets': 2});
 
 
 
