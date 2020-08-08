@@ -30,7 +30,7 @@ public class SeriesTeamsService {
     }
 
 
-    //------------------------Delete Particular Player From Player_Team Combination By ID ------------------------------
+    //------------------------Delete Particular Team From Series Team Combination By ID ------------------------------
     public void deleteTeamsBySeriesIdTeamId(UUID seriesId, UUID teamId) {
 
 
