@@ -58,6 +58,25 @@ public class BowlerByMatchService {
         return bowlerByMatchRepo.save(temp);
     }
 
+    //--------------------------------------------Get Particular Bowler from Match by ID-----------------------------------------------------------------------
+
+    public BowlerByMatch getBowlerByMatchIdByName(UUID matchId, String bowlerName){
+
+        List<BowlerByMatch> optionalBowlerByMatch = bowlerByMatchRepo.findByMatchId(matchId);
+        BowlerByMatch temp = null;
+        if(optionalBowlerByMatch.isEmpty())
+            throw new BowlerByMatchNotFoundException("Bowler By Match Record with Match Id " + matchId + " is not available");
+        for (BowlerByMatch tempBowlerByMatch : optionalBowlerByMatch) {
+            if(tempBowlerByMatch.getBowlerName().equals(bowlerName)){
+                temp = tempBowlerByMatch;
+            }
+        }
+        if(temp == null){
+            throw new BowlerByMatchNotFoundException("Bowler By Match Record with Bowler name " + bowlerName + " is not available");
+        }
+        return temp;
+    }
+
 
     //-----------------------------------------------Update BowlerByMatch By ID ------------------------------------------------
 /*

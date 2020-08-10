@@ -48,6 +48,13 @@ public class BowlerByMatchController {
 
     }
 
+    //---------------------------Get a particular Bowler from Bowler By Match By Id--------------------------------------------------
+    @GetMapping(value = "/bowler-by-match/{matchid}/{bowlername}")
+    public BowlerByMatch getBowlerByMatchIdByName(@PathVariable("matchid") UUID matchid, @PathVariable("bowlername") String bowlername) {
+        return bowlerByMatchService.getBowlerByMatchIdByName(matchid, bowlername);
+
+    }
+
 
     //-----------------------------------------------Update BowlerByMatch By ID ------------------------------------------------
 /*    @PutMapping(value = "/bowler-by-match/{id}")
