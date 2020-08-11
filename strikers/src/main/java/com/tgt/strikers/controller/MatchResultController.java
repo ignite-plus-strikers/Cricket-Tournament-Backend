@@ -18,7 +18,7 @@ public class MatchResultController {
     private MatchResultService matchResultService;
 
     //-------------------------------------------------Create New MatchResult-------------------------------------------------
-    @PostMapping("/matchResult")
+    @PostMapping("/match-result")
     public MatchResult createMatchResult(@Valid @RequestBody MatchResult matchResult) {
 
         return matchResultService.createMatchResult(matchResult);

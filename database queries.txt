@@ -427,8 +427,8 @@ INSERT INTO pre_match(matchid, team1, team2, series_name, venue, match_date, mat
 VALUES(18ac3505-a20f-48ca-a822-ba66f62ac46e, 'India', 'England', 'India-England Series', 'Wankhde Stadium, Mumbai', '2020-11-09', '12:00:00', 'India', 'Batting', ['Karan Verma', 'Kabir Sharma', 'Bill Vicars'], 'Carl Hamsberg',
 ['Virat Kohli', 'Vishal Sharma', 'Tahir Khan', 'Abdul Hasan', 'Harsh Pathak', 'Akash Verma', 'Karthik Indran', 'Lakshman', 'Sarthak Kumar', 'Piyush Sharma', 'Farhan Khan'],
 {'Captain': 'Virat Kohli', 'Wicket Keeper': 'Harsh Pathak'},
-['John Smith', 'Bob Ross', 'Robert Mckinsey', 'Jasper Green', 'Wallace Warland', 'Akash Verma', 'Karthik Indran', 'Lakshman', 'Sarthak Kumar', 'Piyush Sharma', 'Farhan Khan'],
-{'Captain': 'John Smith', 'Wicket Keeper': 'Akash Verma'});
+['John Smith', 'Bob Ross', 'Robert Mckinsey', 'Jasper Green', 'Wallace Warland', 'Stevan Jovetic', 'Chick Mathews', 'Robert Gellar', 'Ben Evans', 'Peter Kevins', 'Kevin Buffay'],
+{'Captain': 'John Smith', 'Wicket Keeper': 'Jasper Green'});
 
 
 
@@ -521,10 +521,11 @@ PRIMARY KEY(matchid));
 
 
 
-INSERT INTO bowler_by_match(match_id, team1, team2, winning_team, team1_result, team2_result, match_result)
-VALUES(e84a7f9a-818f-4fb7-b3c9-b9b5ee51cae5, 'India', 'Australia', 'India', {'runs': 230, 'wickets': 5, 'overs': 6}, {'runs': 227, 'wickets': 6, 'overs': 6}, {'runs': 60, 'wickets': 2});
+INSERT INTO match_result(matchid, team1, team2, match_result, team1_result, team2_result, winning_score)
+VALUES(e84a7f9a-818f-4fb7-b3c9-b9b5ee51cae5, 'India', 'Australia', 'India', {'runs': 250, 'wickets': 5}, {'runs': 190, 'wickets': 3}, {'runs': 60});
 
-
+INSERT INTO match_result(matchid, team1, team2, match_result, team1_result, team2_result, winning_score)
+VALUES(bdeb5bcd-eb00-4bcb-b8ab-35ac49332c63, 'England', 'West Indies', 'West Indies', {'runs': 200, 'wickets': 7}, {'runs': 250, 'wickets': 4}, {'wickets': 6});
 
 
 

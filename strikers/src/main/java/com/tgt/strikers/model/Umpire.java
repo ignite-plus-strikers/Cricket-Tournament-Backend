@@ -45,5 +45,5 @@ public class Umpire {
 
     @NotNull
     @Column("accuracy_percentage")
-    private Float accuracyPercentage;
+    private float accuracyPercentage;
 }

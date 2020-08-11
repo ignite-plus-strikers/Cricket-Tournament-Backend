@@ -28,7 +28,7 @@ public class RefereeController {
 
     //-------------------------------------------------Get All Referee---------------------------------------------------
     @GetMapping("/referees")
-    public List<Referee> getAllUmpire() {
+    public List<Referee> getAllReferee() {
 
         return refereeService.getAllReferee();
     }

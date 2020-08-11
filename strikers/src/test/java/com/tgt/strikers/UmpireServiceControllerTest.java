@@ -119,27 +119,25 @@ public class UmpireServiceControllerTest {
 
     }
     
-    /*@Test
-    public void updatePlayerById() throws Exception {
-        Player umpire = new Player();
-        umpire.setFirstName("AB de");
-        umpire.setLastName("Villiers");
-        umpire.setNationality("South Africa");
-        umpire.setGender("M");
-        umpire.setCategory("B3");
-        umpire.setPInitials("ABD");
-        umpire.setPlayerRole("All Rounder");
-        umpire.setPlayerBattingStyle("Left-handed batsman");
-        umpire.setPlayerBowlingStyle("Right handed bowler");
-        umpire.setPlayerStatus("playing");
+@Test
+    public void updateUmpireById() throws Exception {
+        Umpire umpire = new Umpire();
+    umpire.setFirstName("James");
+    umpire.setMiddleName("JB");
+    umpire.setLastName("Jordan");
+    umpire.setCity("London");
+    umpire.setNationality("UK");
+    umpire.setAccuracyPercentage(75);
+    umpire.setMatchesUmpired(102);
 
-        given(umpireController.updatePlayerById(umpire.getPlayerId(),umpire)).willReturn(umpire);
+        given(umpireController.updateUmpireById(umpire.getUmpireId(),umpire)).willReturn(umpire);
 
         mvc.perform(put("/cricket-tournament/umpire/f241475d-0fa4-4c17-aa82-9a92d3ebb1ce")
                 .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk());
         //.andExpect(jsonPath("city", is(arrival.getCity())));
-    }*/
+    }
+
 
 
 }

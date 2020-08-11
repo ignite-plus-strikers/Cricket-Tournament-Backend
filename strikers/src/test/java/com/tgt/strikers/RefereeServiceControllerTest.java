@@ -119,7 +119,7 @@ public class RefereeServiceControllerTest {
 
     }
     
-    /*@Test
+@Test
     public void updatePlayerById() throws Exception {
         Player referee = new Player();
         referee.setFirstName("AB de");
@@ -139,7 +139,8 @@ public class RefereeServiceControllerTest {
                 .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk());
         //.andExpect(jsonPath("city", is(arrival.getCity())));
-    }*/
+    }
+
 
 
 }
