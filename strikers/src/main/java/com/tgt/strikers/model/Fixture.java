@@ -46,9 +46,13 @@ public class Fixture {
     @NotNull
     private LocalDate fixtureDate;
 
-    @Column("fixture_time")
+    @Column("fixture_start_time")
     @NotNull
-    private LocalTime fixtureTime;
+    private LocalTime fixtureStartTime;
+
+    @Column("fixture_end_time")
+    @NotNull
+    private LocalTime fixtureEndTime;
 
     @Column("match_type")
     @NotNull
