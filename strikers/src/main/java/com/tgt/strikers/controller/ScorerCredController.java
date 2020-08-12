@@ -15,12 +15,12 @@ public class ScorerCredController {
     @Autowired
     private ScorerCredService scorerCredService;
 
-    @PostMapping("/scorerCred")
+    @PostMapping("/scorer-cred")
     public String createScorerCred(@RequestBody ScorerCred scorer) {
         return scorerCredService.createScorerCred(scorer);
     }
 
-    @GetMapping("/scorerCreds")
+    @GetMapping("/scorer-creds")
     public List<ScorerCred> getAllScorerCred() {
         return scorerCredService.getAllScorerCred();
     }

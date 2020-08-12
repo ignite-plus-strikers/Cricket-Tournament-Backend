@@ -30,6 +30,14 @@ public class Fixture {
     @NotNull
     private String team2;
 
+    @Column("team1_id")
+    @NotNull
+    private UUID team1Id;
+
+    @Column("team2_id")
+    @NotNull
+    private UUID team2Id;
+
     @Column("home_team")
     @NotNull
     private String homeTeam;

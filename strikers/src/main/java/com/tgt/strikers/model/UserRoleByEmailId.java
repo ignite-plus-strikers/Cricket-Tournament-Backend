@@ -10,13 +10,13 @@ import org.springframework.data.cassandra.core.mapping.Table;
 import javax.validation.constraints.NotNull;
 
 @Data
-@Table
+@Table("user_role")
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserRoleById {
+public class UserRoleByEmailId {
 
     @PrimaryKey
-    private String userId;
+    private String userEmailId;
 
     @NotNull
     @Column("user_role")

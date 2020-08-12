@@ -15,12 +15,12 @@ public class AdminCredController {
     @Autowired
     private AdminCredService adminCredService;
 
-    @PostMapping("/adminCred")
+    @PostMapping("/admin-cred")
     public String createAdminCred(@RequestBody AdminCred admin) {
         return adminCredService.createAdminCred(admin);
     }
 
-    @GetMapping("/adminCreds")
+    @GetMapping("/admin-creds")
     public List<AdminCred> getAllAdminCred() {
         return adminCredService.getAllAdminCred();
     }
