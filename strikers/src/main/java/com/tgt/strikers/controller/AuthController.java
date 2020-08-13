@@ -5,10 +5,7 @@ import com.tgt.strikers.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,6 +13,7 @@ import static com.tgt.strikers.constants.CricketApplicationConstants.AUTHORIZATI
 
 @RestController
 @RequestMapping("/cricket-tournament")
+@CrossOrigin("*")
 public class AuthController {
     @Autowired
     AuthService authService;
@@ -25,8 +23,7 @@ public class AuthController {
             List<String> header = headers.getValuesAsList(AUTHORIZATION_HEADER);
             return authService.authService(header.get(0).split(" ")[1]);
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(e);
+           System.out.println("Exception occured");
         }
         return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
     }
