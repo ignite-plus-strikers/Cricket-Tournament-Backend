@@ -19,7 +19,7 @@ public class SiteAdminCredService {
 
     public String createUserCred(SiteAdminCred user) {
         siteAdminCredRepo.save(user);
-        return "User " + user.getSiteAdminFirstname() + " has been added";
+        return "Site Admin " + user.getSiteAdminFirstname() + " has been added";
     }
 
     public List<SiteAdminCred> getAllUserCred(){

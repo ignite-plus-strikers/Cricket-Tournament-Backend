@@ -58,6 +58,12 @@ public class AuthService {
                     response.setRole(CABI_APPL_SCORER);
                     return new ResponseEntity<>(response, HttpStatus.OK);
                 }
+                else if (role.get().getUserRole().equalsIgnoreCase(CABI_SITE_ADMIN)){
+                    Response response = new Response();
+                    response.setName(name);
+                    response.setRole(CABI_SITE_ADMIN);
+                    return new ResponseEntity<>(response, HttpStatus.OK);
+                }
             }
             else {
                 Error error = new Error("INVALID_TOKEN");

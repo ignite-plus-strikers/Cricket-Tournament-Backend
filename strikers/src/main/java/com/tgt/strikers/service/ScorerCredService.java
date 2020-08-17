@@ -19,7 +19,7 @@ public class ScorerCredService {
 
     public String createScorerCred(ScorerCred scorer) {
         scorerCredRepo.save(scorer);
-        return "Admin " + scorer.getScorerFirstname() + " has been added";
+        return "Scorer " + scorer.getScorerFirstname() + " has been added";
     }
 
     public List<ScorerCred> getAllScorerCred(){
