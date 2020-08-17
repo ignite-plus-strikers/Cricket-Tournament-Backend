@@ -11,24 +11,20 @@ import org.springframework.data.cassandra.core.mapping.Table;
 
 import javax.validation.constraints.Email;
 
-@Table("user_credentials")
+@Table("site_admin_credentials")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserCred {
+public class SiteAdminCred {
 
     @PrimaryKey
-    private String userEmail;
+    private String siteAdminEmail;
 
-    @Column("user_firstname")
-    private String userFirstname;
+    @Column("site_admin_firstname")
+    private String siteAdminFirstname;
 
-    @Column("user_lastname")
-    private String userLastname;
-
-    //@Column("admin_password")
-    //private String adminPassword;
-
+    @Column("site_admin_lastname")
+    private String siteAdminLastname;
 
 }

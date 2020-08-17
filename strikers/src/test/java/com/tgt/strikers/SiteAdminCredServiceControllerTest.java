@@ -1,8 +1,8 @@
 package com.tgt.strikers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tgt.strikers.controller.UserCredController;
-import com.tgt.strikers.model.UserCred;
+import com.tgt.strikers.controller.SiteAdminCredController;
+import com.tgt.strikers.model.SiteAdminCred;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,27 +21,27 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(UserCredController.class)
-public class UserCredServiceControllerTest {
+@WebMvcTest(SiteAdminCredController.class)
+public class SiteAdminCredServiceControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @MockBean
-    private UserCredController userCredController;
+    private SiteAdminCredController siteAdminCredController;
 
     @Test
     public void getUserCreds() throws Exception {
-        UserCred user = new UserCred();
-        user.setUserEmail("caroltestingmarvel@gmail.com");
-        user.setUserFirstname("Carol");
-        user.setUserLastname("Marvel");
+        SiteAdminCred siteadmin = new SiteAdminCred();
+        siteadmin.setSiteAdminEmail("sitejusttotesting098@gmail.com");
+        siteadmin.setSiteAdminFirstname("Percy");
+        siteadmin.setSiteAdminLastname("Jackson");
 
-        List<UserCred> allUserCreds = singletonList(user);
+        List<SiteAdminCred> allSiteAdminCreds = singletonList(siteadmin);
 
-        given(userCredController.getAllUserCred()).willReturn(allUserCreds);
+        given(siteAdminCredController.getAllUserCred()).willReturn(allSiteAdminCreds);
 
-        mvc.perform(get("/cricket-tournament/user-creds")
+        mvc.perform(get("/cricket-tournament/siteadmin-creds")
                 .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk());
         //.andExpect(jsonPath("$", hasSize(1)))
@@ -50,16 +50,15 @@ public class UserCredServiceControllerTest {
 
     @Test
     public void createUserCred() throws Exception {
-        UserCred user = new UserCred();
-        user.setUserEmail("caroltestingmarvel@gmail.com");
-        user.setUserFirstname("Carol");
-        user.setUserLastname("Marvel");
+        SiteAdminCred siteadmin = new SiteAdminCred();
+        siteadmin.setSiteAdminEmail("sitejusttotesting098@gmail.com");
+        siteadmin.setSiteAdminFirstname("Percy");
+        siteadmin.setSiteAdminLastname("Jackson");
 
+        given(siteAdminCredController.createUserCred(siteadmin)).willReturn(String.valueOf(siteadmin));
 
-        given(userCredController.createUserCred(user)).willReturn(String.valueOf(user));
-
-        mvc.perform(post("/cricket-tournament/user-cred")
-                .content(asJsonString(user))
+        mvc.perform(post("/cricket-tournament/siteadmin-cred")
+                .content(asJsonString(siteadmin))
                 .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
@@ -73,10 +72,10 @@ public class UserCredServiceControllerTest {
     }
     /*@Test
     public void getUserCredById() throws Exception {
-        UserCred user = new UserCred();
-        user.setUserEmail("caroltestingmarvel@gmail.com");
-        user.setUserFirstname("Carol");
-        user.setUserLastname("Marvel");
+        SiteAdminCred siteadmin = new SiteAdminCred();
+        siteadmin.setSiteAdminEmail("sitejusttotesting098@gmail.com");
+        siteadmin.setSiteAdminFirstname("Percy");
+        siteadmin.setSiteAdminLastname("Jackson");
 
         given(fixtureController.getUserCredById(fixture.getUserCredId())).willReturn(fixture);
 
@@ -88,10 +87,10 @@ public class UserCredServiceControllerTest {
 
     @Test
     public void deleteUserCredById() throws Exception {
-        UserCred user = new UserCred();
-        user.setUserEmail("caroltestingmarvel@gmail.com");
-        user.setUserFirstname("Carol");
-        user.setUserLastname("Marvel");
+        SiteAdminCred siteadmin = new SiteAdminCred();
+        siteadmin.setSiteAdminEmail("sitejusttotesting098@gmail.com");
+        siteadmin.setSiteAdminFirstname("Percy");
+        siteadmin.setSiteAdminLastname("Jackson");
         given(fixtureController.deleteUserCredById(fixture.getUserCredId())).willReturn("UserCred deleted");
 
         mvc.perform(delete("/cricket-tournament/fixture/ 531a0f6c-1da1-42a9-91a9-682190edde92")
@@ -102,10 +101,10 @@ public class UserCredServiceControllerTest {
 
     /*@Test
     public void updateUserCredById() throws Exception {
-        UUserCred user = new UserCred();
-        user.setUserEmail("caroltestingmarvel@gmail.com");
-        user.setUserFirstname("Carol");
-        user.setUserLastname("Marvel");
+       SiteAdminCred siteadmin = new SiteAdminCred();
+        siteadmin.setSiteAdminEmail("sitejusttotesting098@gmail.com");
+        siteadmin.setSiteAdminFirstname("Percy");
+        siteadmin.setSiteAdminLastname("Jackson");
 
         given(fixtureController.updateUserCredById(fixture.getUserCredId(),fixture)).willReturn(fixture);
 

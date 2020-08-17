@@ -41,11 +41,9 @@ public class PlayerServiceControllerTest {
         player.setNationality("South Africa");
         player.setGender("M");
         player.setCategory("B3");
-//<<<<<<< HEAD
-//        player.setPInitials("ABD");
-//=======
+
         player.setPlayerInitials("ABD");
-//>>>>>>> 6f4dd1027b5a45fb698cf29245bf39907d87e601
+
         player.setPlayerRole("All Rounder");
         player.setPlayerBattingStyle("Right-handed batsman");
         player.setPlayerBowlingStyle("Right handed bowler");
@@ -70,11 +68,9 @@ public class PlayerServiceControllerTest {
         player.setNationality("South Africa");
         player.setGender("M");
         player.setCategory("B3");
-//<<<<<<< HEAD
-//        player.setPInitials("ABD");
-//=======
+
         player.setPlayerInitials("ABD");
-//>>>>>>> 6f4dd1027b5a45fb698cf29245bf39907d87e601
+
         player.setPlayerRole("All Rounder");
         player.setPlayerBattingStyle("Right-handed batsman");
         player.setPlayerBowlingStyle("Right handed bowler");
@@ -103,11 +99,9 @@ public class PlayerServiceControllerTest {
         player.setNationality("South Africa");
         player.setGender("M");
         player.setCategory("B3");
-//<<<<<<< HEAD
-//        player.setPInitials("ABD");
-//=======
+
         player.setPlayerInitials("ABD");
-//>>>>>>> 6f4dd1027b5a45fb698cf29245bf39907d87e601
+
         player.setPlayerRole("All Rounder");
         player.setPlayerBattingStyle("Right-handed batsman");
         player.setPlayerBowlingStyle("Right handed bowler");
@@ -129,11 +123,9 @@ public class PlayerServiceControllerTest {
         player.setNationality("South Africa");
         player.setGender("M");
         player.setCategory("B3");
-//<<<<<<< HEAD
-//        player.setPInitials("ABD");
-//=======
+
         player.setPlayerInitials("ABD");
-//>>>>>>> 6f4dd1027b5a45fb698cf29245bf39907d87e601
+
         player.setPlayerRole("All Rounder");
         player.setPlayerBattingStyle("Right-handed batsman");
         player.setPlayerBowlingStyle("Right handed bowler");
