@@ -119,7 +119,7 @@ public class UmpireServiceControllerTest {
 
     }
     
-@Test
+    /*@Test
     public void updateUmpireById() throws Exception {
         Umpire umpire = new Umpire();
     umpire.setFirstName("James");
@@ -137,7 +137,7 @@ public class UmpireServiceControllerTest {
                 .andExpect(status().isOk());
         //.andExpect(jsonPath("city", is(arrival.getCity())));
     }
-
+*/
 
 
 }

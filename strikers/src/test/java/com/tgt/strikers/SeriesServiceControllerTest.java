@@ -11,6 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -40,6 +41,8 @@ public class SeriesServiceControllerTest {
         series.setSeriesName("Champion County Match 2018");
         series.setHostCountry(Arrays.asList("WI","UNKWN"));
         series.setSeriesShortName("CCM 2018");
+        series.setSeriesStartDate(LocalDate.parse("2020-11-10"));
+        series.setSeriesEndDate(LocalDate.parse("2020-11-30"));
         series.setPointsTableActive(false);
         series.setSeriesPoints(0);
         series.setSeriesType("First Class");
@@ -57,11 +60,13 @@ public class SeriesServiceControllerTest {
     }
 
     @Test
-    public void createTeam() throws Exception {
+    public void createSeries() throws Exception {
         Series series = new Series();
         series.setSeriesName("Champion County Match 2018");
         series.setHostCountry(Arrays.asList("WI","UNKWN"));
         series.setSeriesShortName("CCM 2018");
+        series.setSeriesStartDate(LocalDate.parse("2020-11-10"));
+        series.setSeriesEndDate(LocalDate.parse("2020-11-30"));
         series.setPointsTableActive(false);
         series.setSeriesPoints(0);
         series.setSeriesType("First Class");
@@ -89,6 +94,8 @@ public class SeriesServiceControllerTest {
         series.setSeriesName("Champion County Match 2018");
         series.setHostCountry(Arrays.asList("WI","UNKWN"));
         series.setSeriesShortName("CCM 2018");
+        series.setSeriesStartDate(LocalDate.parse("2020-11-10"));
+        series.setSeriesEndDate(LocalDate.parse("2020-11-30"));
         series.setPointsTableActive(false);
         series.setSeriesPoints(0);
         series.setSeriesType("First Class");
@@ -108,6 +115,8 @@ public class SeriesServiceControllerTest {
         series.setSeriesName("Champion County Match 2018");
         series.setHostCountry(Arrays.asList("WI","UNKWN"));
         series.setSeriesShortName("CCM 2018");
+        series.setSeriesStartDate(LocalDate.parse("2020-11-10"));
+        series.setSeriesEndDate(LocalDate.parse("2020-11-30"));
         series.setPointsTableActive(false);
         series.setSeriesPoints(0);
         series.setSeriesType("First Class");
@@ -123,17 +132,16 @@ public class SeriesServiceControllerTest {
     
     /*@Test
     public void updatePlayerById() throws Exception {
-        Player series = new Player();
-        series.setFirstName("AB de");
-        series.setLastName("Villiers");
-        series.setNationality("South Africa");
-        series.setGender("M");
-        series.setCategory("B3");
-        series.setPInitials("ABD");
-        series.setPlayerRole("All Rounder");
-        series.setPlayerBattingStyle("Left-handed batsman");
-        series.setPlayerBowlingStyle("Right handed bowler");
-        series.setPlayerStatus("playing");
+        PSeries series = new Series();
+        series.setSeriesName("Champion County Match 2018");
+        series.setHostCountry(Arrays.asList("WI","UNKWN"));
+        series.setSeriesShortName("CCM 2018");
+        series.setSeriesStartDate(LocalDate.parse("2020-11-10"));
+        series.setSeriesEndDate(LocalDate.parse("2020-11-30"));
+        series.setPointsTableActive(false);
+        series.setSeriesPoints(0);
+        series.setSeriesType("First Class");
+        series.setTournament("Other First class");
 
         given(seriesController.updatePlayerById(series.getPlayerId(),series)).willReturn(series);
 

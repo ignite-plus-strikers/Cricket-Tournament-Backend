@@ -11,6 +11,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -38,14 +42,19 @@ public class FixtureServiceControllerTest {
     public void getFixtures() throws Exception {
         Fixture fixture = new Fixture();
         fixture.setTeam1("India");
-        fixture.setTeam2("England");
-        fixture.setHomeTeam("England");
+        fixture.setTeam2("Australia");
+        fixture.setHomeTeam("India");
+        fixture.setTeam1Id(UUID.fromString("9782ba1b-e072-4b05-a1d8-7c12942a4108"));
+        fixture.setTeam2Id(UUID.fromString("934b7300-6d2f-46bf-9dbc-f167d9568759"));
         fixture.setSeriesId(UUID.fromString("83870576-452a-428c-97e9-526451682e14"));
+        fixture.setFixtureDate(LocalDate.parse("2020-11-21"));
+        fixture.setFixtureStartTime(LocalTime.parse("12:20:00"));
+        fixture.setFixtureEndTime(LocalTime.parse("16:00:00"));
         fixture.setSeriesName("India Tour of England 2020");
         fixture.setMatchType("First-class");
         fixture.setDescription("India tour of England 2020");
         fixture.setLiveCoverage("Yes");
-        fixture.setVenue("Lord's");
+        fixture.setVenue("Adelaide Oval");
         fixture.setScorerId("116362528129737730570");
         fixture.setScorerName("James Mathew");
         fixture.setGmtOffset("+5:30");
@@ -65,14 +74,19 @@ public class FixtureServiceControllerTest {
     public void createFixture() throws Exception {
         Fixture fixture = new Fixture();
         fixture.setTeam1("India");
-        fixture.setTeam2("England");
-        fixture.setHomeTeam("England");
+        fixture.setTeam2("Australia");
+        fixture.setHomeTeam("India");
+        fixture.setTeam1Id(UUID.fromString("9782ba1b-e072-4b05-a1d8-7c12942a4108"));
+        fixture.setTeam2Id(UUID.fromString("934b7300-6d2f-46bf-9dbc-f167d9568759"));
         fixture.setSeriesId(UUID.fromString("83870576-452a-428c-97e9-526451682e14"));
+        fixture.setFixtureDate(LocalDate.parse("2020-11-21"));
+        fixture.setFixtureStartTime(LocalTime.parse("12:20:00"));
+        fixture.setFixtureEndTime(LocalTime.parse("16:00:00"));
         fixture.setSeriesName("India Tour of England 2020");
         fixture.setMatchType("First-class");
         fixture.setDescription("India tour of England 2020");
         fixture.setLiveCoverage("Yes");
-        fixture.setVenue("Lord's");
+        fixture.setVenue("Adelaide Oval");
         fixture.setScorerId("116362528129737730570");
         fixture.setScorerName("James Mathew");
         fixture.setGmtOffset("+5:30");
@@ -96,17 +110,23 @@ public class FixtureServiceControllerTest {
     public void getFixtureById() throws Exception {
         Fixture fixture = new Fixture();
         fixture.setTeam1("India");
-        fixture.setTeam2("England");
-        fixture.setHomeTeam("England");
+        fixture.setTeam2("Australia");
+        fixture.setHomeTeam("India");
+        fixture.setTeam1Id(UUID.fromString("9782ba1b-e072-4b05-a1d8-7c12942a4108"));
+        fixture.setTeam2Id(UUID.fromString("934b7300-6d2f-46bf-9dbc-f167d9568759"));
         fixture.setSeriesId(UUID.fromString("83870576-452a-428c-97e9-526451682e14"));
+        fixture.setFixtureDate(LocalDate.parse("2020-11-21"));
+        fixture.setFixtureStartTime(LocalTime.parse("12:20:00"));
+        fixture.setFixtureEndTime(LocalTime.parse("16:00:00"));
         fixture.setSeriesName("India Tour of England 2020");
         fixture.setMatchType("First-class");
         fixture.setDescription("India tour of England 2020");
         fixture.setLiveCoverage("Yes");
-        fixture.setVenue("Lord's");
+        fixture.setVenue("Adelaide Oval");
         fixture.setScorerId("116362528129737730570");
         fixture.setScorerName("James Mathew");
         fixture.setGmtOffset("+5:30");
+
 
         given(fixtureController.getFixtureById(fixture.getFixtureId())).willReturn(fixture);
 
@@ -120,14 +140,19 @@ public class FixtureServiceControllerTest {
     public void deleteFixtureById() throws Exception {
         Fixture fixture = new Fixture();
         fixture.setTeam1("India");
-        fixture.setTeam2("England");
-        fixture.setHomeTeam("England");
+        fixture.setTeam2("Australia");
+        fixture.setHomeTeam("India");
+        fixture.setTeam1Id(UUID.fromString("9782ba1b-e072-4b05-a1d8-7c12942a4108"));
+        fixture.setTeam2Id(UUID.fromString("934b7300-6d2f-46bf-9dbc-f167d9568759"));
         fixture.setSeriesId(UUID.fromString("83870576-452a-428c-97e9-526451682e14"));
+        fixture.setFixtureDate(LocalDate.parse("2020-11-21"));
+        fixture.setFixtureStartTime(LocalTime.parse("12:20:00"));
+        fixture.setFixtureEndTime(LocalTime.parse("16:00:00"));
         fixture.setSeriesName("India Tour of England 2020");
         fixture.setMatchType("First-class");
         fixture.setDescription("India tour of England 2020");
         fixture.setLiveCoverage("Yes");
-        fixture.setVenue("Lord's");
+        fixture.setVenue("Adelaide Oval");
         fixture.setScorerId("116362528129737730570");
         fixture.setScorerName("James Mathew");
         fixture.setGmtOffset("+5:30");
@@ -143,16 +168,24 @@ public class FixtureServiceControllerTest {
     /*@Test
     public void updateFixtureById() throws Exception {
         Fixture fixture = new Fixture();
-        fixture.setFirstName("AB de");
-        fixture.setLastName("Villiers");
-        fixture.setNationality("South Africa");
-        fixture.setGender("M");
-        fixture.setCategory("B3");
-        fixture.setPInitials("ABD");
-        fixture.setFixtureRole("All Rounder");
-        fixture.setFixtureBattingStyle("Left-handed batsman");
-        fixture.setFixtureBowlingStyle("Right handed bowler");
-        fixture.setFixtureStatus("playing");
+        fixture.setTeam1("India");
+        fixture.setTeam2("Australia");
+        fixture.setHomeTeam("India");
+        fixture.setTeam1Id(UUID.fromString("9782ba1b-e072-4b05-a1d8-7c12942a4108"));
+        fixture.setTeam2Id(UUID.fromString("934b7300-6d2f-46bf-9dbc-f167d9568759"));
+        fixture.setSeriesId(UUID.fromString("83870576-452a-428c-97e9-526451682e14"));
+        fixture.setFixtureDate(LocalDate.parse("2020-11-21"));
+        fixture.setFixtureStartTime(LocalTime.parse("12:20:00"));
+        fixture.setFixtureEndTime(LocalTime.parse("16:00:00"));
+        fixture.setSeriesName("India Tour of England 2020");
+        fixture.setMatchType("First-class");
+        fixture.setDescription("India tour of England 2020");
+        fixture.setLiveCoverage("Yes");
+        fixture.setVenue("Adelaide Oval");
+        fixture.setScorerId("116362528129737730570");
+        fixture.setScorerName("James Mathew");
+        fixture.setGmtOffset("+5:30");
+
 
         given(fixtureController.updateFixtureById(fixture.getFixtureId(),fixture)).willReturn(fixture);
 
