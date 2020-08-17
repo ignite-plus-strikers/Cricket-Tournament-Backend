@@ -1,6 +1,8 @@
 package com.tgt.strikers.controller;
 
 import com.tgt.strikers.model.UmpireFixture;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.tgt.strikers.service.UmpireFixtureService;
@@ -12,12 +14,14 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/cricket-tournament")
 @CrossOrigin("*")
+@Api(tags = "Umpire By Fixture Details")
 public class UmpireFixtureController {
 
     @Autowired
     private UmpireFixtureService umpireFixtureService;
 
     //-------------------------------------------------Create New UmpireFixture-------------------------------------------------
+    @ApiOperation(value = "Create New Player")
     @PostMapping("/umpire-fixture")
     public UmpireFixture createUmpireFixture(@Valid @RequestBody UmpireFixture umpireFixture) {
         umpireFixture.setUmpireId(UUID.randomUUID());
@@ -27,6 +31,7 @@ public class UmpireFixtureController {
 
 
     //-------------------------------------------------Get All UmpireFixture---------------------------------------------------
+    @ApiOperation(value = "Get All Umpire By Fixture")
     @GetMapping("/umpire-fixtures")
     public List<UmpireFixture> getAllUmpireFixture() {
 
@@ -34,6 +39,7 @@ public class UmpireFixtureController {
     }
 
     //-----------------------------------------------Get UmpireFixture By ID ---------------------------------------------------
+    @ApiOperation(value = "Get Umpire By Fixture")
     @GetMapping(value = "/umpire-fixture/{id}")
     public UmpireFixture getUmpireFixtureById(@PathVariable("id") UUID id) {
 
@@ -41,6 +47,7 @@ public class UmpireFixtureController {
     }
 
     //-----------------------------------------------Update UmpireFixture By ID ------------------------------------------------
+    @ApiOperation(value = "Update Umpire By Fixture")
     @PutMapping(value = "/umpire-fixture/{id}")
     public UmpireFixture updateUmpireFixtureById(@PathVariable("id") UUID id, @RequestBody UmpireFixture umpireFixture) {
 
@@ -48,6 +55,7 @@ public class UmpireFixtureController {
     }
 
     //-------------------------------------------------Delete UmpireFixture By ID ----------------------------------------------
+    @ApiOperation(value = "Delete Umpire By Fixture")
     @DeleteMapping(value = "/umpire-fixture/{id}")
     public String deleteUmpireFixtureById(@PathVariable("id") UUID id) {
 

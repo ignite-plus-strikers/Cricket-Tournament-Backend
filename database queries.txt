@@ -376,27 +376,6 @@ INSERT INTO umpire(umpireid, first_name, last_name, city, nationality, matches_u
 VALUES(uuid(), 'Travis','Smith', 'New York', 'USA', 386, 85);
 
 
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-# Autherisation tables:
-
-## USER DETAILS
-
-CREATE TABLE userdetail(userId text PRIMARY KEY,user_email text,user_name text);
-
-## USER ROLE BY ID
-
-CREATE TABLE userrolebyid(userId text PRIMARY KEY,user_role text);
-
-## INSERT QUERIES
-
-INSERT INTO userrolebyid(userid,user_role) VALUES('115686687916090210338','admin');  
-INSERT INTO userrolebyid(userid,user_role) VALUES('116362528129737730570','scorer');  
-
-
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -528,18 +507,34 @@ INSERT INTO match_result(matchid, team1, team2, match_result, team1_result, team
 VALUES(bdeb5bcd-eb00-4bcb-b8ab-35ac49332c63, 'England', 'West Indies', 'West Indies', {'runs': 200, 'wickets': 7, 'overs': 10}, {'runs': 250, 'wickets': 4, 'overs': 10}, {'wickets': 6});
 
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO admin_credentials(adminemail, admin_firstname, admin_lastname)
+VALUES('ajusttotesting098@gmail.com', 'John', 'Smith');
+
+
+INSERT INTO scorer_credentials(scoreremail, scorer_firstname, scorer_lastname)
+VALUES('justtotesting098@gmail.com', 'Harry', 'Potter');
+
+
+INSERT INTO site_admin_credentials(siteadminemail, site_admin_firstname, site_admin_lastname)
+VALUES('sitejusttotesting098@gmail.com', 'Percy', 'Jackson');
 
 
 
+INSERT INTO user_role(useremailid, user_role)
+VALUES('ajusttotesting098@gmail.com', 'CABI_APPL_ADMIN');
 
 
 
+INSERT INTO user_role(useremailid, user_role)
+VALUES('justtotesting098@gmail.com', 'CABI_APPL_SCORER');
 
 
 
-
-
-
+INSERT INTO user_role(useremailid, user_role)
+VALUES('sitejusttotesting098@gmail.com', 'CABI_APPL_SITE_ADMIN');
 
 
 

@@ -2,6 +2,7 @@ package com.tgt.strikers.controller;
 
 import com.tgt.strikers.model.UserRoleByEmailId;
 import com.tgt.strikers.service.UserRoleByEmailIdService;
+import io.swagger.annotations.Api;
 import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/cricket-tournament")
 @CrossOrigin("*")
+@Api(tags = "User Roles By Email")
 public class UserRolebyEmailIdController {
 
     @Autowired

@@ -2,6 +2,8 @@ package com.tgt.strikers.controller;
 
 import com.tgt.strikers.model.BatsmanByMatch;
 import com.tgt.strikers.service.BatsmanByMatchService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,12 +14,14 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/cricket-tournament")
 @CrossOrigin("*")
+@Api(tags = "Batsman By Match")
 public class BatsmanByMatchController {
 
     @Autowired
     private BatsmanByMatchService batsmanByMatchService;
 
     //-------------------------------------------------Create New BatsmanByMatch-------------------------------------------------
+    @ApiOperation(value = "Create New Batsman")
     @PostMapping("/batsman-by-match")
     public BatsmanByMatch createBatsmanByMatch(@Valid @RequestBody BatsmanByMatch batsmanByMatch) {
 
@@ -26,6 +30,7 @@ public class BatsmanByMatchController {
 
 
     //-------------------------------------------------Get All BatsmanByMatch---------------------------------------------------
+    @ApiOperation(value = "Get All Batsmen")
     @GetMapping("/batsmen-by-match")
     public List<BatsmanByMatch> getAllBatsmanByMatch() {
 
@@ -33,6 +38,7 @@ public class BatsmanByMatchController {
     }
 
     //-----------------------------------------------Get BatsmanByMatch By ID ---------------------------------------------------
+    @ApiOperation(value = "Get Batsman By Match")
     @GetMapping(value = "/batsman-by-match/{id}")
     public List<BatsmanByMatch> getBatsmanByMatchById(@PathVariable("id") UUID id) {
 
@@ -41,6 +47,7 @@ public class BatsmanByMatchController {
 
 
     //------------------------------------Update Particular Batsman From Batsman By Match By ID--------------------------------------
+    @ApiOperation(value = "Update Batsman By Match")
     @PutMapping(value = "/batsman-by-match/{matchid}/{batsmanname}")
     public BatsmanByMatch updateBatsmanByMatchById(@PathVariable("matchid") UUID matchid, @PathVariable("batsmanname") String batsmanname,  @RequestBody BatsmanByMatch batsmanByMatch) {
 

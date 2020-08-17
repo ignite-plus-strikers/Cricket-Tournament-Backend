@@ -2,6 +2,8 @@ package com.tgt.strikers.controller;
 
 import com.tgt.strikers.model.Umpire;
 import com.tgt.strikers.service.UmpireService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,12 +14,14 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/cricket-tournament")
 @CrossOrigin("*")
+@Api(tags = "Umpire Details")
 public class UmpireController {
 
     @Autowired
     private UmpireService umpireService;
 
     //-------------------------------------------------Create New Umpire-------------------------------------------------
+    @ApiOperation(value = "Create New Umpire")
     @PostMapping("/umpire")
     public Umpire createUmpire(@Valid @RequestBody Umpire umpire) {
         umpire.setUmpireId(UUID.randomUUID());
@@ -27,6 +31,7 @@ public class UmpireController {
 
 
     //-------------------------------------------------Get All Umpire---------------------------------------------------
+    @ApiOperation(value = "Get All Umpires")
     @GetMapping("/umpires")
     public List<Umpire> getAllUmpire() {
 
@@ -34,6 +39,7 @@ public class UmpireController {
     }
 
     //-----------------------------------------------Get Umpire By ID ---------------------------------------------------
+    @ApiOperation(value = "Get Umpire By Id")
     @GetMapping(value = "/umpire/{id}")
     public Umpire getUmpireById(@PathVariable("id") UUID id) {
 
@@ -41,6 +47,7 @@ public class UmpireController {
     }
 
     //-----------------------------------------------Update Umpire By ID ------------------------------------------------
+    @ApiOperation(value = "Update Umpire")
     @PutMapping(value = "/umpire/{id}")
     public Umpire updateUmpireById(@PathVariable("id") UUID id, @RequestBody Umpire umpire) {
 
@@ -48,6 +55,7 @@ public class UmpireController {
     }
 
     //-------------------------------------------------Delete Umpire By ID ----------------------------------------------
+    @ApiOperation(value = "Delete Umpire")
     @DeleteMapping(value = "/umpire/{id}")
     public String deleteUmpireById(@PathVariable("id") UUID id, Umpire umpire) {
 
