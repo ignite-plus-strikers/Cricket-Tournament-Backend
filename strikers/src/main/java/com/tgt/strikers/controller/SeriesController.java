@@ -2,6 +2,8 @@ package com.tgt.strikers.controller;
 
 import com.tgt.strikers.service.SeriesService;
 import com.tgt.strikers.model.Series;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,12 +14,14 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/cricket-tournament")
 @CrossOrigin("*")
+@Api(tags = "Series Details")
 public class SeriesController {
 
     @Autowired
     private SeriesService seriesService;
 
     //-------------------------------------------------Create New Series-------------------------------------------------
+    @ApiOperation(value = "Create New Series")
     @PostMapping("/series")
     public Series createSeries(@Valid @RequestBody Series series) {
         series.setSeriesId(UUID.randomUUID());
@@ -27,6 +31,7 @@ public class SeriesController {
 
 
     //-------------------------------------------------Get All Series---------------------------------------------------
+    @ApiOperation(value = "Get All Series")
     @GetMapping("/series")
     public List<Series> getAllSeries() {
 
@@ -34,6 +39,7 @@ public class SeriesController {
     }
 
     //-----------------------------------------------Get Series By ID ---------------------------------------------------
+    @ApiOperation(value = "Get Series By Id")
     @GetMapping(value = "/series/{id}")
     public Series getSeriesById(@PathVariable("id") UUID id) {
 
@@ -41,6 +47,7 @@ public class SeriesController {
     }
 
     //-----------------------------------------------Update Series By ID ------------------------------------------------
+    @ApiOperation(value = "Update Series")
     @PutMapping(value = "/series/{id}")
     public Series updateSeriesById(@PathVariable("id") UUID id, @RequestBody Series series) {
 
@@ -48,6 +55,7 @@ public class SeriesController {
     }
 
     //-------------------------------------------------Delete Series By ID ----------------------------------------------
+    @ApiOperation(value = "Delete Series")
     @DeleteMapping(value = "/series/{id}")
     public String deleteSeriesById(@PathVariable("id") UUID id) {
 

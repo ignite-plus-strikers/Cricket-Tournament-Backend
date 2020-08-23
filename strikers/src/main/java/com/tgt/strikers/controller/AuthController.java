@@ -1,5 +1,6 @@
 package com.tgt.strikers.controller;
 
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpHeaders;
 import com.tgt.strikers.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import static com.tgt.strikers.constants.CricketApplicationConstants.AUTHORIZATI
 @RestController
 @RequestMapping("/cricket-tournament")
 @CrossOrigin("*")
+@Api(tags = "Authentication")
 public class AuthController {
     @Autowired
     AuthService authService;

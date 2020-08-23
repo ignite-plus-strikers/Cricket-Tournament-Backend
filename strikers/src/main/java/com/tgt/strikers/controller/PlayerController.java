@@ -2,6 +2,8 @@ package com.tgt.strikers.controller;
 
 import com.tgt.strikers.model.Player;
 import com.tgt.strikers.service.PlayerService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +14,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/cricket-tournament")
 @CrossOrigin("*")
+@Api(tags = "Player Details")
 public class PlayerController {
 
     @Autowired
@@ -26,6 +29,7 @@ public class PlayerController {
 */
 
     //-------------------------------------------------Create New Player-------------------------------------------------
+    @ApiOperation(value = "Create New Player")
     @PostMapping("/player")
     public Player createPlayer(@Valid @RequestBody Player player) {
         player.setPlayerId(UUID.randomUUID());
@@ -35,6 +39,7 @@ public class PlayerController {
 
 
     //-------------------------------------------------Get All Player---------------------------------------------------
+    @ApiOperation(value = "Get All Players")
     @GetMapping("/players")
     public List<Player> getAllPlayer() {
 
@@ -42,6 +47,7 @@ public class PlayerController {
     }
 
     //-----------------------------------------------Get Player By ID ---------------------------------------------------
+    @ApiOperation(value = "Get Player By Id")
     @GetMapping(value = "/player/{id}")
     public Player getPlayerById(@PathVariable("id") UUID id) {
 
@@ -49,6 +55,7 @@ public class PlayerController {
     }
 
     //-----------------------------------------------Update Player By ID ------------------------------------------------
+    @ApiOperation(value = "Update Player")
     @PutMapping(value = "/player/{id}")
     public Player updatePlayerById(@PathVariable("id") UUID id, @RequestBody Player player) {
 
@@ -56,6 +63,7 @@ public class PlayerController {
     }
 
     //-------------------------------------------------Delete Player By ID ----------------------------------------------
+    @ApiOperation(value = "Delete Player")
     @DeleteMapping(value = "/player/{id}")
     public String deletePlayerById(@PathVariable("id") UUID id) {
 

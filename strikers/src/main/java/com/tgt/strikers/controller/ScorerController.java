@@ -1,6 +1,8 @@
 package com.tgt.strikers.controller;
 
 import com.tgt.strikers.model.Scorer;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.tgt.strikers.service.ScorerService;
@@ -12,12 +14,14 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/cricket-tournament")
 @CrossOrigin("*")
+@Api(tags = "Scorer Details")
 public class ScorerController {
 
     @Autowired
     private ScorerService scorerService;
 
     //-------------------------------------------------Create New Scorer-------------------------------------------------
+    @ApiOperation(value = "Create New Scorer")
     @PostMapping("/scorer")
     public Scorer createScorer(@Valid @RequestBody Scorer scorer) {
         return scorerService.createScorer(scorer);
@@ -25,6 +29,7 @@ public class ScorerController {
 
 
     //-------------------------------------------------Get All Scorer---------------------------------------------------
+    @ApiOperation(value = "Get All Scorers")
     @GetMapping("/scorers")
     public List<Scorer> getAllScorer() {
 
@@ -32,6 +37,7 @@ public class ScorerController {
     }
 
     //-----------------------------------------------Get Scorer By ID ---------------------------------------------------
+    @ApiOperation(value = "Get Scorer By Id")
     @GetMapping(value = "/scorer/{id}")
     public Scorer getScorerById(@PathVariable("id") String id) {
 
@@ -39,6 +45,7 @@ public class ScorerController {
     }
 
     //-----------------------------------------------Update Scorer By ID ------------------------------------------------
+    @ApiOperation(value = "Update Scorer")
     @PutMapping(value = "/scorer/{id}")
     public Scorer updateScorerById(@PathVariable("id") String id, @RequestBody Scorer scorer) {
 
@@ -46,6 +53,7 @@ public class ScorerController {
     }
 
     //-------------------------------------------------Delete Scorer By ID ----------------------------------------------
+    @ApiOperation(value = "Delete Scorer")
     @DeleteMapping(value = "/scorer/{id}")
     public String deleteScorerById(@PathVariable("id") String id) {
 

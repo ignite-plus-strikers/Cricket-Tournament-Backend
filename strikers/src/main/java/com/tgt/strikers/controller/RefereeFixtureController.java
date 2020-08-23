@@ -1,6 +1,8 @@
 package com.tgt.strikers.controller;
 
 import com.tgt.strikers.model.RefereeFixture;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.tgt.strikers.service.RefereeFixtureService;
@@ -12,12 +14,14 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/cricket-tournament")
 @CrossOrigin("*")
+@Api(tags = "Referee By Fixture Details")
 public class RefereeFixtureController {
 
     @Autowired
     private RefereeFixtureService refereeFixtureService;
 
     //-------------------------------------------------Create New RefereeFixture-------------------------------------------------
+    @ApiOperation(value = "Create New Referee By Fixture")
     @PostMapping("/referee-fixture")
     public RefereeFixture createRefereeFixture(@Valid @RequestBody RefereeFixture refereeFixture) {
         refereeFixture.setRefereeId(UUID.randomUUID());
@@ -27,6 +31,7 @@ public class RefereeFixtureController {
 
 
     //-------------------------------------------------Get All RefereeFixture---------------------------------------------------
+    @ApiOperation(value = "Get All Referee By Fixture")
     @GetMapping("/referee-fixtures")
     public List<RefereeFixture> getAllRefereeFixture() {
 
@@ -34,6 +39,7 @@ public class RefereeFixtureController {
     }
 
     //-----------------------------------------------Get RefereeFixture By ID ---------------------------------------------------
+    @ApiOperation(value = "Get Referee By Fixture")
     @GetMapping(value = "/referee-fixture/{id}")
     public RefereeFixture getRefereeFixtureById(@PathVariable("id") UUID id) {
 
@@ -41,6 +47,7 @@ public class RefereeFixtureController {
     }
 
     //-----------------------------------------------Update RefereeFixture By ID ------------------------------------------------
+    @ApiOperation(value = "Update Referee By Fixture")
     @PutMapping(value = "/referee-fixture/{id}")
     public RefereeFixture updateRefereeFixtureById(@PathVariable("id") UUID id, @RequestBody RefereeFixture refereeFixture) {
 
@@ -48,6 +55,7 @@ public class RefereeFixtureController {
     }
 
     //-------------------------------------------------Delete RefereeFixture By ID ----------------------------------------------
+    @ApiOperation(value = "Delete Referee By Fixture")
     @DeleteMapping(value = "/referee-fixture/{id}")
     public String deleteRefereeFixtureById(@PathVariable("id") UUID id) {
 

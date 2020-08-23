@@ -2,6 +2,8 @@ package com.tgt.strikers.controller;
 
 import com.tgt.strikers.model.Teams;
 import com.tgt.strikers.service.TeamService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,12 +15,14 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/cricket-tournament")
 @CrossOrigin("*")
+@Api(tags = "Team Details")
 public class TeamController {
 
     @Autowired
     private TeamService teamService;
 
     //-------------------------------------------------Create New Team-------------------------------------------------
+    @ApiOperation(value = "Create New Team")
     @PostMapping("/team")
     public Teams createTeam(@Valid @RequestBody Teams teams) {
         teams.setTeamId(UUID.randomUUID());
@@ -27,6 +31,7 @@ public class TeamController {
 
 
     //-------------------------------------------------Get All Team---------------------------------------------------
+    @ApiOperation(value = "Get All Teams")
     @GetMapping("/teams")
     public List<Teams> getAllTeams() {
 
@@ -34,6 +39,7 @@ public class TeamController {
     }
 
     //-----------------------------------------------Get Team By ID ---------------------------------------------------
+    @ApiOperation(value = "Get Team By Id")
     @GetMapping(value = "/team/{id}")
     public Teams getTeamById(@PathVariable("id") UUID id) {
 
@@ -41,6 +47,7 @@ public class TeamController {
     }
 
     //-----------------------------------------------Update Team By ID ------------------------------------------------
+    @ApiOperation(value = "Update Team")
     @PutMapping(value = "/team/{id}")
     public Teams updateTeamById(@PathVariable("id") UUID id, @RequestBody Teams teams) {
 
@@ -48,6 +55,7 @@ public class TeamController {
     }
 
     //-------------------------------------------------Delete Team By ID ----------------------------------------------
+    @ApiOperation(value = "Delete Team")
     @DeleteMapping(value = "/team/{id}")
     public String deleteTeamById(@PathVariable("id") UUID id) {
         teamService.deleteTeamById(id);
