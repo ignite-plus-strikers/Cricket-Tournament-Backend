@@ -25,7 +25,7 @@ public class Referee {
     @Column("first_name")
     private String firstName;
 
-    @Size(min = 2, message = "Middle Name must have atleast 2 characters")
+    @Size(min = 1, message = "Middle Name must have atleast 2 characters")
     @Column("middle_name")
     private String middleName;
 

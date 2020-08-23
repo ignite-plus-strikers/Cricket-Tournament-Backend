@@ -67,8 +67,8 @@ public class SeriesServiceControllerTest {
         series.setSeriesShortName("CCM 2018");
         series.setSeriesStartDate(LocalDate.parse("2020-11-10"));
         series.setSeriesEndDate(LocalDate.parse("2020-11-30"));
-        series.setPointsTableActive(false);
-        series.setSeriesPoints(0);
+        series.setPointsTableActive(true);
+        series.setSeriesPoints(20);
         series.setSeriesType("First Class");
         series.setTournament("Other First class");
 

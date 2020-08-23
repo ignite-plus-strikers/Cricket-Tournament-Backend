@@ -41,7 +41,7 @@ public class SiteAdminCredServiceControllerTest {
 
         given(siteAdminCredController.getAllUserCred()).willReturn(allSiteAdminCreds);
 
-        mvc.perform(get("/cricket-tournament/siteadmin-creds")
+        mvc.perform(get("/cricket-tournament/site-admin-creds")
                 .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk());
         //.andExpect(jsonPath("$", hasSize(1)))
@@ -57,7 +57,7 @@ public class SiteAdminCredServiceControllerTest {
 
         given(siteAdminCredController.createUserCred(siteadmin)).willReturn(String.valueOf(siteadmin));
 
-        mvc.perform(post("/cricket-tournament/siteadmin-cred")
+        mvc.perform(post("/cricket-tournament/site-admin-cred")
                 .content(asJsonString(siteadmin))
                 .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk());

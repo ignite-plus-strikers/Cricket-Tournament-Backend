@@ -73,13 +73,14 @@ public class FixtureServiceControllerTest {
     @Test
     public void createFixture() throws Exception {
         Fixture fixture = new Fixture();
+        LocalDate fixture_date = LocalDate.parse("2020-10-11");
         fixture.setTeam1("India");
         fixture.setTeam2("Australia");
         fixture.setHomeTeam("India");
         fixture.setTeam1Id(UUID.fromString("9782ba1b-e072-4b05-a1d8-7c12942a4108"));
         fixture.setTeam2Id(UUID.fromString("934b7300-6d2f-46bf-9dbc-f167d9568759"));
         fixture.setSeriesId(UUID.fromString("83870576-452a-428c-97e9-526451682e14"));
-        fixture.setFixtureDate(LocalDate.parse("2020-11-21"));
+        fixture.setFixtureDate(fixture_date);
         fixture.setFixtureStartTime(LocalTime.parse("12:20:00"));
         fixture.setFixtureEndTime(LocalTime.parse("16:00:00"));
         fixture.setSeriesName("India Tour of England 2020");
