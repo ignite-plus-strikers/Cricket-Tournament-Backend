@@ -72,11 +72,4 @@ public class PlayerController {
     }
 
 
-
-
-//    @GetMapping(value = "/player/category/{p_category}")
-//    public Players getPlayerByCategory(@PathVariable("p_category") String p_category) {
-//        return playerService.getPlayerByCategory(p_category);
-//    }
-
 }

@@ -46,8 +46,7 @@ public class TeamServiceControllerTest {
         mvc.perform(get("/cricket-tournament/teams")
                 .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk());
-        //.andExpect(jsonPath("$", hasSize(1)))
-        //.andExpect(jsonPath("$[0].city", is(team.ge())));
+
     }
 
     @Test
@@ -99,27 +98,5 @@ public class TeamServiceControllerTest {
 
     }
     
-    /*@Test
-    public void updatePlayerById() throws Exception {
-        Player team = new Player();
-        team.setFirstName("AB de");
-        team.setLastName("Villiers");
-        team.setNationality("South Africa");
-        team.setGender("M");
-        team.setCategory("B3");
-        team.setPInitials("ABD");
-        team.setPlayerRole("All Rounder");
-        team.setPlayerBattingStyle("Left-handed batsman");
-        team.setPlayerBowlingStyle("Right handed bowler");
-        team.setPlayerStatus("playing");
-
-        given(teamController.updatePlayerById(team.getPlayerId(),team)).willReturn(team);
-
-        mvc.perform(put("/cricket-tournament/team/f241475d-0fa4-4c17-aa82-9a92d3ebb1ce")
-                .contentType(APPLICATION_JSON))
-                .andExpect(status().isOk());
-        //.andExpect(jsonPath("city", is(arrival.getCity())));
-    }*/
-
 
 }

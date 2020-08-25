@@ -63,23 +63,4 @@ public class BowlerByMatchController {
 
     }
 
-
-    //-----------------------------------------------Update BowlerByMatch By ID ------------------------------------------------
-/*    @PutMapping(value = "/bowler-by-match/{id}")
-    public BowlerByMatch updateBowlerByMatchById(@PathVariable("id") UUID id, @RequestBody BowlerByMatch bowlerByMatch) {
-
-        return bowlerByMatchService.updateBowlerByMatchById(id, bowlerByMatch);
-    }*/
-
-    //-------------------------------------------------Delete BowlerByMatch By ID ----------------------------------------------
-/*
-    @DeleteMapping(value = "/bowler-by-match/{id}")
-    public String deleteBowlerByMatchById(@PathVariable("id") UUID id) {
-
-        bowlerByMatchService.deleteBowlerByMatchById(id);
-        return "BowlerByMatch with id " + id + " has been deleted!";
-    }
-*/
-
-
 }

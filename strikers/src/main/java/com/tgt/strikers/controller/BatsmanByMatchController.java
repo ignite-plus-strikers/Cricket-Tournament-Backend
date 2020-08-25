@@ -54,22 +54,7 @@ public class BatsmanByMatchController {
         return batsmanByMatchService.updateBatsmanByMatchById(matchid, batsmanname, batsmanByMatch);
     }
 
-    //-----------------------------------------------Update BatsmanByMatch By ID ------------------------------------------------
-/*    @PutMapping(value = "/batsman-by-match/{id}")
-    public BatsmanByMatch updateBatsmanByMatchById(@PathVariable("id") UUID id, @RequestBody BatsmanByMatch batsmanByMatch) {
 
-        return batsmanByMatchService.updateBatsmanByMatchById(id, batsmanByMatch);
-    }*/
-
-    //-------------------------------------------------Delete BatsmanByMatch By ID ----------------------------------------------
-/*
-    @DeleteMapping(value = "/batsman-by-match/{id}")
-    public String deleteBatsmanByMatchById(@PathVariable("id") UUID id) {
-
-        batsmanByMatchService.deleteBatsmanByMatchById(id);
-        return "BatsmanByMatch with id " + id + " has been deleted!";
-    }
-*/
 
 
 }

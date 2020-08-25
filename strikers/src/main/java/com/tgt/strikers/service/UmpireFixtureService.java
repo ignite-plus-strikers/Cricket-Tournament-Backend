@@ -57,16 +57,5 @@ public class UmpireFixtureService {
         umpireFixtureRepo.deleteById(id);
     }
 
-    //-----------------------------------------------Get UmpireFixture By Category ---------------------------------------------------
-   /*public UmpireFixtures getUmpireFixtureByCategory(String p_category) {
-
-         UmpireFixtures optionalUmpireFixture = umpireFixtureRepo.findByCategory(p_category);
-            if (optionalUmpireFixture.getP_category() == null)
-                throw new UmpireFixtureNotFoundException("UmpireFixture Record with category " + p_category + " is not available");
-
-            return umpireFixtureRepo.findByCategory(p_category);
-
-   }*/
-
 
 }

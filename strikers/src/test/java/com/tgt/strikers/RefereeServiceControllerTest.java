@@ -52,8 +52,7 @@ public class RefereeServiceControllerTest {
         mvc.perform(get("/cricket-tournament/referees")
                 .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk());
-        //.andExpect(jsonPath("$", hasSize(1)))
-        //.andExpect(jsonPath("$[0].city", is(referee.ge())));
+
     }
 
     @Test
@@ -119,23 +118,6 @@ public class RefereeServiceControllerTest {
 
     }
     
-    /*@Test
-    public void updatePlayerById() throws Exception {
-    Referee referee = new Referee();
-    referee.setFirstName("James");
-    referee.setMiddleName("JB");
-    referee.setLastName("Jordan");
-    referee.setCity("London");
-    referee.setNationality("UK");
-    referee.setExperience("10 Years");
-    referee.setMatchesRefereed(102);
-    //given(refereeController.updatePlayerById(referee.getPlayerId(),referee)).willReturn(referee);
-
-        mvc.perform(put("/cricket-tournament/referee/f241475d-0fa4-4c17-aa82-9a92d3ebb1ce")
-                .contentType(APPLICATION_JSON))
-                .andExpect(status().isOk());
-        //.andExpect(jsonPath("city", is(arrival.getCity())));
-    }*/
 
 
 

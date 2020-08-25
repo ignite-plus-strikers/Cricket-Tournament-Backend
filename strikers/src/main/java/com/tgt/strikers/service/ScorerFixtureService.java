@@ -57,16 +57,4 @@ public class ScorerFixtureService {
         scorerFixtureRepo.deleteById(id);
     }
 
-    //-----------------------------------------------Get ScorerFixture By Category ---------------------------------------------------
-   /*public ScorerFixtures getScorerFixtureByCategory(String p_category) {
-
-         ScorerFixtures optionalScorerFixture = scorerFixtureRepo.findByCategory(p_category);
-            if (optionalScorerFixture.getP_category() == null)
-                throw new ScorerFixtureNotFoundException("ScorerFixture Record with category " + p_category + " is not available");
-
-            return scorerFixtureRepo.findByCategory(p_category);
-
-   }*/
-
-
 }

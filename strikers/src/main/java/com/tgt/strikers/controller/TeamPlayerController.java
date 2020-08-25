@@ -58,13 +58,6 @@ public class TeamPlayerController {
         return teamplayerService.getTeamPlayerById(id);
     }
 
-    //-----------------------------------------------Update Team By ID ------------------------------------------------
-    /*@PutMapping(value = "/teamplayer/{id}")
-    public TeamPlayer updateTeamPlayerById(@PathVariable("id") UUID id, @RequestBody TeamPlayer teamplayer) {
-
-        return teamplayerService.updateTeamPlayerById(id, teamplayer);
-    }*/
-
     //-------------------------------------------------Delete Team By ID ----------------------------------------------
     @ApiOperation(value = "Delete Team With Players")
     @DeleteMapping(value = "/teamplayer/{id}")

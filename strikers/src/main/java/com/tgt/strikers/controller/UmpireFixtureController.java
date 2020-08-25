@@ -63,11 +63,4 @@ public class UmpireFixtureController {
         return "UmpireFixture with id " + id + " has been deleted!";
     }
 
-
-
-//    @GetMapping(value = "/umpireFixture/category/{p_category}")
-//    public UmpireFixtures getUmpireFixtureByCategory(@PathVariable("p_category") String p_category) {
-//        return umpireFixtureService.getUmpireFixtureByCategory(p_category);
-//    }
-
 }

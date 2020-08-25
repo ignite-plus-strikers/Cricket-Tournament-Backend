@@ -39,24 +39,4 @@ public class PreMatchService {
         return preMatchRepo.findById(id).get();
     }
 
-
-    //-----------------------------------------------Update PreMatch By ID ------------------------------------------------
-/*    public PreMatch updatePreMatchById(UUID id, PreMatch preMatch) {
-
-        Optional<PreMatch> optionalPreMatch = preMatchRepo.findById(id);
-        if (!optionalPreMatch.isPresent())
-            throw new PreMatchNotFoundException("PreMatch Record with id " + id + " is not available");
-        preMatch.setMatchId(id);
-        return preMatchRepo.save(preMatch);
-    }*/
-
-
-    //-------------------------------------------------Delete PreMatch By ID ----------------------------------------------
-/*    public void deletePlayerById(UUID id) {
-
-        Optional<PreMatch> optionalPreMatch = preMatchRepo.findById(id);
-        if (!optionalPreMatch.isPresent())
-            throw new PreMatchNotFoundException("PreMatch Record with id " + id + " is not available");
-        preMatchRepo.deleteById(id);
-    }*/
 }

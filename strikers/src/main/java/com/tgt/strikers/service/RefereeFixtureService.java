@@ -57,16 +57,5 @@ public class RefereeFixtureService {
         refereeFixtureRepo.deleteById(id);
     }
 
-    //-----------------------------------------------Get RefereeFixture By Category ---------------------------------------------------
-   /*public RefereeFixtures getRefereeFixtureByCategory(String p_category) {
-
-         RefereeFixtures optionalRefereeFixture = refereeFixtureRepo.findByCategory(p_category);
-            if (optionalRefereeFixture.getP_category() == null)
-                throw new RefereeFixtureNotFoundException("RefereeFixture Record with category " + p_category + " is not available");
-
-            return refereeFixtureRepo.findByCategory(p_category);
-
-   }*/
-
 
 }

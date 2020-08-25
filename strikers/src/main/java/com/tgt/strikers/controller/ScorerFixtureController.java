@@ -62,11 +62,4 @@ public class ScorerFixtureController {
         return "ScorerFixture with id " + id + " has been deleted!";
     }
 
-
-
-//    @GetMapping(value = "/scorerFixture/category/{p_category}")
-//    public ScorerFixtures getScorerFixtureByCategory(@PathVariable("p_category") String p_category) {
-//        return scorerFixtureService.getScorerFixtureByCategory(p_category);
-//    }
-
 }

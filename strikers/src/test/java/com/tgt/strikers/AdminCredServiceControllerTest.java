@@ -48,8 +48,7 @@ public class AdminCredServiceControllerTest {
         mvc.perform(get("/cricket-tournament/admin-creds")
                 .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk());
-        //.andExpect(jsonPath("$", hasSize(1)))
-        //.andExpect(jsonPath("$[0].city", is(fixture.ge())));
+
     }
 
     @Test
@@ -74,50 +73,5 @@ public class AdminCredServiceControllerTest {
             throw new RuntimeException(e);
         }
     }
-    /*@Test
-    public void getAdminCredById() throws Exception {
-        AdminCred admin = new AdminCred();
-        admin.setAdminEmail("caroltestingmarvel@gmail.com");
-        admin.setAdminFirstname("Carol");
-        admin.setAdminLastname("Marvel");
-
-        given(fixtureController.getAdminCredById(fixture.getAdminCredId())).willReturn(fixture);
-
-        mvc.perform(get("/cricket-tournament/fixture/ 531a0f6c-1da1-42a9-91a9-682190edde92")
-                .contentType(APPLICATION_JSON))
-                .andExpect(status().isOk());
-
-    }
-
-    @Test
-    public void deleteAdminCredById() throws Exception {
-        AdminCred admin = new AdminCred();
-        admin.setAdminEmail("caroltestingmarvel@gmail.com");
-        admin.setAdminFirstname("Carol");
-        admin.setAdminLastname("Marvel");
-
-        given(fixtureController.deleteAdminCredById(fixture.getAdminCredId())).willReturn("AdminCred deleted");
-
-        mvc.perform(delete("/cricket-tournament/fixture/ 531a0f6c-1da1-42a9-91a9-682190edde92")
-                .contentType(APPLICATION_JSON))
-                .andExpect(status().isOk());
-
-    } */
-
-    /*@Test
-    public void updateAdminCredById() throws Exception {
-       AdminCred admin = new AdminCred();
-        admin.setAdminEmail("caroltestingmarvel@gmail.com");
-        admin.setAdminFirstname("Carol");
-        admin.setAdminLastname("Marvel");
-
-        given(fixtureController.updateAdminCredById(fixture.getAdminCredId(),fixture)).willReturn(fixture);
-
-        mvc.perform(put("/cricket-tournament/fixture/f241475d-0fa4-4c17-aa82-9a92d3ebb1ce")
-                .contentType(APPLICATION_JSON))
-                .andExpect(status().isOk());
-        //.andExpect(jsonPath("city", is(arrival.getCity())));
-    }*/
-
 
 }

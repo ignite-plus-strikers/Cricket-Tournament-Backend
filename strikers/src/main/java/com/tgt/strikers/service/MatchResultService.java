@@ -51,12 +51,4 @@ public class MatchResultService {
     }
 
 
-//-------------------------------------------------Delete MatchResult By ID ----------------------------------------------
-/*    public void deleteMatchResultById(UUID id) {
-
-        Optional<MatchResult> optionalMatchResult = matchResultRepo.findById(id);
-        if (!optionalMatchResult.isPresent())
-            throw new MatchResultNotFoundException("MatchResult Record with id " + id + " is not available");
-        matchResultRepo.deleteById(id);
-    }*/
 }

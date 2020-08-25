@@ -78,25 +78,4 @@ public class BowlerByMatchService {
     }
 
 
-    //-----------------------------------------------Update BowlerByMatch By ID ------------------------------------------------
-/*
-    public List<BowlerByMatch> getBowlerByMatchId(UUID id) {
-
-        List<BowlerByMatch> optionalBowlerByMatch = bowlerByMatchRepo.findByBowlerByMatchId(id);
-        if (optionalBowlerByMatch.isEmpty())
-            throw new BowlerByMatchNotFoundException("Bowler By Match Record with id " + id + " is not available");
-        return bowlerByMatchRepo.findByBowlerByMatchId(id);
-    }
-
-*/
-
-
-    //-------------------------------------------------Delete BowlerByMatch By ID ----------------------------------------------
-/*    public void deleteBowlerByMatchById(UUID id) {
-
-        Optional<BowlerByMatch> optionalBowlerByMatch = bowlerByMatchRepo.findById(id);
-        if (!optionalBowlerByMatch.isPresent())
-            throw new BowlerByMatchNotFoundException("BowlerByMatch Record with id " + id + " is not available");
-        bowlerByMatchRepo.deleteById(id);
-    }*/
 }

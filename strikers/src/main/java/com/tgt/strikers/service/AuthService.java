@@ -72,9 +72,8 @@ public class AuthService {
         }
         catch(Exception e){
             Error error = new Error("UNAUTHORISED_USER");
-            return new ResponseEntity<>(error,HttpStatus.UNAUTHORIZED);
-          //System.out.println("User does not have a role");
-          //throw new UserRoleByEmailIdNotFoundException("User does not have a role");
+            return new ResponseEntity<>(error,HttpStatus.UNAUTHORIZED); //User does not have a role
+
         }
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 

@@ -53,15 +53,5 @@ public class MatchResultController {
         return matchResultService.updateMatchResultById(id, matchResult);
     }
 
-    //-------------------------------------------------Delete MatchResult By ID ----------------------------------------------
-/*
-    @DeleteMapping(value = "/match-result/{id}")
-    public String deleteMatchResultById(@PathVariable("id") UUID id) {
-
-        matchResultService.deleteMatchResultById(id);
-        return "MatchResult with id " + id + " has been deleted!";
-    }
-*/
-
 
 }

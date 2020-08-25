@@ -51,27 +51,6 @@ public class TeamPlayerService {
     }
 
 
-
-    //--------------------------------------------Get teamplayer by name------------------------------------------------------------
-    /*public TeamPlayer getTeamByName(String tName,UUID id)
-    {
-        Optional<TeamPlayer> optionalTeam = teamplayerplayerRepo.findById(id).getTeamByName(tName);
-
-    }*/
-
-
-    //--------------------------------------------Update teamplayer by id-----------------------------------------------------------
-    /*public TeamPlayer updateTeamPlayerById(UUID id,TeamPlayer teamplayers)
-    {
-        Optional<TeamPlayer> optionalTeamPlayer = teamplayerRepo.findById(id);
-        if (!optionalTeamPlayer.isPresent())
-            throw new TeamPlayerNotFoundException("Team PLayer Record with id " + id + " is not available");
-        teamplayers.setTeamplayerId(id);
-        return teamplayerRepo.save(teamplayers);
-    }*/
-    //--------------------------------------------Update teamplayer by name---------------------------------------------------------
-
-
     //--------------------------------------------Delete teamplayer by id-----------------------------------------------------------
     public void deleteTeamPlayerById(UUID id) {
         Optional<TeamPlayer> optionalTeamPlayer = teamplayerRepo.findById(id);

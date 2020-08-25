@@ -36,13 +36,7 @@ public class TeamService {
         return teamRepo.findById(id).get();
     }
 
-    //--------------------------------------------Get team by name------------------------------------------------------------
-    /*public Teams getTeamByName(String tName,UUID id)
-    {
-        Optional<Teams> optionalTeam = teamRepo.findById(id).getTeamByName(tName);
-
-    }*/
-    //--------------------------------------------Update team by id-----------------------------------------------------------
+        //--------------------------------------------Update team by id-----------------------------------------------------------
     public Teams updateTeamById(UUID id,Teams teams)
     {
         Optional<Teams> optionalTeam = teamRepo.findById(id);

@@ -57,16 +57,5 @@ public class ScorerService {
         scorerRepo.deleteById(id);
     }
 
-    //-----------------------------------------------Get Scorer By Category ---------------------------------------------------
-//    public Scorers getScorerByCategory(String p_category) {
-//
-//            Scorers optionalScorer = scorerRepo.findByCategory(p_category);
-//            if (optionalScorer.getP_category() == null)
-//                throw new ScorerNotFoundException("Scorer Record with category " + p_category + " is not available");
-//
-//            return scorerRepo.findByCategory(p_category);
-//
-//    }
-
 
 }

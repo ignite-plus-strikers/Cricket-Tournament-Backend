@@ -51,8 +51,7 @@ public class TeamPlayerServiceControllerTest {
         mvc.perform(get("/cricket-tournament/teamplayers")
                 .contentType(APPLICATION_JSON))
                .andExpect(status().isOk());
-        //.andExpect(jsonPath("$", hasSize(1)))
-        //.andExpect(jsonPath("$[0].city", is(fixture.ge())));
+
     }
 
     @Test
@@ -115,20 +114,7 @@ public class TeamPlayerServiceControllerTest {
 
     }
 
-    /*@Test
-    public void updateTeamPlayerById() throws Exception {
-       TeamPlayer teamPlayer = new TeamPlayer();
-        teamPlayer.setAdminEmail("caroltestingmarvel@gmail.com");
-        teamPlayer.setAdminFirstname("Carol");
-        teamPlayer.setAdminLastname("Marvel");
 
-        given(fixtureController.updateTeamPlayerById(fixture.getTeamPlayerId(),fixture)).willReturn(fixture);
-
-        mvc.perform(put("/cricket-tournament/fixture/f241475d-0fa4-4c17-aa82-9a92d3ebb1ce")
-                .contentType(APPLICATION_JSON))
-                .andExpect(status().isOk());
-        //.andExpect(jsonPath("city", is(arrival.getCity())));
-    }*/
 
 
 }

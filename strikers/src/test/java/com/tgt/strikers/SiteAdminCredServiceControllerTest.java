@@ -44,8 +44,7 @@ public class SiteAdminCredServiceControllerTest {
         mvc.perform(get("/cricket-tournament/site-admin-creds")
                 .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk());
-        //.andExpect(jsonPath("$", hasSize(1)))
-        //.andExpect(jsonPath("$[0].city", is(fixture.ge())));
+
     }
 
     @Test
@@ -70,49 +69,5 @@ public class SiteAdminCredServiceControllerTest {
             throw new RuntimeException(e);
         }
     }
-    /*@Test
-    public void getUserCredById() throws Exception {
-        SiteAdminCred siteadmin = new SiteAdminCred();
-        siteadmin.setSiteAdminEmail("sitejusttotesting098@gmail.com");
-        siteadmin.setSiteAdminFirstname("Percy");
-        siteadmin.setSiteAdminLastname("Jackson");
-
-        given(fixtureController.getUserCredById(fixture.getUserCredId())).willReturn(fixture);
-
-        mvc.perform(get("/cricket-tournament/fixture/ 531a0f6c-1da1-42a9-91a9-682190edde92")
-                .contentType(APPLICATION_JSON))
-                .andExpect(status().isOk());
-
-    }
-
-    @Test
-    public void deleteUserCredById() throws Exception {
-        SiteAdminCred siteadmin = new SiteAdminCred();
-        siteadmin.setSiteAdminEmail("sitejusttotesting098@gmail.com");
-        siteadmin.setSiteAdminFirstname("Percy");
-        siteadmin.setSiteAdminLastname("Jackson");
-        given(fixtureController.deleteUserCredById(fixture.getUserCredId())).willReturn("UserCred deleted");
-
-        mvc.perform(delete("/cricket-tournament/fixture/ 531a0f6c-1da1-42a9-91a9-682190edde92")
-                .contentType(APPLICATION_JSON))
-                .andExpect(status().isOk());
-
-    } */
-
-    /*@Test
-    public void updateUserCredById() throws Exception {
-       SiteAdminCred siteadmin = new SiteAdminCred();
-        siteadmin.setSiteAdminEmail("sitejusttotesting098@gmail.com");
-        siteadmin.setSiteAdminFirstname("Percy");
-        siteadmin.setSiteAdminLastname("Jackson");
-
-        given(fixtureController.updateUserCredById(fixture.getUserCredId(),fixture)).willReturn(fixture);
-
-        mvc.perform(put("/cricket-tournament/fixture/f241475d-0fa4-4c17-aa82-9a92d3ebb1ce")
-                .contentType(APPLICATION_JSON))
-                .andExpect(status().isOk());
-        //.andExpect(jsonPath("city", is(arrival.getCity())));
-    }*/
-
 
 }

@@ -45,21 +45,5 @@ public class PreMatchController {
         return preMatchService.getPreMatchById(id);
     }
 
-    //-----------------------------------------------Update PreMatch By ID ------------------------------------------------
-/*    @PutMapping(value = "/preMatch/{id}")
-    public PreMatch updatePreMatchById(@PathVariable("id") UUID id, @RequestBody PreMatch preMatch) {
-
-        return preMatchService.updatePreMatchById(id, preMatch);
-    }*/
-
-    //-------------------------------------------------Delete PreMatch By ID ----------------------------------------------
-/*
-    @DeleteMapping(value = "/preMatch/{id}")
-    public String deletePreMatchById(@PathVariable("id") UUID id) {
-
-        preMatchService.deletePreMatchById(id);
-        return "PreMatch with id " + id + " has been deleted!";
-    }
-*/
 
 }

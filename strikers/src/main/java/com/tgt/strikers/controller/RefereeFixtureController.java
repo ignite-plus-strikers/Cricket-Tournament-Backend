@@ -64,10 +64,4 @@ public class RefereeFixtureController {
     }
 
 
-
-//    @GetMapping(value = "/refereeFixture/category/{p_category}")
-//    public RefereeFixtures getRefereeFixtureByCategory(@PathVariable("p_category") String p_category) {
-//        return refereeFixtureService.getRefereeFixtureByCategory(p_category);
-//    }
-
 }

@@ -45,8 +45,7 @@ public class ScorerCredServiceControllerTest {
         mvc.perform(get("/cricket-tournament/scorer-creds")
                 .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk());
-        //.andExpect(jsonPath("$", hasSize(1)))
-        //.andExpect(jsonPath("$[0].city", is(fixture.ge())));
+
     }
 
     @Test
@@ -71,52 +70,5 @@ public class ScorerCredServiceControllerTest {
             throw new RuntimeException(e);
         }
     }
-    /*@Test
-    public void getScorerCredById() throws Exception {
-        ScorerCred scorer = new ScorerCred();
-        scorer.setScorerEmail("justtotesting098@gmail.com");
-        scorer.setScorerFirstname("Harry");
-        scorer.setScorerLastname("Potter");
-
-
-        given(fixtureController.getScorerCredById(fixture.getScorerCredId())).willReturn(fixture);
-
-        mvc.perform(get("/cricket-tournament/fixture/ 531a0f6c-1da1-42a9-91a9-682190edde92")
-                .contentType(APPLICATION_JSON))
-                .andExpect(status().isOk());
-
-    }
-
-    @Test
-    public void deleteScorerCredById() throws Exception {
-        ScorerCred scorer = new ScorerCred();
-        scorer.setScorerEmail("justtotesting098@gmail.com");
-        scorer.setScorerFirstname("Harry");
-        scorer.setScorerLastname("Potter");
-
-
-        given(fixtureController.deleteScorerCredById(fixture.getScorerCredId())).willReturn("ScorerCred deleted");
-
-        mvc.perform(delete("/cricket-tournament/fixture/ 531a0f6c-1da1-42a9-91a9-682190edde92")
-                .contentType(APPLICATION_JSON))
-                .andExpect(status().isOk());
-
-    } */
-
-    /*@Test
-    public void updateScorerCredById() throws Exception {
-        ScorerCred scorer = new ScorerCred();
-        scorer.setScorerEmail("justtotesting098@gmail.com");
-        scorer.setScorerFirstname("Harry");
-        scorer.setScorerLastname("Potter");
-
-        given(fixtureController.updateScorerCredById(fixture.getScorerCredId(),fixture)).willReturn(fixture);
-
-        mvc.perform(put("/cricket-tournament/fixture/f241475d-0fa4-4c17-aa82-9a92d3ebb1ce")
-                .contentType(APPLICATION_JSON))
-                .andExpect(status().isOk());
-        //.andExpect(jsonPath("city", is(arrival.getCity())));
-    }*/
-
 
 }

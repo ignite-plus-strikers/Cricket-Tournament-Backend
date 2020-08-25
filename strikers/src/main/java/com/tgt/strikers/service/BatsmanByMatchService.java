@@ -58,25 +58,5 @@ public class BatsmanByMatchService {
         return batsmanByMatchRepo.save(temp);
     }
 
-        //-----------------------------------------------Update BatsmanByMatch By ID ------------------------------------------------
-/*
-    public BatsmanByMatch updateBatsmanByMatchById(UUID id, BatsmanByMatch batsmanByMatch) {
 
-        Optional<BatsmanByMatch> optionalBatsmanByMatch = batsmanByMatchRepo.findById(id);
-        if (!optionalBatsmanByMatch.isPresent())
-            throw new BatsmanByMatchNotFoundException("Batsman By Match Record with id " + id + " is not available");
-        batsmanByMatch.setMatchId(id);
-        return batsmanByMatchRepo.save(batsmanByMatch);
-    }
-*/
-
-
-        //-------------------------------------------------Delete BatsmanByMatch By ID ----------------------------------------------
-/*    public void deleteBatsmanByMatchById(UUID id) {
-
-        Optional<BatsmanByMatch> optionalBatsmanByMatch = batsmanByMatchRepo.findById(id);
-        if (!optionalBatsmanByMatch.isPresent())
-            throw new BatsmanByMatchNotFoundException("BatsmanByMatch Record with id " + id + " is not available");
-        batsmanByMatchRepo.deleteById(id);
-    }*/
     }

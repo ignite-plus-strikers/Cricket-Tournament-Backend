@@ -55,8 +55,7 @@ public class SeriesServiceControllerTest {
         mvc.perform(get("/cricket-tournament/series")
                 .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk());
-        //.andExpect(jsonPath("$", hasSize(1)))
-        //.andExpect(jsonPath("$[0].city", is(series.ge())));
+
     }
 
     @Test
@@ -130,25 +129,6 @@ public class SeriesServiceControllerTest {
 
     }
     
-    /*@Test
-    public void updatePlayerById() throws Exception {
-        PSeries series = new Series();
-        series.setSeriesName("Champion County Match 2018");
-        series.setHostCountry(Arrays.asList("WI","UNKWN"));
-        series.setSeriesShortName("CCM 2018");
-        series.setSeriesStartDate(LocalDate.parse("2020-11-10"));
-        series.setSeriesEndDate(LocalDate.parse("2020-11-30"));
-        series.setPointsTableActive(false);
-        series.setSeriesPoints(0);
-        series.setSeriesType("First Class");
-        series.setTournament("Other First class");
 
-        given(seriesController.updatePlayerById(series.getPlayerId(),series)).willReturn(series);
-
-        mvc.perform(put("/cricket-tournament/series/f241475d-0fa4-4c17-aa82-9a92d3ebb1ce")
-                .contentType(APPLICATION_JSON))
-                .andExpect(status().isOk());
-        //.andExpect(jsonPath("city", is(arrival.getCity())));
-    }*/
 
 }

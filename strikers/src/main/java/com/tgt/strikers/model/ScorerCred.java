@@ -27,8 +27,4 @@ public class ScorerCred {
     @Column("scorer_lastname")
     private String scorerLastname;
 
-    //@Column("scorer_password")
-    //private String scorerPassword;
-
-
 }

@@ -27,8 +27,4 @@ public class AdminCred {
     @Column("admin_lastname")
     private String adminLastname;
 
-    //@Column("admin_password")
-    //private String adminPassword;
-
-
 }

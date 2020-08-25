@@ -62,11 +62,4 @@ public class ScorerController {
     }
 
 
-
-
-//    @GetMapping(value = "/scorer/category/{p_category}")
-//    public Scorers getScorerByCategory(@PathVariable("p_category") String p_category) {
-//        return scorerService.getScorerByCategory(p_category);
-//    }
-
 }
