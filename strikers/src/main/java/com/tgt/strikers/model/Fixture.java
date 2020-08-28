@@ -51,15 +51,12 @@ public class Fixture {
     private String seriesName;
 
     @Column("fixture_date")
-    @NotNull
     private LocalDate fixtureDate;
 
     @Column("fixture_start_time")
-    @NotNull
     private LocalTime fixtureStartTime;
 
     @Column("fixture_end_time")
-    @NotNull
     private LocalTime fixtureEndTime;
 
     @Column("match_type")

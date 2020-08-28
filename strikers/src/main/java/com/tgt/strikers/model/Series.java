@@ -38,11 +38,11 @@ public class Series {
     @Column("series_short_name")
     private String seriesShortName;
 
-    @NotNull
+
     @Column("series_start_date")
     private LocalDate seriesStartDate;
 
-    @NotNull
+
     @Column("series_end_date")
     private LocalDate seriesEndDate;
 

@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -41,8 +42,6 @@ public class SeriesServiceControllerTest {
         series.setSeriesName("Champion County Match 2018");
         series.setHostCountry(Arrays.asList("WI","UNKWN"));
         series.setSeriesShortName("CCM 2018");
-        series.setSeriesStartDate(LocalDate.parse("2020-11-10"));
-        series.setSeriesEndDate(LocalDate.parse("2020-11-30"));
         series.setPointsTableActive(false);
         series.setSeriesPoints(0);
         series.setSeriesType("First Class");
@@ -64,8 +63,6 @@ public class SeriesServiceControllerTest {
         series.setSeriesName("Champion County Match 2018");
         series.setHostCountry(Arrays.asList("WI","UNKWN"));
         series.setSeriesShortName("CCM 2018");
-        series.setSeriesStartDate(LocalDate.parse("2020-11-10"));
-        series.setSeriesEndDate(LocalDate.parse("2020-11-30"));
         series.setPointsTableActive(true);
         series.setSeriesPoints(20);
         series.setSeriesType("First Class");
@@ -93,8 +90,6 @@ public class SeriesServiceControllerTest {
         series.setSeriesName("Champion County Match 2018");
         series.setHostCountry(Arrays.asList("WI","UNKWN"));
         series.setSeriesShortName("CCM 2018");
-        series.setSeriesStartDate(LocalDate.parse("2020-11-10"));
-        series.setSeriesEndDate(LocalDate.parse("2020-11-30"));
         series.setPointsTableActive(false);
         series.setSeriesPoints(0);
         series.setSeriesType("First Class");
@@ -114,8 +109,6 @@ public class SeriesServiceControllerTest {
         series.setSeriesName("Champion County Match 2018");
         series.setHostCountry(Arrays.asList("WI","UNKWN"));
         series.setSeriesShortName("CCM 2018");
-        series.setSeriesStartDate(LocalDate.parse("2020-11-10"));
-        series.setSeriesEndDate(LocalDate.parse("2020-11-30"));
         series.setPointsTableActive(false);
         series.setSeriesPoints(0);
         series.setSeriesType("First Class");

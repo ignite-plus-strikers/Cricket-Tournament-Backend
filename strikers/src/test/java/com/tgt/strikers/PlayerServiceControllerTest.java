@@ -67,9 +67,7 @@ public class PlayerServiceControllerTest {
         player.setNationality("South Africa");
         player.setGender("M");
         player.setCategory("B3");
-
         player.setPlayerInitials("ABD");
-
         player.setPlayerRole("All Rounder");
         player.setPlayerBattingStyle("Right-handed batsman");
         player.setPlayerBowlingStyle("Right handed bowler");
