@@ -1,6 +1,6 @@
 package com.tgt.strikers.service;
 
-import com.google.api.client.auth.openidconnect.IdToken;
+
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.http.HttpTransport;
@@ -8,7 +8,6 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.tgt.strikers.contact.Error;
-import com.tgt.strikers.exception.UserRoleByEmailIdNotFoundException;
 import com.tgt.strikers.model.UserRoleByEmailId;
 import com.tgt.strikers.repository.AuthRepository;
 import com.tgt.strikers.contact.Response;
@@ -21,9 +20,6 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.Arrays;
 import java.util.Optional;
-
-//import static com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME;
-//import static com.fasterxml.jackson.databind.jsonFormatVisitors.JsonValueFormat.EMAIL;
 import static com.tgt.strikers.constants.CricketApplicationConstants.*;
 
 

@@ -67,8 +67,5 @@ public class Player {
     @Column("player_status")
     private String playerStatus;
 
-    private UUID stateTeamId;
-
-    private UUID nationalTeamId;
-
+    
 }
