@@ -29,7 +29,7 @@ public class BowlerByMatch {
     @NotNull
     private String teamName;
 
-    private Integer overs;
+    private String overs;
 
     @Column("maiden_overs")
     private Integer maidenOvers;
