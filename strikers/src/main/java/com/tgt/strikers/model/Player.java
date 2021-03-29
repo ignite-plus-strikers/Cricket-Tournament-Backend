@@ -67,5 +67,9 @@ public class Player {
     @Column("player_status")
     private String playerStatus;
 
+    @NotNull
+    @Column("player_image_url")
+    private String playerImageURL;
+
     
 }
