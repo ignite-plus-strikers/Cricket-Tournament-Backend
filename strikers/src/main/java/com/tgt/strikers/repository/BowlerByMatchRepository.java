@@ -1,7 +1,5 @@
 package com.tgt.strikers.repository;
 
-
-import com.tgt.strikers.model.BatsmanByMatch;
 import com.tgt.strikers.model.BowlerByMatch;
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.stereotype.Repository;
